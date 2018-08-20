@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/product-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:54:49 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sunrise Admin Panel">
+    <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap">
+    <meta name="author" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Sunrise Admin Panel, Sunrise Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <link href="css/horizontal-bar/horiz-bar-chart.css" rel="stylesheet" media="screen">
+    <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="green">
+    <div class="vertical-nav">
+        <button class="collapse-menu"><i class="icon-dehaze"></i></button>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Sunrise"></a>
+        </div>
+        <div class="user-info">
+            <div class="user-img"><img src="img/user7.png" alt="User Info"> <span class="likes-info">26</span></div>
+            <h5 class="user-name-o">Cassandra</h5>
+            <p class="profile-complete">Profile Complete - 78%</p>
+        </div>
+        <ul class="menu clearfix">
+            <li class="active selected"><a href="#"><i class="icon-graphic_eq"></i> <span class="menu-item">Dashboards</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="social-analytics.html">Social Analytics <span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="product-analytics.html" class="current">Product Analytics</a></li>
+                    <li><a href="events.html">Events <span class="label label-success">&nbsp;</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-devices_other"></i> <span class="menu-item">Layouts</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="custom-drag.html">Drag &amp; Drop Panels</a></li>
+                    <li><a href="default.html">Default Layout</a></li>
+                    <li><a href="offcanvas-layout.html">Off Canvas Layout</a></li>
+                    <li><a href="layout-sidebar.html">Layout Sidebar</a></li>
+                    <li><a href="grid-layout.html">Grid Layout</a></li>
+                    <li><a href="three-col-layout.html">Three Column Layout</a></li>
+                    <li><a href="two-col-layout.html">Two Column Layout</a></li>
+                </ul>
+            </li>
+            <li><a href="widgets.html"><i class="icon-ac_unit"></i> <span class="menu-item">Widgets</span></a></li>
+            <li><a href="timeline.html"><i class="icon-timeline"></i> <span class="menu-item">Timeline</span></a></li>
+            <li><a href="email.html"><i class="icon-av_timer"></i> <span class="menu-item">Email</span></a></li>
+            <li><a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Graphs</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="c3-graphs.html">C3 Graphs</a></li>
+                    <li><a href="graphs.html">Flot Graphs</a></li>
+                    <li><a href="google-graphs.html">Google Graphs</a></li>
+                    <li><a href="morris-graphs.html">Morris Graphs</a></li>
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html"><i class="icon-monochrome_photos"></i> <span class="menu-item">Showcase</span></a></li>
+            <li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Pages</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Forms</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="form-elements.html">Forms Inputs</a></li>
+                    <li><a href="wysiwyg-editor.html">WYSIWYG Editor</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-style"></i> <span class="menu-item">UI Elements</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="components.html"><span>Components</span></a></li>
+                    <li><a href="buttons.html"><span>Buttons</span></a></li>
+                    <li><a href="notifications.html"><span>Notifications</span></a></li>
+                    <li><a href="panels.html"><span>Panels</span></a></li>
+                    <li><a href="tabs.html"><span>Tabs &amp; Accordians</span></a></li>
+                    <li><a href="modals.html"><span>Modals</span></a></li>
+                    <li><a href="icons.html"><span>Icons</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-person_pin"></i> <span class="menu-item">User Profile</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">SignUp</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="forgot-pwd.html">Forgot Password</a></li>
+                    <li><a href="error.html">404</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-border_all"></i> <span class="menu-item">Tables</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="data-tables.html">Databar Tables<span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="dynamic-tables.html">Dynamic Tables</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html"><i class="icon-format_color_text"></i> <span class="menu-item">Typography</span></a></li>
+        </ul>
+    </div>
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <header>
+            <ul class="pull-left" id="left-nav">
+                <li class="dropdown pull-left">
+                    <a href="#" id="drop6" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="msg-chats"><img src="img/user1.png" alt="Chats"> <img class="add-user" src="img/user5.png" alt="Chats"> <span class="info-label"></span></div>
+                    </a>
+                    <ul class="dropdown-menu fadeInUp animated messages">
+                        <li class="dropdown-header">Meetings today</li>
+                        <li>
+                            <div class="meeting-container">
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user3.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal line-through">
+                                        <h5>Alexey Anatolievich <span>@11:30am</span></h5><span>CTO</span></div>
+                                </div>
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user8.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Ron Evgeniy <span>@12:45pm</span></h5><span>COO</span></div>
+                                </div>
+                                <div class="meeting-block no-border">
+                                    <div class="meeting-with"><img src="img/user7.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Kasper Christensen <span>@3:15pm</span></h5><span>VC</span></div>
+                                </div>
+                                <div class="group-meeting">
+                                    <h5>Meeting about our new product</h5>
+                                    <p class="meeting-day">Today, @4:30pm</p>
+                                    <div class="meeting-with"><img src="img/user1.png" alt="Sunrise Admin"> <img src="img/user3.png" alt="Sunrise Admin"> <img src="img/user6.png" alt="Sunrise Admin"> <span class="total-users">+6</span></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pull-right">
+                <ul id="mini-nav" class="clearfix">
+                    <li class="list-box dropdown hidden-xs"><a id="reviews" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe2"></i> </a><span class="noti-label yellow-bg animated"></span>
+                        <ul class="dropdown-menu animated fadeInUp reviews">
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user6.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Social Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 389 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user18.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Product Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 871 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user1.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Layouts <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 775 views</span></h5></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span class="info-label blue-bg animated rubberBand">4</span>
+                        <ul class="dropdown-menu fadeInUp animated imp-notify">
+                            <li class="dropdown-header">You have 3 notifications</li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a free, open-source web browser from Mozilla.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a free web browser from Microsoft.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is known for its sleek design and ease of use.</span></div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span class="info-label red-bg animated rubberBand">7</span>
+                        <ul class="dropdown-menu animated flipInY progress-stats">
+                            <li class="dropdown-header">You have 7 pending tasks</li>
+                            <li>
+                                <div class="progress-info"><strong class="text-danger">Critical</strong> <span>New Dashboard Design</span> <span class="pull-right text-danger">20%</span></div>
+                                <div class="progress progress-md no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete (success)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-info">Primary</strong> <span>UI Changes in V2</span> <span class="pull-right">90%</span></div>
+                                <div class="progress progress-sm no-margin">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="sr-only">90% Complete</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-warning">Urgent</strong> <span>Bug Fix #123</span> <span class="pull-right">60%</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><span>Bug Fix #111</span> <span class="pull-right text-success">Complete</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications</li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a href="login.html"><i class="icon-exit_to_app"></i></a></li>
+                    <li class="list-box hidden-lg hidden-md">
+                        <button type="button" id="toggleMenu" class="toggle-menu"><i class="icon-menu"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="custom-search hidden-sm hidden-xs">
+                <input type="text" class="search-query" placeholder="Search here ..."> <i class="icon-search4"></i></div>
+        </header>
+        <div class="top-bar clearfix">
+            <div class="page-title">
+                <h4>Product Analytics</h4></div>
+            <ul class="sales-stats hidden-xs">
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                        <h5>Today's Income</h5></div>
+                </li>
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                        <h5>Week's Income</h5></div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-container">
+            <div class="container-fluid">
+                <div class="row gutter">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-red">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-sessions.png" alt="Sessions"></div>
+                                        <h1 class="weather-title">Sessions</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>9,538</h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-blue">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-visits.png" alt="Users"></div>
+                                        <h1 class="weather-title">Users</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>7,269</h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-pink">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-page-views.png" alt="Page-Views"></div>
+                                        <h1 class="weather-title">Pageviews</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>12,364</h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-green">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-avg-time.png" alt="Avg Time"></div>
+                                        <h1 class="weather-title">Avg Time</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>18<span>mins</span></h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-brown">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-bounce-rate.png" alt="Bounce Rate"></div>
+                                        <h1 class="weather-title">Bounce Rate</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>8.2%</h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-body no-padding">
+                                <aside class="weather-widget">
+                                    <div class="weather-header white-bg">
+                                        <div class="weather-icon"><img src="img/sunrise-new-sessions.png" alt="Users"></div>
+                                        <h1 class="weather-title">New Sessions</h1></div>
+                                    <div class="weather-footer">
+                                        <h4>34%</h4></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h4>Sessions</h4></div>
+                            <div class="panel-body">
+                                <div id="area-chart" class="chart-height-lg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Product Sales<span>Animated Bar</span></h4></div>
+                            <div class="panel-body">
+                                <div class="chart-horiz clearfix">
+                                    <ul class="horz-bar chart">
+                                        <li class="title" title="Product 1"></li>
+                                        <li class="current" title="Today"><span class="bar" data-number="38000"></span><span class="number">$38k</span></li>
+                                        <li class="past" title="Yesterday"><span class="bar" data-number="23000"></span><span class="number">$23k</span></li>
+                                        <li class="title" title="Product 2"></li>
+                                        <li class="current" title="Today"><span class="bar" data-number="43000"></span><span class="number">$43k</span></li>
+                                        <li class="past" title="Yesterday"><span class="bar" data-number="53700"></span><span class="number">$53.7k</span></li>
+                                        <li class="title" title="Product 3"></li>
+                                        <li class="current" title="Today"><span class="bar" data-number="26000"></span><span class="number">$26k</span></li>
+                                        <li class="past" title="Yesterday"><span class="bar" data-number="39400"></span><span class="number">$39.4k</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <h4>Country</h4></div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover no-margin">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%">#</th>
+                                                <th style="width:60%">Country</th>
+                                                <th style="width:30%">Sessions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1.</td>
+                                                <td>USA</td>
+                                                <td>
+                                                    <h5 class="text-info no-margin">29<sup>%</sup></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2.</td>
+                                                <td>Germany</td>
+                                                <td>
+                                                    <h5 class="text-info no-margin">19<sup>%</sup></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td>3.</td>
+                                                <td>India</td>
+                                                <td>
+                                                    <h5 class="text-info no-margin">11<sup>%</sup></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td>4.</td>
+                                                <td>Canada</td>
+                                                <td>
+                                                    <h5 class="text-info no-margin">17<sup>%</sup></h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td>5.</td>
+                                                <td>Australia</td>
+                                                <td>
+                                                    <h5 class="text-info no-margin">24<sup>%</sup></h5></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-brown">
+                            <div class="panel-heading">
+                                <h4>Browser</h4></div>
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover no-margin">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:10%">#</th>
+                                                <th style="width:60%">Browser</th>
+                                                <th style="width:30%">Sessions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="icon-chrome text-warning"></i></td>
+                                                <td>Chrome</td>
+                                                <td class="text-info">
+                                                    <h5 class="no-margin">4321</h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="icon-firefox text-pink"></i></td>
+                                                <td>Firefox</td>
+                                                <td class="text-info">
+                                                    <h5 class="no-margin">2346</h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="icon-IE text-success"></i></td>
+                                                <td>IE</td>
+                                                <td class="text-info">
+                                                    <h5 class="no-margin">2134</h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="icon-opera text-danger"></i></td>
+                                                <td>Opera</td>
+                                                <td class="text-info">
+                                                    <h5 class="no-margin">1127</h5></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="icon-safari text-info"></i></td>
+                                                <td>Safari</td>
+                                                <td class="text-info">
+                                                    <h5 class="no-margin">1098</h5></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h4>Operating System</h4></div>
+                            <div class="panel-body">
+                                <table class="table table-hover no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:10%">#</th>
+                                            <th style="width:60%">OS</th>
+                                            <th style="width:30%">Sessions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><i class="icon-windows8 text-danger"></i></td>
+                                            <td>Windows</td>
+                                            <td class="text-info">
+                                                <h5 class="no-margin">7863</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="icon-github text-success"></i></td>
+                                            <td>Linux</td>
+                                            <td class="text-info">
+                                                <h5 class="no-margin">5690</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="icon-android text-warning"></i></td>
+                                            <td>Android</td>
+                                            <td class="text-info">
+                                                <h5 class="no-margin">3621</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="icon-appleinc text-info"></i></td>
+                                            <td>Macintosh</td>
+                                            <td class="text-info">
+                                                <h5 class="no-margin">9985</h5></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="icon-do_not_disturb_off text-pink"></i></td>
+                                            <td>Not Set</td>
+                                            <td class="text-info">
+                                                <h5 class="no-margin">1098</h5></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-gplus">
+                            <div class="panel-heading">
+                                <h4>Weather</h4></div>
+                            <div class="panel-body">
+                                <aside class="weather-widget">
+                                    <div class="weather-header light-blue-bg">
+                                        <div class="weather-icon"><i class="icon-cloudy text-danger"></i></div>
+                                        <h1 class="weather-title light-blue5-bg">chicago</h1></div>
+                                    <div class="weather-footer light-blue5-bg"><span class="weather-value">40<sup>o</sup></span> <span class="weather-value-desc">celsius</span></div>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h4>Mobile vs Desktop</h4></div>
+                            <div class="panel-body">
+                                <div id="mob-desktop" class="chart-height-lgs"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Return / New Visitors</h4></div>
+                            <div class="panel-body center-text">
+                                <div id="returnNewVisitors" class="chart-height-lgs"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-brown">
+                            <div class="panel-heading">
+                                <h4>Conference</h4></div>
+                            <div class="panel-body">
+                                <ul class="recent-posts">
+                                    <li class="post"><img src="img/user5.png" alt="user" class="blog-avatar">
+                                        <div class="details">
+                                            <h5 class="blog-title">UX Design</h5>
+                                            <p><i class="fa fa-clock-o"></i> Jan 12, 15</p>
+                                        </div>
+                                    </li>
+                                    <li class="post"><img src="img/user8.png" alt="user" class="blog-avatar">
+                                        <div class="details">
+                                            <h5 class="blog-title">Ruby conference</h5>
+                                            <p><i class="fa fa-clock-o"></i> Jan 14, 15</p>
+                                        </div>
+                                    </li>
+                                    <li class="post"><img src="img/user6.png" alt="user" class="blog-avatar">
+                                        <div class="details">
+                                            <h5 class="blog-title">Bootstrap Gallery</h5>
+                                            <p><i class="fa fa-clock-o"></i> Jan 22, 15</p>
+                                        </div>
+                                    </li>
+                                    <li class="post"><img src="img/user2.png" alt="user" class="blog-avatar">
+                                        <div class="details">
+                                            <h5 class="blog-title">Cloud Conference</h5>
+                                            <p><i class="fa fa-clock-o"></i> Jan 26, 15</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <div class="panel panel-blue no-margin">
+                            <div class="panel-heading">
+                                <h4>Conversation</h4></div>
+                            <div class="panel-body">
+                                <ul class="message-wrapper">
+                                    <li><span class="empty-avatar blue">EQ</span>
+                                        <div class="message"><span class="arrow"></span> <a href="#" class="name">Eion Qwells</a> <span class="date-time">Jan 18th, 2017</span>
+                                            <div class="body">Convergence target enable syndicate <span>grow</span> end-to-end life-hacks, integrate engage <span>podcasting</span>."</div>
+                                        </div>
+                                    </li>
+                                    <li><span class="empty-avatar green">SM</span>
+                                        <div class="message"><span class="arrow"></span> <a href="#" class="name">Shawn Morkel</a> <span class="date-time">Jan 15th, 2017</span>
+                                            <div class="body">Transition, <span>widgets</span> users remix dynamic 24/365 holistic network effects <span>communities</span>, users, leading-edge e-services social."</div>
+                                        </div>
+                                    </li>
+                                    <li><span class="empty-avatar red">GS</span>
+                                        <div class="message"><span class="arrow"></span> <a href="#" class="name">Graham Smith</a> <span class="date-time">Jan 10th, 2017</span>
+                                            <div class="body">Need some <span>interesting looking</span> for your work in progress end-to-end life-hacks, integrate engage <span>podcasting.</span></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>Copyright Sunrise Admin <span>2016</span>.</footer>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sparkline.js"></script>
+    <script src="js/flot/jquery.flot.min.js"></script>
+    <script src="js/flot/jquery.flot.time.min.js"></script>
+    <script src="js/flot/jquery.flot.pie.min.js"></script>
+    <script src="js/flot/jquery.flot.stack.min.js"></script>
+    <script src="js/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="js/flot/jquery.flot.resize.min.js"></script>
+    <script src="js/horizontal-bar/jquery.horizBarChart.min.js"></script>
+    <script src="js/scrollup/jquery.scrollUp.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/custom-product-analytics.js"></script>
+</body>
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/product-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:54:56 GMT -->
+
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/widgets.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:55:12 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sunrise Admin Panel">
+    <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap">
+    <meta name="author" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Sunrise Admin Panel, Sunrise Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/events-calendar.css">
+    <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="green">
+    <div class="sunrise-loading"></div>
+    <div class="vertical-nav">
+        <button class="collapse-menu"><i class="icon-dehaze"></i></button>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Sunrise"></a>
+        </div>
+        <div class="user-info">
+            <div class="user-img"><img src="img/user7.png" alt="User Info"> <span class="likes-info">26</span></div>
+            <h5 class="user-name-o">Cassandra</h5>
+            <p class="profile-complete">Profile Complete - 78%</p>
+        </div>
+        <ul class="menu clearfix">
+            <li><a href="#"><i class="icon-graphic_eq"></i> <span class="menu-item">Dashboards</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="social-analytics.html">Social Analytics <span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="product-analytics.html">Product Analytics</a></li>
+                    <li><a href="events.html">Events <span class="label label-success">&nbsp;</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-devices_other"></i> <span class="menu-item">Layouts</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="custom-drag.html">Drag &amp; Drop Panels</a></li>
+                    <li><a href="default.html">Default Layout</a></li>
+                    <li><a href="offcanvas-layout.html">Off Canvas Layout</a></li>
+                    <li><a href="layout-sidebar.html">Layout Sidebar</a></li>
+                    <li><a href="grid-layout.html">Grid Layout</a></li>
+                    <li><a href="three-col-layout.html">Three Column Layout</a></li>
+                    <li><a href="two-col-layout.html">Two Column Layout</a></li>
+                </ul>
+            </li>
+            <li class="active selected"><a href="widgets.html"><i class="icon-ac_unit"></i> <span class="menu-item">Widgets</span></a></li>
+            <li><a href="timeline.html"><i class="icon-timeline"></i> <span class="menu-item">Timeline</span></a></li>
+            <li><a href="email.html"><i class="icon-av_timer"></i> <span class="menu-item">Email</span></a></li>
+            <li><a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Graphs</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="c3-graphs.html">C3 Graphs</a></li>
+                    <li><a href="graphs.html">Flot Graphs</a></li>
+                    <li><a href="google-graphs.html">Google Graphs</a></li>
+                    <li><a href="morris-graphs.html">Morris Graphs</a></li>
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html"><i class="icon-monochrome_photos"></i> <span class="menu-item">Showcase</span></a></li>
+            <li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Pages</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Forms</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="form-elements.html">Forms Inputs</a></li>
+                    <li><a href="wysiwyg-editor.html">WYSIWYG Editor</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-style"></i> <span class="menu-item">UI Elements</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="components.html"><span>Components</span></a></li>
+                    <li><a href="buttons.html"><span>Buttons</span></a></li>
+                    <li><a href="notifications.html"><span>Notifications</span></a></li>
+                    <li><a href="panels.html"><span>Panels</span></a></li>
+                    <li><a href="tabs.html"><span>Tabs &amp; Accordians</span></a></li>
+                    <li><a href="modals.html"><span>Modals</span></a></li>
+                    <li><a href="icons.html"><span>Icons</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-person_pin"></i> <span class="menu-item">User Profile</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">SignUp</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="forgot-pwd.html">Forgot Password</a></li>
+                    <li><a href="error.html">404</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-border_all"></i> <span class="menu-item">Tables</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="data-tables.html">Databar Tables<span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="dynamic-tables.html">Dynamic Tables</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html"><i class="icon-format_color_text"></i> <span class="menu-item">Typography</span></a></li>
+        </ul>
+    </div>
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <header>
+            <ul class="pull-left" id="left-nav">
+                <li class="dropdown pull-left">
+                    <a href="#" id="drop6" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="msg-chats"><img src="img/user1.png" alt="Chats"> <img class="add-user" src="img/user5.png" alt="Chats"> <span class="info-label"></span></div>
+                    </a>
+                    <ul class="dropdown-menu fadeInUp animated messages">
+                        <li class="dropdown-header">Meetings today</li>
+                        <li>
+                            <div class="meeting-container">
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user3.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal line-through">
+                                        <h5>Alexey Anatolievich <span>@11:30am</span></h5><span>CTO</span></div>
+                                </div>
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user8.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Ron Evgeniy <span>@12:45pm</span></h5><span>COO</span></div>
+                                </div>
+                                <div class="meeting-block no-border">
+                                    <div class="meeting-with"><img src="img/user7.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Kasper Christensen <span>@3:15pm</span></h5><span>VC</span></div>
+                                </div>
+                                <div class="group-meeting">
+                                    <h5>Meeting about our new product</h5>
+                                    <p class="meeting-day">Today, @4:30pm</p>
+                                    <div class="meeting-with"><img src="img/user1.png" alt="Sunrise Admin"> <img src="img/user3.png" alt="Sunrise Admin"> <img src="img/user6.png" alt="Sunrise Admin"> <span class="total-users">+6</span></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pull-right">
+                <ul id="mini-nav" class="clearfix">
+                    <li class="list-box dropdown hidden-xs"><a id="reviews" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe2"></i> </a><span class="noti-label yellow-bg animated"></span>
+                        <ul class="dropdown-menu animated fadeInUp reviews">
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user6.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Social Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 389 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user18.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Product Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 871 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user1.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Layouts <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 775 views</span></h5></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span class="info-label blue-bg animated rubberBand">4</span>
+                        <ul class="dropdown-menu fadeInUp animated imp-notify">
+                            <li class="dropdown-header">You have 3 notifications</li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a free, open-source web browser from Mozilla.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a free web browser from Microsoft.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is known for its sleek design and ease of use.</span></div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span class="info-label red-bg animated rubberBand">7</span>
+                        <ul class="dropdown-menu animated flipInY progress-stats">
+                            <li class="dropdown-header">You have 7 pending tasks</li>
+                            <li>
+                                <div class="progress-info"><strong class="text-danger">Critical</strong> <span>New Dashboard Design</span> <span class="pull-right text-danger">20%</span></div>
+                                <div class="progress progress-md no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete (success)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-info">Primary</strong> <span>UI Changes in V2</span> <span class="pull-right">90%</span></div>
+                                <div class="progress progress-sm no-margin">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="sr-only">90% Complete</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-warning">Urgent</strong> <span>Bug Fix #123</span> <span class="pull-right">60%</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><span>Bug Fix #111</span> <span class="pull-right text-success">Complete</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications</li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a href="login.html"><i class="icon-exit_to_app"></i></a></li>
+                    <li class="list-box hidden-lg hidden-md">
+                        <button type="button" id="toggleMenu" class="toggle-menu"><i class="icon-menu"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="custom-search hidden-sm hidden-xs">
+                <input type="text" class="search-query" placeholder="Search here ..."> <i class="icon-search4"></i></div>
+        </header>
+        <div class="top-bar clearfix">
+            <div class="page-title">
+                <h4>Widgets</h4></div>
+            <ul class="sales-stats hidden-xs">
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                        <h5>Today's Income</h5></div>
+                </li>
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                        <h5>Week's Income</h5></div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-container">
+            <div class="container-fluid">
+                <div class="row gutter">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-md-12">
+                        <div class="panel-full-bg panel-red-bg">
+                            <div class="panel-body-white">
+                                <div class="panel-heading center-text">
+                                    <h1>$7.5k</h1></div>
+                            </div>
+                            <div class="panel-footer center-text">Today's Total Income</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-md-12">
+                        <div class="panel-full-bg panel-green-bg">
+                            <div class="panel-body-white">
+                                <div class="panel-heading center-text">
+                                    <h1>$6.2k</h1></div>
+                            </div>
+                            <div class="panel-footer center-text">Yesterday's Total Income</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-md-12">
+                        <div class="panel-full-bg panel-blue-bg">
+                            <div class="panel-body-white">
+                                <div class="panel-heading center-text">
+                                    <h1>$28.8k</h1></div>
+                            </div>
+                            <div class="panel-footer center-text">Last Week's Total Income</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-md-12">
+                        <div class="panel-full-bg panel-yellow-bg">
+                            <div class="panel-body-white">
+                                <div class="panel-heading center-text">
+                                    <h1>$97.4k</h1></div>
+                            </div>
+                            <div class="panel-footer center-text">Last Month's Total Income</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12">
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading">
+                                        <h4>Events</h4></div>
+                                    <div class="panel-body">
+                                        <div id="events-calendar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <h4>Rating</h4></div>
+                                    <div class="panel-body">
+                                        <ul class="rating-wrapper">
+                                            <li>
+                                                <div class="user pull-left"><img src="img/user4.png" alt="user" class="animated rubberBand"></div>
+                                                <div class="info">
+                                                    <div class="rating">
+                                                        <div class="stars" id="rate1"></div><small><i class="fa fa-clock-o"></i> <span class="time">30 mins ago</span></small></div>
+                                                    <p class="comment overflow-text">Attach a single color image or two that represent the idea you're going for.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="user pull-left"><img src="img/user5.png" alt="user" class="animated rubberBand"></div>
+                                                <div class="info">
+                                                    <div class="rating">
+                                                        <div class="stars" id="rate4"></div><small><i class="fa fa-clock-o"></i> <span class="time">3 hours ago</span></small></div>
+                                                    <p class="comment overflow-text">Please search to see if your icon request already exists.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="user pull-left"><img src="img/user2.png" alt="user" class="animated rubberBand"></div>
+                                                <div class="info">
+                                                    <div class="rating">
+                                                        <div class="stars" id="rate3"></div><small><i class="fa fa-clock-o"></i> <span class="time">7 hours ago</span></small></div>
+                                                    <p class="comment overflow-text">Please search to see if your icon request already exists.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="user pull-left"><img src="img/user3.png" alt="user" class="animated rubberBand"></div>
+                                                <div class="info">
+                                                    <div class="rating">
+                                                        <div class="stars" id="rate5"></div><small><i class="fa fa-clock-o"></i> <span class="time">3 days ago</span></small></div>
+                                                    <p class="comment overflow-text">Include a few use cases for your requested icon. How do you plan on using it?</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-blue">
+                                    <div class="panel-heading">
+                                        <h4>Boston</h4></div>
+                                    <div class="panel-body">
+                                        <div class="row weather-widget-lg">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="current-weather">54<sup>o<span>F</span></sup></div>
+                                                <h5 class="text-danger no-margin">Wednesday</h5></div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="weather-icon center-text"><i class="icon-cloudy text-danger"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-condensed no-margin">
+                                                <tbody>
+                                                    <tr>
+                                                        <td><strong class="text-danger">Sunday</strong></td>
+                                                        <td><i class="icon-weather"></i></td>
+                                                        <td>58°F</td>
+                                                        <td>53°F</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong class="text-info">Monday</strong></td>
+                                                        <td><i class="icon-weather2"></i></td>
+                                                        <td>53°F</td>
+                                                        <td>50°F</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong class="text-success">Tuesday</strong></td>
+                                                        <td><i class="icon-cloud4"></i></td>
+                                                        <td>49°F</td>
+                                                        <td>47°F</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong class="text-warning">Thursday</strong></td>
+                                                        <td><i class="icon-snowy2"></i></td>
+                                                        <td>34°F</td>
+                                                        <td>28°F</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong class="text-tw">Friday</strong></td>
+                                                        <td><i class="icon-cloud6"></i></td>
+                                                        <td>49°F</td>
+                                                        <td>45°F</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong class="text-fb">Saturday</strong></td>
+                                                        <td><i class="icon-lightning3"></i></td>
+                                                        <td>42°F</td>
+                                                        <td>37°F</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-brown">
+                                    <div class="panel-heading">
+                                        <h4>Top Clients</h4></div>
+                                    <div class="panel-body">
+                                        <ul class="top-clients">
+                                            <li>
+                                                <div class="avatar"><img src="img/user1.png" alt="Sunrise Admin"></div>
+                                                <div class="biz">
+                                                    <p class="biz-name">Demin Ltd.</p>
+                                                </div>
+                                                <div class="value">$34,098</div>
+                                                <div class="progress no-margin">
+                                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="avatar"><img src="img/user2.png" alt="Sunrise Admin"></div>
+                                                <div class="biz">
+                                                    <p class="biz-name">Welco Ltd.</p>
+                                                </div>
+                                                <div class="value">$21,660</div>
+                                                <div class="progress no-margin">
+                                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="avatar"><img src="img/user3.png" alt="Sunrise Admin"></div>
+                                                <div class="biz">
+                                                    <p class="biz-name">Xioma Co.</p>
+                                                </div>
+                                                <div class="value">$14,985</div>
+                                                <div class="progress no-margin">
+                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100" style="width: 53%"></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="avatar"><img src="img/user4.png" alt="Sunrise Admin"></div>
+                                                <div class="biz">
+                                                    <p class="biz-name">Vimuna Ltd.</p>
+                                                </div>
+                                                <div class="value">$12,879</div>
+                                                <div class="progress no-margin">
+                                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="27" aria-valuemin="0" aria-valuemax="100" style="width: 27%"></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <h4>Leads Funnel</h4></div>
+                                    <div class="panel-body">
+                                        <ul class="funnel">
+                                            <li>5500 Sent</li>
+                                            <li>4300 Opened</li>
+                                            <li>3800 Clicked</li>
+                                            <li>2900
+                                                <br>Conversion</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-pink">
+                                    <div class="panel-heading">
+                                        <h4>Server Activity</h4></div>
+                                    <div class="panel-body">
+                                        <ul class="activity-list">
+                                            <li>
+                                                <p><i class="icon-flag2 text-info"></i> Pending request<span class="time">3 hrs</span></p>
+                                            </li>
+                                            <li>
+                                                <p><i class="icon-whatshot text-warning"></i> Server Crashed<span class="time">3mins</span></p>
+                                            </li>
+                                            <li>
+                                                <p><i class="icon-vpn_lock text-success"></i> 3 New users<span class="time">1 min</span></p>
+                                            </li>
+                                            <li>
+                                                <p><i class="icon-verified_user text-danger"></i>9 pending requests<span class="time">5 min</span></p>
+                                            </li>
+                                            <li>
+                                                <p><i class="icon-offline_pin text-info"></i> Performance<span class="time">25 min</span></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-blue">
+                                    <div class="panel-heading">
+                                        <h4>Scroll Gallery</h4></div>
+                                    <div class="panel-body">
+                                        <div id="twtterFeeds" class="scroll-img sm-height">
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user2.png" class="img-responsive" alt="Sunrise Admin"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user3.png" class="img-responsive" alt="Sunrise Dashboard"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user4.png" class="img-responsive" alt="Events Dashboard"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user5.png" class="img-responsive" alt="Sunrise Admin"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user10.png" class="img-responsive" alt="Product Dashboard"></a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:void(0)"><img src="img/user2.png" class="img-responsive" alt="Social Admin Dashboard"></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-fb">
+                                    <div class="panel-heading">
+                                        <h4>Overview</h4></div>
+                                    <div class="panel-body">
+                                        <h5 class="less-btm-margin"><small>New Dashboard - </small>$3890 <i class="fa fa-caret-up text-danger"></i></h5>
+                                        <div class="progress progress-sm no-margin">
+                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"></div>
+                                        </div>
+                                        <h5 class="less-btm-margin"><small>User Interface - </small>$1595 <i class="fa fa-caret-down text-info"></i></h5>
+                                        <div class="progress progress-sm no-margin">
+                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-tw">
+                                    <div class="panel-heading">
+                                        <h4>Browser Stats</h4></div>
+                                    <div class="panel-body">
+                                        <div class="browser-stats clearfix">
+                                            <div class="block text-danger"><span class="browser icon-chrome"></span> <i>Chrome</i>
+                                                <br><span>48%</span></div>
+                                            <div class="block text-warning"><span class="browser icon-firefox"></span> <i>Firefox</i>
+                                                <br><span>32%</span></div>
+                                            <div class="block text-info"><span class="browser icon-IE"></span> <i>IE</i>
+                                                <br><span>10%</span></div>
+                                            <div class="block text-info"><span class="browser icon-safari"></span> <i>Safari</i>
+                                                <br><span>7%</span></div>
+                                            <div class="block text-gplus"><span class="browser icon-opera"></span> <i>Opera</i>
+                                                <br><span>3%</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <h4>Stats</h4></div>
+                                    <div class="panel-footer">
+                                        <ul class="clearfix">
+                                            <li>
+                                                <p>Likes</p>
+                                                <h4 class="text-info">30<small>%</small></h4></li>
+                                            <li>
+                                                <p>Tweets</p>
+                                                <h4 class="text-success">22<small>%</small></h4></li>
+                                            <li>
+                                                <p>Shares</p>
+                                                <h4 class="text-warning">12<small>%</small></h4></li>
+                                            <li>
+                                                <p>Emails</p>
+                                                <h4 class="text-danger">36<small>%</small></h4></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-red">
+                                    <div class="panel-heading">
+                                        <h4>Social Buttons</h4></div>
+                                    <div class="panel-body">
+                                        <div class="demo-btn-group clearfix"><a href="#"><i class="icon-facebook-with-circle text-fb icon-3x"></i> </a><a href="#"><i class="icon-twitter-with-circle text-tw icon-3x"></i> </a><a href="#"><i class="icon-linkedin-with-circle text-linkedin icon-3x"></i> </a><a href="#"><i class="icon-pinterest-with-circle text-brown icon-3x"></i> </a><a href="#"><i class="icon-google-with-circle text-gplus icon-3x"></i> </a><a href="#"><i class="icon-vimeo-with-circle text-success icon-3x"></i></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-6 col-xs-12">
+                        <div class="row gutter">
+                            <div class="col-md-12">
+                                <div class="panel panel-pink">
+                                    <div class="panel-heading">
+                                        <h4>News Feed</h4></div>
+                                    <div class="panel-body">
+                                        <div id="scrollDemo1" class="scroll-text xs-height">
+                                            <ul>
+                                                <li><a href="javascript:void(0)">Blue Moon - Responsive Admin template</a></li>
+                                                <li><a href="javascript:void(0)">Everest Bootstrap 3 Admin Template</a></li>
+                                                <li><a href="javascript:void(0)">BlackForest Admin Template</a></li>
+                                                <li><a href="javascript:void(0)">Cloud light weight responsive Dashboard</a></li>
+                                                <li><a href="javascript:void(0)">Start Up Responsive Admin</a></li>
+                                                <li><a href="javascript:void(0)">Slick Responsive web App</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutter">
+                            <div class="col-xs-12">
+                                <div class="panel panel-yellow">
+                                    <div class="panel-heading">
+                                        <h4>Stats</h4></div>
+                                    <div class="panel-body">
+                                        <div class="list-group no-margin"><a href="#" class="list-group-item"><h3 class="pull-right no-margin"><i class="icon-facebook22 text-danger"></i></h3><h4 class="list-group-item-heading text-danger">67,559</h4><p class="list-group-item-text text-danger">Facebook Likes</p></a><a href="#" class="list-group-item"><h3 class="pull-right no-margin"><i class="icon-contacts text-info"></i></h3><h4 class="list-group-item-heading text-info">1,257</h4><p class="list-group-item-text text-info">Contacts</p></a><a href="#" class="list-group-item"><h3 class="pull-right no-margin"><i class="icon-download5 text-success"></i></h3><h4 class="list-group-item-heading text-success">3,569</h4><p class="list-group-item-text text-success">Images Download</p></a><a href="#" class="list-group-item"><h3 class="pull-right no-margin"><i class="icon-twitter text-brown"></i></h3><h4 class="list-group-item-heading text-brown">15,689</h4><p class="list-group-item-text text-brown">Twitter Followers</p></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="panel panel-brown">
+                                    <div class="panel-heading">
+                                        <h4>Weather</h4></div>
+                                    <div class="panel-body">
+                                        <aside class="weather-widget">
+                                            <div class="weather-header light-blue-bg">
+                                                <div class="weather-icon"><i class="icon-lightning3 text-danger animated pulse infinite"></i></div>
+                                                <h1 class="weather-title light-blue5-bg">chicago</h1></div>
+                                            <div class="weather-footer light-blue5-bg"><span class="weather-value">40<sup>o</sup></span> <span class="weather-value-desc">celsius</span></div>
+                                        </aside>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="panel panel-blue">
+                                    <div class="panel-heading">
+                                        <h4>Project Activity</h4></div>
+                                    <div class="panel-body">
+                                        <ul class="project-activity">
+                                            <li class="activity-list success">
+                                                <div class="detail-info"><small class="text-muted">7 minutes ago</small>
+                                                    <p class="message"><a class="text-success" href="#">Sandy </a>created new account.</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list danger">
+                                                <div class="detail-info"><small class="text-muted">12:00</small>
+                                                    <p class="message">Team Lunch @ <a class="text-danger" href="#">barbeque nation</a>.</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list">
+                                                <div class="detail-info"><small class="text-muted">9:30</small>
+                                                    <p class="message">Meeting with Jason</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list info">
+                                                <div class="detail-info"><small class="text-muted">Mon, 9 Feb</small>
+                                                    <p class="message">Created <a class="text-info" href="#">Task </a>for Willams.</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list">
+                                                <div class="detail-info"><small class="text-muted">Fri, 13 Feb</small>
+                                                    <p class="message">Show demo to team</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list">
+                                                <div class="detail-info"><small class="text-muted">Sun, 21 Feb</small>
+                                                    <p class="message">Watch football <a class="text-info" href="#">Match </a>with Xoimi.</p>
+                                                </div>
+                                            </li>
+                                            <li class="activity-list warning">
+                                                <div class="detail-info"><small class="text-muted">Wed, 25 Feb</small>
+                                                    <p class="message">Launch new mobile <a class="text-warning" href="#">App</a>.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="panel panel-green">
+                                    <div class="panel-heading">
+                                        <h4>Tags</h4></div>
+                                    <div class="panel-body">
+                                        <div class="demo-xs-btn-group clearfix"><a href="index.html" class="btn btn-xs btn-info">Dashboard</a> <a href="index2.html" class="btn btn-xs btn-success">Admin</a> <a href="profile.html" class="btn btn-xs btn-danger">Profile</a> <a href="timeline.html" class="btn btn-xs btn-grey">Timeline</a> <a href="gallery.html" class="btn btn-xs btn-primary">Gallery</a> <a href="calendar.html" class="btn btn-xs tw-bg text-white">Calendar</a> <a href="google-graphs.html" class="btn btn-xs linkedin-bg text-white">Maps</a> <a href="invoice.html" class="btn btn-xs pink-bg text-white">Invoice</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>Copyright Sunrise Admin <span>2016</span>.</footer>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/sparkline.js"></script>
+    <script src="js/rating/jquery.raty.js"></script>
+    <script src="js/scrollbox/jquery.scrollbox.min.js"></script>
+    <script src="js/scrollup/jquery.scrollUp.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/custom-widgets.js"></script>
+    <script src="js/custom-events-cal.js"></script>
+</body>
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/widgets.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:55:15 GMT -->
+
+</html>

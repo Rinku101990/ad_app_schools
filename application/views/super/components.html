@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/components.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:56:18 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Sunrise Admin Panel">
+    <meta name="keywords" content="Admin, Dashboard, Bootstrap3, Sass, transform, CSS3, HTML5, Web design, UI Design, Responsive Dashboard, Responsive Admin, Admin Theme, Best Admin UI, Bootstrap Theme, Themeforest, Bootstrap">
+    <meta name="author" content="Bootstrap Gallery">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <title>Sunrise Admin Panel, Sunrise Dashboard</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/animate.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="css/pricing.css">
+    <link href="fonts/icomoon/icomoon.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+			<script src="js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body class="pink">
+    <div class="vertical-nav">
+        <button class="collapse-menu"><i class="icon-dehaze"></i></button>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Sunrise"></a>
+        </div>
+        <div class="user-info">
+            <div class="user-img"><img src="img/user7.png" alt="User Info"> <span class="likes-info">26</span></div>
+            <h5 class="user-name-o">Cassandra</h5>
+            <p class="profile-complete">Profile Complete - 78%</p>
+        </div>
+        <ul class="menu clearfix">
+            <li><a href="#"><i class="icon-graphic_eq"></i> <span class="menu-item">Dashboards</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="index.html">Overview</a></li>
+                    <li><a href="social-analytics.html">Social Analytics <span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="product-analytics.html">Product Analytics</a></li>
+                    <li><a href="events.html">Events <span class="label label-success">&nbsp;</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-devices_other"></i> <span class="menu-item">Layouts</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="custom-drag.html">Drag &amp; Drop Panels</a></li>
+                    <li><a href="default.html">Default Layout</a></li>
+                    <li><a href="offcanvas-layout.html">Off Canvas Layout</a></li>
+                    <li><a href="layout-sidebar.html">Layout Sidebar</a></li>
+                    <li><a href="grid-layout.html">Grid Layout</a></li>
+                    <li><a href="three-col-layout.html">Three Column Layout</a></li>
+                    <li><a href="two-col-layout.html">Two Column Layout</a></li>
+                </ul>
+            </li>
+            <li><a href="widgets.html"><i class="icon-ac_unit"></i> <span class="menu-item">Widgets</span></a></li>
+            <li><a href="timeline.html"><i class="icon-timeline"></i> <span class="menu-item">Timeline</span></a></li>
+            <li><a href="email.html"><i class="icon-av_timer"></i> <span class="menu-item">Email</span></a></li>
+            <li><a href="#"><i class="icon-pie_chart_outlined"></i> <span class="menu-item">Graphs</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="c3-graphs.html">C3 Graphs</a></li>
+                    <li><a href="graphs.html">Flot Graphs</a></li>
+                    <li><a href="google-graphs.html">Google Graphs</a></li>
+                    <li><a href="morris-graphs.html">Morris Graphs</a></li>
+                    <li><a href="maps.html">Maps</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html"><i class="icon-monochrome_photos"></i> <span class="menu-item">Showcase</span></a></li>
+            <li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Pages</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="invoice.html">Invoice</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Forms</span> <span class="down-arrow"></span></a>
+                <ul class="collapse">
+                    <li><a href="form-elements.html">Forms Inputs</a></li>
+                    <li><a href="wysiwyg-editor.html">WYSIWYG Editor</a></li>
+                </ul>
+            </li>
+            <li class="active selected"><a href="#"><i class="icon-style"></i> <span class="menu-item">UI Elements</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="components.html" class="current"><span>Components</span></a></li>
+                    <li><a href="buttons.html"><span>Buttons</span></a></li>
+                    <li><a href="notifications.html"><span>Notifications</span></a></li>
+                    <li><a href="panels.html"><span>Panels</span></a></li>
+                    <li><a href="tabs.html"><span>Tabs &amp; Accordians</span></a></li>
+                    <li><a href="modals.html"><span>Modals</span></a></li>
+                    <li><a href="icons.html"><span>Icons</span></a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-person_pin"></i> <span class="menu-item">User Profile</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">SignUp</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="forgot-pwd.html">Forgot Password</a></li>
+                    <li><a href="error.html">404</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><i class="icon-border_all"></i> <span class="menu-item">Tables</span> <span class="down-arrow"></span></a>
+                <ul>
+                    <li><a href="tables.html">Tables</a></li>
+                    <li><a href="data-tables.html">Databar Tables<span class="label label-danger">&nbsp;</span></a></li>
+                    <li><a href="dynamic-tables.html">Dynamic Tables</a></li>
+                </ul>
+            </li>
+            <li><a href="typography.html"><i class="icon-format_color_text"></i> <span class="menu-item">Typography</span></a></li>
+        </ul>
+    </div>
+    <div class="dashboard-wrapper dashboard-wrapper-lg">
+        <header>
+            <ul class="pull-left" id="left-nav">
+                <li class="dropdown pull-left">
+                    <a href="#" id="drop6" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <div class="msg-chats"><img src="img/user1.png" alt="Chats"> <img class="add-user" src="img/user5.png" alt="Chats"> <span class="info-label"></span></div>
+                    </a>
+                    <ul class="dropdown-menu fadeInUp animated messages">
+                        <li class="dropdown-header">Meetings today</li>
+                        <li>
+                            <div class="meeting-container">
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user3.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal line-through">
+                                        <h5>Alexey Anatolievich <span>@11:30am</span></h5><span>CTO</span></div>
+                                </div>
+                                <div class="meeting-block">
+                                    <div class="meeting-with"><img src="img/user8.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Ron Evgeniy <span>@12:45pm</span></h5><span>COO</span></div>
+                                </div>
+                                <div class="meeting-block no-border">
+                                    <div class="meeting-with"><img src="img/user7.png" alt="Sunrise Admin"></div>
+                                    <div class="meeting-personal">
+                                        <h5>Kasper Christensen <span>@3:15pm</span></h5><span>VC</span></div>
+                                </div>
+                                <div class="group-meeting">
+                                    <h5>Meeting about our new product</h5>
+                                    <p class="meeting-day">Today, @4:30pm</p>
+                                    <div class="meeting-with"><img src="img/user1.png" alt="Sunrise Admin"> <img src="img/user3.png" alt="Sunrise Admin"> <img src="img/user6.png" alt="Sunrise Admin"> <span class="total-users">+6</span></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="pull-right">
+                <ul id="mini-nav" class="clearfix">
+                    <li class="list-box dropdown hidden-xs"><a id="reviews" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe2"></i> </a><span class="noti-label yellow-bg animated"></span>
+                        <ul class="dropdown-menu animated fadeInUp reviews">
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user6.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Social Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 389 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user18.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Product Analytics <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 871 views</span></h5></div>
+                            </li>
+                            <li>
+                                <div class="user-pic clearfix"><img src="img/user1.png" alt="User Image"></div>
+                                <div class="review-details clearfix">
+                                    <h4>Layouts <i class="icon-settings"></i></h4>
+                                    <h5 class="clearfix"><span class="left-info"><i class="icon-photo"></i> 775 views</span></h5></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span class="info-label blue-bg animated rubberBand">4</span>
+                        <ul class="dropdown-menu fadeInUp animated imp-notify">
+                            <li class="dropdown-header">You have 3 notifications</li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a free, open-source web browser from Mozilla.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a free web browser from Microsoft.</span></div>
+                            </li>
+                            <li class="clearfix">
+                                <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
+                                <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is known for its sleek design and ease of use.</span></div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span class="info-label red-bg animated rubberBand">7</span>
+                        <ul class="dropdown-menu animated flipInY progress-stats">
+                            <li class="dropdown-header">You have 7 pending tasks</li>
+                            <li>
+                                <div class="progress-info"><strong class="text-danger">Critical</strong> <span>New Dashboard Design</span> <span class="pull-right text-danger">20%</span></div>
+                                <div class="progress progress-md no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete (success)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-info">Primary</strong> <span>UI Changes in V2</span> <span class="pull-right">90%</span></div>
+                                <div class="progress progress-sm no-margin">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"><span class="sr-only">90% Complete</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><strong class="text-warning">Urgent</strong> <span>Bug Fix #123</span> <span class="pull-right">60%</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="progress-info"><span>Bug Fix #111</span> <span class="pull-right text-success">Complete</span></div>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100% Complete (warning)</span></div>
+                                </div>
+                            </li>
+                            <li class="dropdown-footer">See all the notifications</li>
+                        </ul>
+                    </li>
+                    <li class="list-box dropdown hidden-xs"><a href="login.html"><i class="icon-exit_to_app"></i></a></li>
+                    <li class="list-box hidden-lg hidden-md">
+                        <button type="button" id="toggleMenu" class="toggle-menu"><i class="icon-menu"></i></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="custom-search hidden-sm hidden-xs">
+                <input type="text" class="search-query" placeholder="Search here ..."> <i class="icon-search4"></i></div>
+        </header>
+        <div class="top-bar clearfix">
+            <div class="page-title">
+                <h4>Components<small class="samll">UI Elements</small></h4></div>
+            <ul class="sales-stats hidden-xs">
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_today"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>580</span> <i class="icon-arrow-up-right2 up"></i></h4>
+                        <h5>Today's Income</h5></div>
+                </li>
+                <li>
+                    <div class="sales-block hidden-sm hidden-xs"><span id="sale_weekly"></span></div>
+                    <div class="sales-details">
+                        <h4>$<span>7235</span> <i class="icon-arrow-down-right2 down"></i></h4>
+                        <h5>Week's Income</h5></div>
+                </li>
+            </ul>
+        </div>
+        <div class="main-container">
+            <div class="container-fluid">
+                <div class="row gutter">
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-red social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-github text-danger"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-danger">6593</h2>
+                                    <h6 class="text-grey">+ 72%</h6>
+                                    <h5 class="text-grey">Branches</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-brown social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-picasa text-brown"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-brown">5899</h2>
+                                    <h6 class="text-grey">+ 37%</h6>
+                                    <h5 class="text-grey">Photos</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-fb social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-thumbs-up text-fb"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-fb">2857</h2>
+                                    <h6 class="text-grey">+ 22%</h6>
+                                    <h5 class="text-grey">Likes</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-tw social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-twitter2 text-tw"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-tw">7762</h2>
+                                    <h6 class="text-grey">+ 41%</h6>
+                                    <h5 class="text-grey">Tweets</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-pink social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-youtube2 text-brown"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-brown">6593</h2>
+                                    <h6 class="text-grey">+ 72%</h6>
+                                    <h5 class="text-grey">Downloads</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-12">
+                        <div class="panel panel-pink social-stats">
+                            <div class="panel-body">
+                                <div class="social-icon"><i class="icon-user3 text-linkedin"></i></div>
+                                <div class="stats-details">
+                                    <h2 class="text-linkedin">830</h2>
+                                    <h6 class="text-grey">- 32%</h6>
+                                    <h5 class="text-grey">Users</h5></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h4>Sales</h4></div>
+                            <div class="panel-footer">
+                                <ul class="clearfix">
+                                    <li>
+                                        <p>Asia</p>
+                                        <h4 class="text-danger">30<small>%</small></h4></li>
+                                    <li>
+                                        <p>Europe</p>
+                                        <h4 class="text-info">24<small>%</small></h4></li>
+                                    <li>
+                                        <p>Africa</p>
+                                        <h4 class="text-success">28<small>%</small></h4></li>
+                                    <li>
+                                        <p>America</p>
+                                        <h4 class="text-warning">18<small>%</small></h4></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <h4>Top Views</h4></div>
+                            <div class="panel-footer">
+                                <ul class="clearfix">
+                                    <li>
+                                        <p>Modi</p>
+                                        <h4 class="text-info">32<small>%</small></h4></li>
+                                    <li>
+                                        <p>Sushil</p>
+                                        <h4 class="text-success">26<small>%</small></h4></li>
+                                    <li>
+                                        <p>Sachin</p>
+                                        <h4 class="text-danger">22<small>%</small></h4></li>
+                                    <li>
+                                        <p>Dhoni</p>
+                                        <h4 class="text-warning">10<small>%</small></h4></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Social</h4></div>
+                            <div class="panel-footer">
+                                <ul class="clearfix">
+                                    <li>
+                                        <p>Likes</p>
+                                        <h4 class="text-info">30<small>%</small></h4></li>
+                                    <li>
+                                        <p>Tweets</p>
+                                        <h4 class="text-success">22<small>%</small></h4></li>
+                                    <li>
+                                        <p>Shares</p>
+                                        <h4 class="text-warning">12<small>%</small></h4></li>
+                                    <li>
+                                        <p>Emails</p>
+                                        <h4 class="text-danger">36<small>%</small></h4></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h4>List Group</h4></div>
+                            <div class="panel-body">
+                                <ul class="list-group no-margin">
+                                    <li class="list-group-item">Cras justo odio</li>
+                                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                                    <li class="list-group-item">Morbi leo risus</li>
+                                    <li class="list-group-item">Porta ac consectetur ac</li>
+                                    <li class="list-group-item">Vestibulum at eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-pink">
+                            <div class="panel-heading">
+                                <h4>List Group with Badges</h4></div>
+                            <div class="panel-body">
+                                <ul class="list-group no-margin">
+                                    <li class="list-group-item"><span class="badge red-bg">23</span> Cras justo odio</li>
+                                    <li class="list-group-item"><span class="badge green-bg">19</span> Dapibus facilisis</li>
+                                    <li class="list-group-item"><span class="badge blue-bg">11</span> Morbi leo risus</li>
+                                    <li class="list-group-item"><span class="badge yellow-bg">17</span> Porta consecte</li>
+                                    <li class="list-group-item"><span class="badge grey-bg">32</span> Vestibulum eros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-brown">
+                            <div class="panel-heading">
+                                <h4>Linked List Group</h4></div>
+                            <div class="panel-body">
+                                <ul class="list-group no-margin">
+                                    <li class="list-group-item list-group-item-danger"><a href="#">Dapibus vestibulum<span class="badge red-bg pull-right">23</span></a></li>
+                                    <li class="list-group-item list-group-item-success"><a href="#">Dapibus facilisis <span class="badge green-bg pull-right">19</span></a></li>
+                                    <li class="list-group-item list-group-item-info"><a href="#">Morbi leo risus <span class="badge blue-bg pull-right">11</span></a></li>
+                                    <li class="list-group-item list-group-item-warning"><a href="#">Porta ac consecte <span class="badge yellow-bg pull-right">17</span></a></li>
+                                    <li class="list-group-item list-group-item-grey"><a href="#">Vestibulum at <span class="badge grey-bg pull-right">32</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h4>Labels</h4></div>
+                            <div class="panel-body">
+                                <div class="demo-btn-group center-text"><span class="label label-default">Default</span> <span class="label label-success">Success</span> <span class="label label-info">Info</span> <span class="label label-warning">Warning</span> <span class="label label-danger">Danger</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-pink">
+                            <div class="panel-heading">
+                                <h4>Badges</h4></div>
+                            <div class="panel-body">
+                                <div class="demo-btn-group center-text"><span class="badge badge-default">Default</span> <span class="badge green-bg">Success</span> <span class="badge blue-bg">Info</span> <span class="badge yellow-bg">Warning</span> <span class="badge red-bg">Danger</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <h4>Modal</h4></div>
+                            <div class="panel-body">
+                                <div class="demo-sm-btn-group center-text">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#modalLg">Large</button>
+                                    <div class="modal fade" id="modalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title text-info" id="myModalLabel">Modal title</h4></div>
+                                                <div class="modal-body">...</div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                                    <button type="button" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-info" data-toggle="modal" data-target="#modalMd">Default</button>
+                                    <div class="modal fade" id="modalMd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title text-info" id="myModalLabel5">Modal title</h4></div>
+                                                <div class="modal-body">...</div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                                    <button type="button" class="btn btn-success"><i class="fa fa-save"></i> Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success" data-toggle="modal" data-target="#modalSm">Small</button>
+                                    <div class="modal fade" id="modalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel1">Modal title</h4></div>
+                                                <div class="modal-body">...</div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                                                    <button type="button" class="btn btn-success">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h4>Tooltip</h4></div>
+                            <div class="panel-body">
+                                <div class="demo-sm-btn-group center-text">
+                                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Left</button>
+                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Top</button>
+                                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Bottom</button>
+                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Right</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-brown">
+                            <div class="panel-heading">
+                                <h4>Popover</h4></div>
+                            <div class="panel-body">
+                                <div class="demo-sm-btn-group center-text">
+                                    <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" rel="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Top</button>
+                                    <button type="button" class="btn btn-info" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+										sagittis lacus vel augue laoreet rutrum faucibus.">Bottom</button>
+                                    <button type="button" class="btn btn-warning" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Right</button>
+                                    <button type="button" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">Left</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h4>Loading Stage</h4></div>
+                            <div class="panel-body">
+                                <div class="center-text">
+                                    <button type="button" id="loading-btn" data-loading-text="Loading..." class="btn btn-danger">Add User</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Pagination</h4></div>
+                            <div class="panel-body">
+                                <ul class="pagination no-margin">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="panel panel-pink">
+                            <div class="panel-heading">
+                                <h4>Disabled and active</h4></div>
+                            <div class="panel-body">
+                                <ul class="pagination no-margin">
+                                    <li class="disabled"><a href="#">&laquo;</a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li class="disabled"><a href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <h4>Breadcrumb</h4></div>
+                            <div class="panel-body">
+                                <ol class="breadcrumb">
+                                    <li><a href="#" data-original-title="" title="">Home</a></li>
+                                    <li><a href="#" data-original-title="" title="">Dashboard</a></li>
+                                    <li class="active">Charts</li>
+                                </ol>
+                                <ol class="breadcrumb blue-bg">
+                                    <li><a href="#" data-original-title="" title="">Home</a></li>
+                                    <li><a href="#" data-original-title="" title="">Dashboard</a></li>
+                                    <li><a href="#" data-original-title="" title="">Graphs</a></li>
+                                    <li class="active">Flot Charts</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Pager</h4></div>
+                            <div class="panel-body">
+                                <ul class="pager no-margin">
+                                    <li class="previous"><a href="#" data-original-title="" title="">← Older</a></li>
+                                    <li class="next"><a href="#" data-original-title="" title="">Newer →</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <h4>Pager</h4></div>
+                            <div class="panel-body">
+                                <ul class="pager no-margin">
+                                    <li><a href="#" data-original-title="" title="">Previous</a></li>
+                                    <li><a href="#" data-original-title="" title="">Next</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-blue">
+                            <div class="panel-heading">
+                                <h4>Progress Bar</h4></div>
+                            <div class="panel-body">
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
+                                </div>
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
+                                </div>
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                                </div>
+                                <div class="progress progress-sm no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h4>Progressbar Striped</h4></div>
+                            <div class="panel-body">
+                                <div class="progress progress-striped active progress-sm">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"><span class="sr-only">20% Complete</span></div>
+                                </div>
+                                <div class="progress progress-striped active progress-sm">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"><span class="sr-only">40% Complete (success)</span></div>
+                                </div>
+                                <div class="progress progress-striped active progress-sm">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"><span class="sr-only">60% Complete (warning)</span></div>
+                                </div>
+                                <div class="progress progress-striped active progress-sm no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%"><span class="sr-only">80% Complete (danger)</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>Copyright Sunrise Admin <span>2016</span>.</footer>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sparkline.js"></script>
+    <script src="js/jquery.easy-pie-chart.js"></script>
+    <script src="js/scrollbar/jquery.tinyscrollbar.min.html"></script>
+    <script src="js/scrollup/jquery.scrollUp.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/custom-components.js"></script>
+</body>
+<!-- Mirrored from bootstrap.gallery/sunrise-admin-feb26/components.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 17 Aug 2018 12:56:19 GMT -->
+
+</html>
