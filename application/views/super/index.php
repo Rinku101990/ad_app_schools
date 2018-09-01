@@ -199,32 +199,32 @@
                                 <h4>Today's Meetings</h4></div>
                             <div class="panel-body">
                                 <ul class="recent-posts">
-                                    <li class="post"><img src="<?php echo base_url('assets/img/user5.png');?>" alt="user" class="blog-avatar">
-                                        <div class="details">
+                                    <li class="post"><img src="<?php echo base_url('assets/img/admin7.png');?>" alt="user" class="blog-avatar">
+                                        <div class="details" style="width:88%">
                                             <h5 class="blog-title">Rinku Wishwakarma</h5>
                                             <p><i class="fa fa-clock-o"></i> 10:30 PM, For Confereance meeting</p>
                                         </div>
                                     </li>
-                                    <li class="post"><img src="<?php echo base_url('assets/img/user5.png');?>" alt="user" class="blog-avatar">
-                                        <div class="details">
+                                    <li class="post"><img src="<?php echo base_url('assets/img/admin7.png');?>" alt="user" class="blog-avatar">
+                                        <div class="details" style="width:88%">
                                             <h5 class="blog-title">Rinku Wishwakarma</h5>
                                             <p><i class="fa fa-clock-o"></i> 10:30 PM, For Confereance meeting</p>
                                         </div>
                                     </li>
-									<li class="post"><img src="<?php echo base_url('assets/img/user5.png');?>" alt="user" class="blog-avatar">
-                                        <div class="details">
+									<li class="post"><img src="<?php echo base_url('assets/img/admin7.png');?>" alt="user" class="blog-avatar">
+                                        <div class="details" style="width:88%">
                                             <h5 class="blog-title">Rinku Wishwakarma</h5>
                                             <p><i class="fa fa-clock-o"></i> 10:30 PM, For Confereance meeting</p>
                                         </div>
                                     </li>
-									<li class="post"><img src="<?php echo base_url('assets/img/user5.png');?>" alt="user" class="blog-avatar">
-                                        <div class="details">
+									<li class="post"><img src="<?php echo base_url('assets/img/admin7.png');?>" alt="user" class="blog-avatar">
+                                        <div class="details" style="width:88%">
                                             <h5 class="blog-title">Rinku Wishwakarma</h5>
                                             <p><i class="fa fa-clock-o"></i> 10:30 PM, For Confereance meeting</p>
                                         </div>
                                     </li>
-									<li class="post"><img src="<?php echo base_url('assets/img/user5.png');?>" alt="user" class="blog-avatar">
-                                        <div class="details">
+									<li class="post"><img src="<?php echo base_url('assets/img/admin7.png');?>" alt="user" class="blog-avatar">
+                                        <div class="details" style="width:88%">
                                             <h5 class="blog-title">Rinku Wishwakarma</h5>
                                             <p><i class="fa fa-clock-o"></i> 10:30 PM, For Confereance meeting</p>
                                         </div>

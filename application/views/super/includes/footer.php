@@ -1,7 +1,10 @@
- <footer>Copyright Ordius IT Solutions Pvt Ltd. <span>2018</span>.</footer>
-    </div>
+    <footer>Copyright Ordius IT Solutions Pvt Ltd. <span><?php echo date('Y');?></span>.</footer>
+</div>
     <script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+    
+    <script src="<?php echo base_url('assets/js/custom-jquery.js');?>"></script>
+
     <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
     <script src="<?php echo base_url('assets/js/sparkline.js');?>"></script>
     <script src="<?php echo base_url('assets/js/scrollup/jquery.scrollUp.js');?>"></script>
@@ -21,14 +24,28 @@
     <script src="<?php echo base_url('assets/js/datatables/autoFill.bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/fixedHeader.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/custom-datatables.js');?>"></script>
-	 <script src="<?php echo base_url('assets/js/moment.js');?>"></script>
-	 <script src="<?php echo base_url('assets/js/rating/jquery.raty.js');?>"></script>
-	 <script src="<?php echo base_url('assets/js/custom-widgets.js');?>"></script>
-    <script src="<?php echo base_url('assets/js/custom-events-cal.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/moment.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/rating/jquery.raty.js');?>"></script>
 	
 	<script src="<?php echo base_url('assets/js/alertify/alertify.js');?>"></script>
     <script src="<?php echo base_url('assets/js/alertify/alertify-custom.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/custom-notifications.js');?>"></script>
-	
+
+    <script src="<?php echo base_url('assets/js/bootstrap-select.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap-multiselect.js');?>"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#multi-select-expertise').multiselect();
+        });
+    </script>
+    <script>
+    $(document).ready(function(){
+        $("#addTemplatesBtn").click(function(){
+            $("#addTemplates").modal({backdrop: false});
+        });
+    });
+    </script>
+    
 </body>
 </html>
