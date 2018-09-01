@@ -59,23 +59,17 @@
                             </li>
                         </ul> -->
                     </li>
-                    <li class="list-box dropdown hidden-xs"><a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a><span class="info-label blue-bg animated rubberBand">0</span>
-                        <!-- <ul class="dropdown-menu fadeInUp animated imp-notify">
+                    <li class="list-box dropdown hidden-xs">
+                      <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a>
+                      <span class="info-label blue-bg animated rubberBand" id="count_Notification">0</span>
+                        <ul class="dropdown-menu fadeInUp animated imp-notify">
                             <li class="dropdown-header">You have 3 notifications</li>
                             <li class="clearfix">
                                 <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
                                 <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a free, open-source web browser from Mozilla.</span></div>
                             </li>
-                            <li class="clearfix">
-                                <div class="icon"><img src="img/user19.png" alt="Sunrise Admin"></div>
-                                <div class="details"><strong class="text-success">Dan Cederholm</strong> <span>IE is a free web browser from Microsoft.</span></div>
-                            </li>
-                            <li class="clearfix">
-                                <div class="icon"><img src="img/user13.png" alt="Sunrise Admin"></div>
-                                <div class="details"><strong class="text-info">Justin Mezzell</strong> <span>Safari is known for its sleek design and ease of use.</span></div>
-                            </li>
                             <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
-                        </ul> -->
+                        </ul>
                     </li>
                     <li class="list-box dropdown hidden-xs"><a id="drop10" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-circle-check"></i> </a><span class="info-label red-bg animated rubberBand">0</span>
                         <!-- <ul class="dropdown-menu animated flipInY progress-stats">

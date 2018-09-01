@@ -65,7 +65,7 @@
                                 <div class="form-group col-lg-12" id="div_recipient" style="display: none">
                                     <label class="col-lg-4 control-label">Recipient</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="recipient_id" id="recipient_id">
+                                        <select class="form-control" name="recipient_id[]" id="recipient_id" multiple>
                                         </select>
                                     </div>
                                 </div>

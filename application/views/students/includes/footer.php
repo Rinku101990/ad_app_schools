@@ -2,7 +2,7 @@
 </div>
     <script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
-    
+
     <script src="<?php echo base_url('assets/js/custom-jquery.js');?>"></script>
 
     <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>
@@ -26,7 +26,7 @@
     <script src="<?php echo base_url('assets/js/datatables/custom-datatables.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/moment.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/rating/jquery.raty.js');?>"></script>
-	
+
 	<script src="<?php echo base_url('assets/js/alertify/alertify.js');?>"></script>
     <script src="<?php echo base_url('assets/js/alertify/alertify-custom.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/custom-notifications.js');?>"></script>
@@ -39,7 +39,30 @@
             $('#multi-select-expertise').multiselect();
         });
     </script>
-    
-    
+    <script>
+    $(document).ready(function(){
+      var base_url = "http://localhost/schools_app/students/";
+      function load_new_notification(unread='0')
+      {
+        $.ajax({
+         url:base_url+"notifications/new_unread_notification",
+         method:"POST",
+         data:{unread:unread},
+         dataType:"json",
+         success:function(data){
+          //console.log(data);
+          $('#count_Notification').html(data.message.message);
+          // if(data.unseen_notification > 0){
+          //  $('.count').html(data.unseen_notification);
+          // }
+         }
+        });
+      }
+      setInterval(function(){
+      load_new_notification();
+     }, 5000);
+    });
+    </script>
+
 </body>
 </html>

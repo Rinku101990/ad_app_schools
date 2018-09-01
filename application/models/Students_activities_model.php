@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Students_activities_model extends CI_Model { 
+class Students_activities_model extends CI_Model {
 
 
 	// GET STUDENTS PROFILE DETAILS //
@@ -16,7 +16,7 @@ class Students_activities_model extends CI_Model {
 	}
 
 
-	// GET MENU LIST BASED ON ROLE PERMISSION 
+	// GET MENU LIST BASED ON ROLE PERMISSION
 	public function get_menu_role_permissions($stu_role)
 	{
 		$this->db->select('mn.menu_name, mr.*');
@@ -26,6 +26,16 @@ class Students_activities_model extends CI_Model {
 		$query = $this->db->get();
 		//echo $this->db->last_query();
 		return $query->result();
+	}
+
+	// GET ALL UNREAD NOTIFICATION //
+	public function get_all_unread_notification($unread)
+	{
+		$this->db->select('COUNT(ntfn_notification_read_status) as message');		
+		$query = $this->db->get('cms_notifications');
+		$this->db->where('ntfn_notification_read_status',$unread);
+		$count = $query->row_array();
+		return $count;
 	}
 
 }

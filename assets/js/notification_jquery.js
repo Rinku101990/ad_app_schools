@@ -21,7 +21,7 @@ $(document).ready(function(){
 	                var prHtm='';
                     prHtm +='<option>Please Select</option>';
 	                for(var key in data.recipient_list){
-	                    prHtm +='<option value="'+data.recipient_list[i].urs_id+'">'+data.recipient_list[i].urs_name+'</option>';
+	                    prHtm +='<option value="'+data.recipient_list[i].stud_id+'">'+data.recipient_list[i].stud_name+'</option>';
 	                    i++;
 	                }
 	                $("#div_recipient").show();
@@ -59,4 +59,13 @@ $(document).ready(function(){
         }
         return false;
     });
+    // SELECT MULTIPLE RECIPIENT FOR NOTIFICATION //
+    // $(function() {
+
+    //     $('#recipient_id').multiselect({
+
+    //     includeSelectAllOption: true
+
+    //     });
+    // });
 });

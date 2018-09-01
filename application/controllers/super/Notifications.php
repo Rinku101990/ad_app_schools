@@ -35,6 +35,7 @@ class Notifications extends CI_Controller {
 				'tmpl_status' => '0',
 				'tmpl_created' => date('Y-m-d H:i:s'),
 			);
+
 			$result = $this->ntm->save_notification_template($templateArray);
 			if($result){
 				$this->session->set_flashdata('message','<span class="text-success pull-right" style="font-weight:bold">Templates created successfully.</span>');
@@ -110,7 +111,7 @@ class Notifications extends CI_Controller {
 		echo json_encode($result);
 	}
 	// CREATE PRIVATE NOTIFICATION //
-	
+
 	public function send_notifications()
 	{
 		$reference = $this->session->userdata('logged_in');
@@ -121,26 +122,29 @@ class Notifications extends CI_Controller {
 		$sender_ref_id = $reference['cms_ref_id'];
 
 		$data = $this->input->post();
-		
+
 		if(!empty($data)){
-			$notificationArray = array(
 
-				'ntfn_sender_id' => $sender_id,
-				'ntfn_sender_ref_id' => $sender_ref_id,
-				'schl_id' => $this->input->post('school_name_id'),
-				'roles_id' => $this->input->post('role_id'),
-				'ntfn_receiver_id' => $this->input->post('recipient_id'),
-				'ntfn_notification_type' => $this->input->post('notification_type'),
-				'ntfn_notification_message' => $this->input->post('notification_content'),
-				'ntfn_status' => '0',
-				'ntfn_created' => date('Y-m-d H:i:s')
-				
-			);
+			$receipent_id = $this->input->post('recipient_id');
+			$receiverArray = array();
+			for ($i=0; $i < count($receipent_id); $i++) {
 
-			echo "<pre>";
-			print_r($notificationArray);die;
+	        $receiverArray[] = array(
+						'ntfn_sender_id' => $sender_id,
+						'ntfn_sender_ref_id' => $sender_ref_id,
+						'schl_id' => $this->input->post('school_name_id'),
+						'roles_id' => $this->input->post('role_id'),
+						'ntfn_receiver_id' => $receipent_id[$i],
+						'ntfn_notification_type' => $this->input->post('notification_type'),
+						'ntfn_notification_message' => $this->input->post('notification_content'),
+						'ntfn_status' => '0',
+						'ntfn_created' => date('Y-m-d H:i:s')
+	        );
+	    }
+			// echo "<pre>";
+			// print_r($receiverArray);die;
 
-			$result = $this->ntm->save_notification_message($notificationArray);
+			$result = $this->ntm->save_notification_message($receiverArray);
 			if($result){
 				$this->session->set_flashdata('message','<span class="text-success pull-right" style="font-weight:bold">Notification Send successfully.</span>');
 				redirect('super/notifications/send');
