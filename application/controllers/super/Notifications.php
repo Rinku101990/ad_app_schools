@@ -117,23 +117,29 @@ class Notifications extends CI_Controller {
 		if(empty($reference)){
 			redirect('','refresh');
 		}
-		$sender_id = $reference['cms_ref_id'];
+		$sender_id = $reference['cms_id'];
+		$sender_ref_id = $reference['cms_ref_id'];
 
 		$data = $this->input->post();
 		
-		echo "<pre>";
-		print_r($data);die;
-		
 		if(!empty($data)){
 			$notificationArray = array(
+
 				'ntfn_sender_id' => $sender_id,
-				'schl_id' => $this->input->post('school_name'),
+				'ntfn_sender_ref_id' => $sender_ref_id,
+				'schl_id' => $this->input->post('school_name_id'),
 				'roles_id' => $this->input->post('role_id'),
+				'ntfn_receiver_id' => $this->input->post('recipient_id'),
 				'ntfn_notification_type' => $this->input->post('notification_type'),
 				'ntfn_notification_message' => $this->input->post('notification_content'),
 				'ntfn_status' => '0',
 				'ntfn_created' => date('Y-m-d H:i:s')
+				
 			);
+
+			echo "<pre>";
+			print_r($notificationArray);die;
+
 			$result = $this->ntm->save_notification_message($notificationArray);
 			if($result){
 				$this->session->set_flashdata('message','<span class="text-success pull-right" style="font-weight:bold">Notification Send successfully.</span>');
