@@ -26,4 +26,5 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-select.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-multiselect.css');?>">
+    
 </head>

@@ -17,57 +17,42 @@
                                 <thead>
                                     <tr>
                                       <th>Notification Type</th>
-                                        <th>Description</th>
-                                        <th>Sent date</th>
-                                        <th>Sent To</th>
-                                        <th>Sent By</th>
-                                        <th>View</th>
+                                      <th>Description</th>
+                                      <th>Sent date</th>
+                                      <th>Sent To</th>
+                                      <th>Sent By</th>
+                                      <th>View</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                      <td>PTM</td>
-                                      <td>Dear Parents, We have a meeting on 26th September at 10:30 AM, Please come on time. Thank You Regards
-                                      Administrator</td>
-                                      <td>24th Sep 2018</td>
-                                      <td>DPS0023659</td>
-                                      <td>Admin</td>
-                                      <td><a href="<?php echo base_url('super/notifications/detail');?>" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> </a></td>
-                                </tr>
-
-                                <tr>
-                                  <td>PTM</td>
-                                  <td>Dear Parents, We have a meeting on 26th September at 10:30 AM, Please come on time. Thank You Regards
-                                  Administrator</td>
-                                  <td>24th Sep 2018</td>
-                                  <td>DPS0023659</td>
-                                  <td>Admin</td>
-                                  <td><button type="button" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> </button>
-                              </td>
-                            </tr>
-
-                            <tr>
-                              <td>PTM</td>
-                              <td>Dear Parents, We have a meeting on 26th September at 10:30 AM, Please come on time. Thank You Regards
-                              Administrator</td>
-                              <td>24th Sep 2018</td>
-                              <td>DPS0023659</td>
-                              <td>Admin</td>
-                              <td><button type="button" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> </button>
-                          </td>
-                        </tr>
-
+                                <?php foreach($notify as $notify_list){ ?>
+                                  <tr>
+                                    <td><?php echo $notify_list->tmpl_name;?></td>
+                                    <td><?php echo $notify_list->ntfn_notification_message;?></td>
+                                    <td>
+                                      <?php $new_date = date('d M-Y h:i A', strtotime($notify_list->ntfn_created));?>
+                                      <?php echo $new_date;?>
+                                    </td>
+                                    <td>
+                                    <?php foreach($roles as $lists){ ?>
+                                      <?php if(($notify_list->roles_id)==($lists->roles_id)){ ?>
+                                        <?php echo $lists->roles_name;?>
+                                      <?php } ?>
+                                    <?php } ?>
+                                    </td>
+                                    <td><?php echo $notify_list->ntfn_sender_ref_id;?></td>
+                                    <td>
+                                      <a href="<?php echo base_url('super/notifications/detail');?>/<?php echo $notify_list->ntfn_id;?>/<?php echo $notify_list->roles_id;?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> </a>
+                                    </td>
+                                  </tr>
+                                <?php } ?>
                                 </tbody>
-
-
                             </table>
-
                         </div>
                     </div>
                 </div>
             </div>
-
-                  </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>

@@ -42,26 +42,20 @@
                                         </select>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group col-lg-12">
+                                <div class="form-group col-lg-12" id="div_classes"  style="display: none">
                                     <label class="col-lg-4 control-label">Class</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="class_name">
-                                            <option value="">-- Select Class --</option>
-                                            <option value="">One</option>
-                                            <option value="">Two</option>
+                                        <select class="form-control" name="class_name_id[]" id="class_name_id">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-12">
+                                <div class="form-group col-lg-12" id="div_sections"  style="display: none">
                                     <label class="col-lg-4 control-label">Section</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="section_name">
-                                            <option value="">-- Select Section --</option>
-                                            <option value="">One</option>
-                                            <option value="">Two</option>
+                                        <select class="form-control" name="section_name_id[]" id="section_name_id">
                                         </select>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="form-group col-lg-12" id="div_recipient" style="display: none">
                                     <label class="col-lg-4 control-label">Recipient</label>
                                     <div class="col-lg-8">
@@ -89,7 +83,7 @@
                             </fieldset>
                             <div class="form-group">
                                 <div class="col-lg-6 col-lg-offset-5">
-                                    <button type="submit" class="btn btn-success" style="margin-left:58px">Send Notification</button>
+                                    <button type="submit" class="btn btn-success" style="margin-left:40px">Send Notification</button>
                                     <button type="reset" class="btn btn-danger">Clear</button>
                                 </div>
                             </div>
