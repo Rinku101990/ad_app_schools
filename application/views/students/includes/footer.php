@@ -39,25 +39,44 @@
             $('#multi-select-expertise').multiselect();
         });
     </script>
+
+    <script src="https://js.pusher.com/4.3/pusher.min.js"></script>
+
+    <script type="text/javascript">
+      // Enable pusher logging - don't include this in production
+      Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+          window.console.log(message);
+        }
+      };
+
+      var pusher = new Pusher('9bbc741d94b1b54c35f6');
+      var channel = pusher.subscribe('my-channel');
+
+      channel.bind('my_event', function(data) {
+        document.getElementById('event').innerHTML = data.message;
+        alert(data.message);
+      });
+    </script>
+  
     <script>
     $(document).ready(function(){
       var base_url = "http://localhost/schools_app/students/";
-      function load_new_notification(unread='0')
-      {
+
+      function load_new_notification(unread='0'){
         $.ajax({
          url:base_url+"notifications/new_unread_notification",
          method:"POST",
          data:{unread:unread},
          dataType:"json",
          success:function(data){
-          //console.log(data);
+
           $('#count_Notification').html(data.message.message);
-          // if(data.unseen_notification > 0){
-          //  $('.count').html(data.unseen_notification);
-          // }
+
          }
         });
       }
+
       setInterval(function(){
       load_new_notification();
      }, 5000);

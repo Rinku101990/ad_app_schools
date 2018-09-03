@@ -61,7 +61,7 @@
                     </li>
                     <li class="list-box dropdown hidden-xs">
                       <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a>
-                      <span class="info-label blue-bg animated rubberBand" id="count_Notification">0</span>
+                      <span class="info-label blue-bg animated rubberBand" id="event">0</span>
                         <ul class="dropdown-menu fadeInUp animated imp-notify">
                             <li class="dropdown-header">You have 3 notifications</li>
                             <li class="clearfix">
