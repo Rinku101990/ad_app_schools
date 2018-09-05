@@ -17,7 +17,7 @@
  * @link        https://github.com/darkwhispering/pusher-for-codeigniter
  * @version     2.0.0
  */
-require_once APPPATH."third_party/pusher/pusher.php";
+require_once APPPATH."/third_party/pusher/pusher.php";
 Class Ci_pusher
 {
 

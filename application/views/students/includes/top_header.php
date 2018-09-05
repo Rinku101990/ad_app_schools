@@ -61,13 +61,26 @@
                     </li>
                     <li class="list-box dropdown hidden-xs">
                       <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-notifications_active"></i> </a>
-                      <span class="info-label blue-bg animated rubberBand" id="event">0</span>
+                      <span class="info-label blue-bg animated rubberBand"><?php if(!empty($message)){echo $message['Msg'];}else{ echo "0";}?></span>
                         <ul class="dropdown-menu fadeInUp animated imp-notify">
-                            <li class="dropdown-header">You have 3 notifications</li>
-                            <li class="clearfix">
-                                <div class="icon"><img src="img/user10.png" alt="Sunrise Admin"></div>
-                                <div class="details"><strong class="text-danger">Rogie King</strong> <span>Firefox is a free, open-source web browser from Mozilla.</span></div>
-                            </li>
+                            <li class="dropdown-header">You have <?php if(!empty($message)){echo $message['Msg'];}else{ echo "0";}?> notifications</li>
+                            
+                            <?php if(!empty($msg_list)){ ?>
+                                <?php foreach($msg_list as $notification_list){ ?>
+                                <li class="clearfix">
+                                    <div class="icon"><img src="<?php echo base_url('assets/img/notification-bell.png');?>"></div>
+                                    <div class="details">
+                                        <strong class="text-danger"><?php echo $notification_list->tmpl_name;?></strong> 
+                                        <span><?php echo substr($notification_list->ntfn_notification_message, 0,80);?></span>
+                                    </div>
+                                </li>
+                                <?php } ?>
+                            <?php }else{?>
+                                <li class="clearfix">
+                                    <p>No Notification</p>
+                                </li>
+                            <?php } ?>
+
                             <li class="dropdown-footer">See all the notifications<i class="icon-arrow_forward"></i></li>
                         </ul>
                     </li>

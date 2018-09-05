@@ -16,7 +16,7 @@
                 </li>
             </ul>
         </div>
-
+        <div id="msg"></div>
         <div class="main-container">
             <div class="container-fluid">
                 <div class="row gutter">
@@ -36,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-                    <p><strong><a href="<?php echo base_url('students/notifications/trigger_event');?>" target="_blank">/click</a></strong></p>
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="panel panel-grey spacer-sm">
                             <div class="social-details clearfix">

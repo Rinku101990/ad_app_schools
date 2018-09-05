@@ -165,6 +165,8 @@
                 </ul>
             <?php } ?>
             <ul class="menu clearfix">
+                <li><a href="<?php echo base_url('students/profile/edit')?>/<?php echo $profile->stud_id;?>"><i class="fa fa-user"></i> <span class="menu-item"> Manage Profile</span></a></li>
+                <li><a href="<?php echo base_url('students/notifications/log')?>"><i class="fa fa-envelope-o"></i> <span class="menu-item"> Notifications</span></a></li>
                 <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Help</span></a></li>
             </ul>
         <?php } ?>

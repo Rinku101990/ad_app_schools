@@ -1,30 +1,4 @@
-<?php
-
-/* 
-		Pusher PHP Library
-	/////////////////////////////////
-	PHP library for the Pusher API.
-
-		$pusher = new Pusher(APIKEY, SECRET, APP_ID, CHANNEL, [Debug: true/false, HOST, PORT]);
-		$pusher->trigger('my_event', 'test_channel', [socket_id, Debug: true/false]);
-		$pusher->socket_auth('socket_id');
-		$pusher->presence_auth($channel, $socket_id, $user_id, [$user_info]);
-		$pusher->get_channels();
-		$pusher->get_presence_channels();
-		$pusher->get_channel_stats('test_channel');
-
-	Copyright 2011, Squeeks. Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
-
-	Contributors:
-		+ Paul44 (http://github.com/Paul44)
-		+ Ben Pickles (http://github.com/benpickles)
-		+ Mastercoding (http://www.mastercoding.nl)
-		+ Alias14 (mali0037@gmail.com)
-		+ Max Williams (max@pusher.com)
-		+ Zack Kitzmiller (delicious@zackisamazing.com)
-		+ Andrew Bender (igothelp@gmail.com)
-		+ Phil Leggetter (phil@leggetter.co.uk)
-*/   
+<?php   
 
 class PusherException extends Exception
 {
