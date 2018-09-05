@@ -31,7 +31,7 @@
                   <span class="empty-avatar blue">EQ</span>
                   <div class="message"><span class="arrow"></span> <a href="#" class="name"><?php echo $notify_detail->tmpl_name;?></a> <span class="date-time"><?php $new_date = date("F j, Y, g:i a", strtotime($notify_detail->rpnt_created)); echo $new_date;?></span>
                     <div class="body"> <?php echo $notify_detail->ntfn_notification_message;?>
-                      <span class="fa-stack fa-lg text-success">
+                      <span class="fa-stack" style="color: #5aaaef">
                       <i class="fa fa-check fa-stack-1x" style="margin-left:4px"></i>
                       <i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px;"></i>
                       <i class="fa fa-check  fa-stack-1x" style="margin-left:-4px"></i>

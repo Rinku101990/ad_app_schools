@@ -21,8 +21,19 @@
         <?php if(!empty($menus)){?>
             <?php foreach($menus as $menu_list){ ?>
                 <ul class="menu clearfix">
+
                     <?php if(($menu_list->prms_view)==1 && ($menu_list->menu_name)=="Dashboard") {?>
                     <li class="active selected"><a href="<?php echo base_url('students/dashboard');?>"><i class="icon-graphic_eq"></i> <span class="menu-item">Dashboards</span></a></li>
+                    <?php }else{ ?>
+                    <?php } ?>
+
+                    <?php if(($menu_list->prms_view)==1 && ($menu_list->menu_name)=="Manage Profile") {?>
+                    <li><a href="<?php echo base_url('students/profile/edit')?>/<?php echo $profile->stud_id;?>"><i class="fa fa-user"></i> <span class="menu-item"> Manage Profile</span></a></li>
+                    <?php }else{ ?>
+                    <?php } ?>
+
+                    <?php if(($menu_list->prms_view)==1 && ($menu_list->menu_name)=="Notications") {?>
+                    <li><a href="<?php echo base_url('students/notifications/log')?>"><i class="fa fa-envelope-o"></i> <span class="menu-item"> Notifications</span></a></li>
                     <?php }else{ ?>
                     <?php } ?>
 
@@ -165,9 +176,7 @@
                 </ul>
             <?php } ?>
             <ul class="menu clearfix">
-                <li><a href="<?php echo base_url('students/profile/edit')?>/<?php echo $profile->stud_id;?>"><i class="fa fa-user"></i> <span class="menu-item"> Manage Profile</span></a></li>
-                <li><a href="<?php echo base_url('students/notifications/log')?>"><i class="fa fa-envelope-o"></i> <span class="menu-item"> Notifications</span></a></li>
-                <li><a href="#"><i class="icon-domain"></i> <span class="menu-item">Help</span></a></li>
+                <li><a href="<?php echo base_url('welcome/logout');?>"><i class="icon-exit_to_app"></i> <span class="menu-item">Logout</span></a></li>
             </ul>
         <?php } ?>
     </div>

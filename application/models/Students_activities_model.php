@@ -141,4 +141,12 @@ class Students_activities_model extends CI_Model {
 		$this->db->update('cms_students', $studPassArray);
 		return $id;
 	}
+
+	// UPDATE NOTIFICATION STATUS //
+	public function update_notification_read_status($id, $status)
+	{
+		$this->db->where('rpnt_id', $id);
+		$this->db->update('cms_notify_recipients', $status);
+		return $id;
+	}
 }

@@ -24,18 +24,41 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php foreach($notify_list as $notifications){ ?>
+                                <?php  foreach($notify_list as $notifications){ ?>
                                   <tr>
                                     <td><?php echo $notifications->tmpl_name;?></td>
-                                    <td><?php echo $notifications->ntfn_notification_message;?></td>
+
+                                    
+                                    <td>
+                                      <?php if($notifications->rpnt_notification_read_status==0){ ?>
+                                        <input type="hidden" name="notify_status" value="<?php echo $notifications->rpnt_notification_read_status;?>">
+                                        <?php echo $notifications->ntfn_notification_message;?>
+                                        <span class="fa-stack" style="color: #adadbf">
+                                        <i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px;"></i>
+                                        <i class="fa fa-check  fa-stack-1x" style="margin-left:-4px"></i>
+                                        </span>
+                                      <?php }else{ ?>
+                                        <input type="hidden" name="notify_status" value="<?php echo $notifications->rpnt_notification_read_status;?>">
+                                        <?php echo $notifications->ntfn_notification_message;?>
+                                        <span class="fa-stack" style="color: #5aaaef">
+                                        <i class="fa fa-check fa-stack-1x" style="margin-left:4px"></i>
+                                        <i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px;"></i>
+                                        <i class="fa fa-check  fa-stack-1x" style="margin-left:-4px"></i>
+                                        </span>
+                                      <?php } ?>
+                                    </td>
+
                                     <td>
                                       <?php $new_date = date('d M-Y h:i A', strtotime($notifications->rpnt_created));?>
                                       <?php echo $new_date;?>
                                     </td>
+
                                     <td><?php echo $notifications->ntfn_sender_ref_id;?></td>
+
                                     <td>
-                                      <a href="<?php echo base_url('students/notifications/detail');?>/<?php echo $notifications->rpnt_id;?>/<?php echo $notifications->receiver_role;?>" class="btn btn-success btn-xs"><i class="fa fa-eye"></i> </a>
+                                      <a href="<?php echo base_url('students/notifications/detail');?>/<?php echo $notifications->rpnt_id;?>/<?php echo $notifications->receiver_role;?>" class="btn btn-info btn-xs"><i class="fa fa-eye"></i> </a>                                      
                                     </td>
+
                                   </tr>
                                 <?php } ?>
                                 </tbody>

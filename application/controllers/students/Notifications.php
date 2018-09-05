@@ -60,7 +60,20 @@ class Notifications extends CI_Controller {
 
 		$notifyid = $this->uri->segment(4);
 		$roleid = $this->uri->segment(5);
+
 		$data['notify_detail'] = $this->sam->get_notifications_detail_by_id_and_role($notifyid,$roleid);
+		$id = $data['notify_detail']->rpnt_id;
+		$status = $data['notify_detail']->rpnt_notification_read_status;
+
+		if($status==1){
+			
+		}else{
+			$value['rpnt_notification_read_status'] = '1';
+			$value['rpnt_updated'] = date('Y-m-d H:i:s');
+			$this->sam->update_notification_read_status($id, $value);
+		}
+		// echo "<pre>";
+		// print_r($data['notify_detail']);die;
 		
 		$this->load->view('students/includes/header', $data);
 		$this->load->view('students/includes/sidebar');

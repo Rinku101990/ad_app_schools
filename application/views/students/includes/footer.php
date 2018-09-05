@@ -60,7 +60,7 @@
         success:function(data){
           //console.log(data)
           //$('#msg').html(data.newmsg.tmpl_name);
-          toastr.success(data.newmsg.ntfn_notification_message,data.newmsg.tmpl_name, {timeOut: 5000})
+          //toastr.success(data.newmsg.ntfn_notification_message,data.newmsg.tmpl_name, {timeOut: 5000})
          }
       });
       // $.ajax({
