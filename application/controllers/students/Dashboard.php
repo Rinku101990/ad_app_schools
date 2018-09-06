@@ -70,6 +70,7 @@ class Dashboard extends CI_Controller {
 		$studentrole = $data['profile']->roles_id;
 
 	    $result['newmsg'] = $this->sam->get_latest_last_notification($studentid,$studentrole);
+	    $data['total_notify'] = $this->sam->get_all_notifications_list_read_unread($studentid,$studentrole);
 
 	    // echo $system_dateTime = date('Y-m-d H:i:s');
 	    // echo $notify_dateTime = $result['newmsg']->rpnt_created;

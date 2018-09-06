@@ -24,7 +24,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php  foreach($notify_list as $notifications){ ?>
+                                <?php foreach($notify_list as $notifications){ ?>
                                   <tr>
                                     <td><?php echo $notifications->tmpl_name;?></td>
 

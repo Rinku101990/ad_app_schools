@@ -96,6 +96,19 @@ class Students_model extends CI_Model {
 		//echo $this->db->last_query();
 		return $query->result();
 	}
+	//  GET STUDENTS SEARCH RESULT BY SCHOOL ID AND CLASS ID //
+	public function get_students_result_by_filter($schlid, $clsid)
+	{
+		$this->db->select('prt.prnt_gaurdian_name, std.*');
+		$this->db->from('cms_students std');
+		$this->db->join('cms_parents prt','std.prnt_id=prt.prnt_id','left');
+		$this->db->where('schl_id',$schlid);
+		$this->db->where('cls_id',$clsid);
+		$this->db->where('std.stud_status','0');
+		$query = $this->db->get();
+		//echo $this->db->last_query();
+		return $query->result();
+	}
 	//	SAVE INFORMATION IN MASTER TABLE //
 	public function save_student_info_master_table($masterArray)
 	{

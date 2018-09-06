@@ -45,7 +45,7 @@
                                 <div class="form-group col-lg-12" id="div_classes"  style="display: none">
                                     <label class="col-lg-4 control-label">Class</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="class_name_id[]" id="class_name_id">
+                                        <select class="js-example-basic-multiple" name="class_name_id[]" id="class_name_id" multiple style="width:306px">
                                         </select>
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@
                                 <div class="form-group col-lg-12" id="div_recipient" style="display: none">
                                     <label class="col-lg-4 control-label">Recipient</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="recipient_id[]" id="recipient_id" multiple>
+                                        <select class="js-example-basic-multiple" name="recipient_id[]" id="recipient_id" multiple style="width:306px">
                                         </select>
                                     </div>
                                 </div>

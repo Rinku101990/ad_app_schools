@@ -246,4 +246,41 @@ $(document).ready(function(){
         $('.checkitem').prop('checked', this.checked);
     });
 
+    // GET STUDENTS LIST BY SCHOOL ID AND CLASS ID //
+    $("#btnStudSearch").click(function(){
+        var schlid = $("#school_id").val();
+        var clsid  = $("#classes").val();
+        $.ajax({
+            url:base_url+"students/get_students_search_result",
+            method:"post",
+            data:{schlid:schlid,clsid:clsid},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.list!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.list){
+                        prHtm += '<tr>';
+                        prHtm += '<td><input type="checkbox" value="" id="checkitem" name="checkitem" class="checkitem"></td>';
+                        prHtm += '<td>'+data.list[i].stud_name+'</td>';
+                        prHtm += '<td>'+data.list[i].stud_mobile_no+'</td>';
+                        prHtm += '<td>'+data.list[i].stud_email+'</td>';
+                        prHtm += '<td>'+data.list[i].stud_id+'</td>';
+                        prHtm += '<td>'+data.list[i].stud_ref_id+'</td>';
+                        prHtm += '<td>'+data.list[i].prnt_gaurdian_name+'</td>';
+                        prHtm += '<td><label class="switch"><input type="checkbox" class="switch-input" checked="checked"><span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span></label></td>';
+                        prHtm += '<td><a href="#" class="btn btn-success btn-xs" title="View Student Profile"><i class="fa fa-eye"></i> </a>&nbsp;<a href="#" class="btn btn-primary btn-xs" title="Edit Student"><i class="fa fa-pencil" ></i> </a>&nbsp;<a href="#" class="btn btn-danger btn-xs" title="Delete Student"><i class="fa fa-trash"></i> </a>&nbsp;<button type="button" class="btn btn-warning btn-xs" title="Send Notification"><i class="fa fa-bell"></i> </button>&nbsp;<button type="button" class="btn btn-info btn-xs"><i class="fa fa-key" title="Send Credentials on his mobile"></i> </button></td>';
+                        prHtm += '</tr>';
+                        i++;
+                    }
+                    $("#searchResult").html(prHtm);
+                }else{
+                    $("#searchResult").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+
 });

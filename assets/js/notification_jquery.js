@@ -22,7 +22,7 @@ $(document).ready(function(){
                         // GET TEACHERS LIST BY ROLE ID //
                         var i=0;
                         var prHtm='';
-                        prHtm +='<option>Please Select</option>';
+                        prHtm +='<option disabled>Please Select</option>';
                         for(var key in data.recipients){
                             prHtm +='<option value="'+data.recipients[i].tchr_id+'">'+data.recipients[i].tchr_name+'</option>';
                             i++;
@@ -35,7 +35,7 @@ $(document).ready(function(){
                         // GET PARENTS LIST BY ROLE ID //
                         var i=0;
                         var prHtm='';
-                        prHtm +='<option>Please Select</option>';
+                        prHtm +='<option disabled>Please Select</option>';
                         for(var key in data.recipients){
                             prHtm +='<option value="'+data.recipients[i].prnt_id+'">'+data.recipients[i].prnt_gaurdian_name+'</option>';
                             i++;
@@ -48,7 +48,7 @@ $(document).ready(function(){
                         // GET STUDENTS LIST BY ROLE ID //
                         var i=0;
                         var clsHtm='';
-                        clsHtm +='<option>Please Select</option>';
+                        clsHtm +='<option disabled>Please Select</option>';
                         for(var key in data.recipients){
                             clsHtm +='<option value="'+data.recipients[i].cls_id+'">'+data.recipients[i].cls_name+'</option>';
                             i++;
@@ -68,8 +68,9 @@ $(document).ready(function(){
         return false;
     });
     // GET SECTION LIST BY CLASS ID //
-    $("#class_name_id").on("change", function(){
+    $("#class_name_id").on("click", function(){
         var cls_id = $(this).val();
+        $("#div_sections").show();
         //alert(cls_id);
         if(cls_id != ''){
                 $.ajax({
@@ -82,13 +83,12 @@ $(document).ready(function(){
                     if(data.sections!=''){
                         var i=0;
                         var sectHtm='';
-                        sectHtm +='<option>Please Select</option>';
+                        sectHtm +='<option disabled>Please Select</option>';
                         for(var key in data.sections){
                             sectHtm +='<option value="'+data.sections[i].sect_id+'">'+data.sections[i].sect_name+'</option>';
                             i++;
                         }
                         $("#div_recipient").hide();
-                        $("#div_sections").show();
                         $("#section_name_id").html(sectHtm);
                     }else if(data.sections==''){
                         alert("Section Record no Found!.");
@@ -115,7 +115,7 @@ $(document).ready(function(){
                     if(data.students!=''){
                         var i=0;
                         var stdHtm='';
-                        stdHtm +='<option>Please Select</option>';
+                        stdHtm +='<option disabled>Please Select</option>';
                         for(var key in data.students){
                             stdHtm +='<option value="'+data.students[i].stud_id+'">'+data.students[i].stud_name+'</option>';
                             i++;

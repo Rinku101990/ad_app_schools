@@ -41,8 +41,10 @@ class Welcome extends CI_Controller {
 
 		if($this->input->post('username') !='' && $this->input->post('userpass') !=''){
 			if($this->form_validation->run() == FALSE) {   } else {
+
 				$username = $this->input->post('username');
 				$userpass = $this->input->post('userpass');
+
 				$result = $this->auth->verification($username, $userpass);
 				if($result > 0){
 					if($result->cms_role=="super"){
@@ -53,7 +55,8 @@ class Welcome extends CI_Controller {
 							'cms_role' 	=> $result->cms_role,
 							'logged_in' => TRUE
 						);
-						$this->session->set_userdata('logged_in',$userArray);
+						$data = $this->session->set_userdata('logged_in',$userArray);
+						echo json_encode($data);
 						//$this->session->set_userdata('profile_pic',$result->profile_picture);
 						//echo "super";
 						redirect('super/dashboard');

@@ -118,6 +118,6 @@
 
 				</ul>
             </li>
-
+            <li><a href="<?php echo base_url('welcome/logout');?>"><i class="fa fa-sign-in"></i> <span class="menu-item">Logout</span></a></li>
         </ul>
     </div>

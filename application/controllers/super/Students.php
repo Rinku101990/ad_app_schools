@@ -16,6 +16,8 @@ class Students extends CI_Controller {
 		if(empty($reference)){
 			redirect('','refresh');
 		}
+		$data['schools'] = $this->std->get_school_list();
+		//$data[] = $this->std->get_all_class_list();
 		$data['students'] = $this->std->get_all_students_list();
 
 		$this->load->view('super/includes/header');
@@ -35,6 +37,15 @@ class Students extends CI_Controller {
 	{
 		$data = $this->std->get_section_list_by_id($classid);
     	echo json_encode($data);
+	}
+	// GET STUDENTS LIST BY SCHOOL ID AND CLASS ID //
+	public function get_students_search_result(){
+		// $data = $this->input->post();
+		// print_r($data);
+		$schlid = $this->input->post('schlid');
+		$clsid  = $this->input->post('clsid');
+		$data['list'] = $this->std->get_students_result_by_filter($schlid, $clsid);
+		echo json_encode($data);
 	}
 	// ADD STUDENTS PAGES //
 	public function add()

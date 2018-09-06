@@ -213,7 +213,7 @@ class Notification_model extends CI_Model {
       $this->db->from('cms_notifications ntfn');
       $this->db->join('cms_roles role','ntfn.roles_id=role.roles_id','left');
       $this->db->join('cms_notifications_templates tmpl','ntfn.ntfn_notification_type=tmpl.tmpl_id','left');
-      $this->db->join('cms_notify_recipients_classes cls',' ntfn.ntfn_id=cls.ntfn_id','left');
+      $this->db->join('cms_notify_recipients_classes cls','ntfn.ntfn_id=cls.ntfn_id','left');
       $this->db->join('cms_notify_recipients_batches sect','ntfn.ntfn_id=sect.ntfn_id','left');
       $this->db->where('ntfn.ntfn_id', $ntfnid);
       $this->db->where('ntfn.roles_id', $roleid);
@@ -221,6 +221,12 @@ class Notification_model extends CI_Model {
       //echo $this->db->last_query();
       return $query->row();
     }
+
+    // GET TEACHERS NAME //
+    // public function get_no_of_recipient_teachers_name($ntfnid, $roleid)
+    // {
+    //   $this->
+    // }
 
     // GET NO OF RECIPIENT BY ROLE AND NOTIFICATION SENDER ID //
     public function get_no_of_recipient_list($ntfnid, $roleid)

@@ -17,23 +17,26 @@
     <script src="<?php echo base_url('assets/js/jvectormap/custom/world-map-markers.js');?>"></script>
     <script src="<?php echo base_url('assets/js/custom.js');?>"></script>
     <script src="<?php echo base_url('assets/js/custom-overview.js');?>"></script>
-	  <script src="<?php echo base_url('assets/js/calendar/fullcalendar.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/calendar/fullcalendar.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/calendar/fullcalendar.js');?>"></script>
-	  <script src="<?php echo base_url('assets/js/datatables/dataTables.min.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/datatables/dataTables.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/dataTables.bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/autoFill.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/autoFill.bootstrap.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/fixedHeader.min.js');?>"></script>
     <script src="<?php echo base_url('assets/js/datatables/custom-datatables.js');?>"></script>
-	  <script src="<?php echo base_url('assets/js/moment.js');?>"></script>
-	  <script src="<?php echo base_url('assets/js/rating/jquery.raty.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/moment.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/rating/jquery.raty.js');?>"></script>
 
-	  <script src="<?php echo base_url('assets/js/alertify/alertify.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/alertify/alertify.js');?>"></script>
     <script src="<?php echo base_url('assets/js/alertify/alertify-custom.js');?>"></script>
-	  <script src="<?php echo base_url('assets/js/custom-notifications.js');?>"></script>
+	<script src="<?php echo base_url('assets/js/custom-notifications.js');?>"></script>
 
     <script src="<?php echo base_url('assets/js/bootstrap-select.js');?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap-multiselect.js');?>"></script>
+
+    <link href="<?php echo base_url('assets/css/select2.min.css');?>" rel="stylesheet" />
+    <script src="<?php echo base_url('assets/js/select2.min.js');?>"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -46,6 +49,39 @@
             $("#addTemplates").modal({backdrop: false});
         });
     });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#checkall").click(function () {
+                $('.checkitem').prop('checked', this.checked);
+            });
+
+            // GET ALL CHECKBOX VALUE IN ARRAY TO SEND MULTIPLE STUDENTS NOTIFICATION //
+            $("#btnSendNotification").click(function(){
+
+                var favorite = [];
+                $.each($("input[name='checkitem']:checked"), function(){            
+                    favorite.push($(this).val());
+                });
+
+                //alert($("input[name='checkitem']:checked").size());
+
+                var ids = favorite.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+                alert(ids);
+            });
+
+            // GET CHECKBOX VALUE TO SINGAL STUDENT NOTIFICATION //
+            // $("#btnSendOnlyNotidication").click(function(){
+            //     var oneid = $("input[name='checkitem']:checked").val();
+            //     alert(oneid);
+            // });
+        });
     </script>
 
 </body>
