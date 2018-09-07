@@ -249,4 +249,38 @@ class Students_model extends CI_Model {
 		return $student_id;
 	}
 
+	// DELETE MULTIPLE STUDENT FROM MASTER TABLE //
+	public function delete_multiple_masterid_record($masterid)
+	{
+		//print_r($masterid);die;
+		$masterid = $masterid;
+
+		$count = 0;
+        foreach ($masterid as $msid){
+           $msdid = intval($msid).'';
+           $this->db->where('cms_id', $msdid);
+		   $this->db->delete('cms_users'); 
+           $count = $count+1;
+       }
+
+	   return $masterid;
+	}
+
+	// DELETE STUDENTS RECORD FROM DATABASE //
+	public function selete_multiple_students_record($studentsid)
+	{
+		//print_r($studentsid);die;
+		$studentsid = $studentsid;
+
+		$count = 0;
+        foreach ($studentsid as $sdid){
+           $sddid = intval($sdid).'';
+		   $this->db->where('stud_id', $sddid);
+		   $this->db->delete('cms_students');
+           $count = $count+1;
+        }
+		//echo $this->db->last_query();
+		return $studentsid;
+	}
+
 }

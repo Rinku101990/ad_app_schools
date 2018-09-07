@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var base_url = "http://localhost/schools_app/super/"
+    var base_url = "http://localhost/schools_app/super/";
 	//	DELETE ACADEMIC YEAR //
 	$(".deleteAcademic").click(function(){
 		var academic_id = $(this).attr("delAca");
@@ -271,7 +271,7 @@ $(document).ready(function(){
                         prHtm += '<td>'+data.list[i].stud_ref_id+'</td>';
                         prHtm += '<td>'+data.list[i].prnt_gaurdian_name+'</td>';
                         prHtm += '<td><label class="switch"><input type="checkbox" class="switch-input" checked="checked"><span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span></label></td>';
-                        prHtm += '<td><a href="#" class="btn btn-success btn-xs" title="View Student Profile"><i class="fa fa-eye"></i> </a>&nbsp;<a href="#" class="btn btn-primary btn-xs" title="Edit Student"><i class="fa fa-pencil" ></i> </a>&nbsp;<a href="#" class="btn btn-danger btn-xs" title="Delete Student"><i class="fa fa-trash"></i> </a>&nbsp;<button type="button" class="btn btn-warning btn-xs" title="Send Notification"><i class="fa fa-bell"></i> </button>&nbsp;<button type="button" class="btn btn-info btn-xs"><i class="fa fa-key" title="Send Credentials on his mobile"></i> </button></td>';
+                        prHtm += '<td><a href="'+base_url+'students/profile/'+data.list[i].stud_id+'" class="btn btn-success btn-xs" title="View Student Profile"><i class="fa fa-eye"></i> </a>&nbsp;<a href="'+base_url+'students/add/'+data.list[i].stud_id+'" class="btn btn-primary btn-xs" title="Edit Student"><i class="fa fa-pencil" ></i> </a>&nbsp;<a href="'+base_url+'students/delete/'+data.list[i].stud_id+'/'+data.list[i].cms_id+'" class="btn btn-danger btn-xs" title="Delete Student"><i class="fa fa-trash"></i> </a>&nbsp;<button type="button" class="btn btn-warning btn-xs" title="Send Notification"><i class="fa fa-bell"></i> </button>&nbsp;<button type="button" class="btn btn-info btn-xs"><i class="fa fa-key" title="Send Credentials on his mobile"></i> </button></td>';
                         prHtm += '</tr>';
                         i++;
                     }

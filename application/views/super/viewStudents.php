@@ -1,13 +1,13 @@
 <div class="top-bar clearfix">
   <div class="page-title">
-      <h4>Assignments</h4>
+      <h4>Students Record List</h4>
   </div>
 </div>
 <div class="main-container">
     <div class="container-fluid">
         <div class="row gutter">
           <div class="col-lg-6">
-              <a href="<?php echo base_url('super/students/add');?>" class="btn btn-danger pull-left">
+              <a href="<?php echo base_url('super/students/add');?>" class="btn btn-danger pull-left" style="margin-top: 21px">
                 <i class="fa fa-plus"></i> Add New Student
               </a>
             </div>
@@ -36,6 +36,7 @@
             <div class="clearfix"></div> <br>
             <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12">
               <div class="panel panel-red">
+                <div id="MsgStatus" class="alert alert-success" style="float:right;padding: 15px;margin-right: 17px;font-size: 15px"></div>
                 <?php $success= $this->session->flashdata('message'); if(!empty($success)) { ?>
                     <?php echo $this->session->flashdata('message'); ?>
                 <?php } ?>
@@ -50,6 +51,7 @@
                             <div class="tab-pane active" id="all">
                               <div class="panel-body">
                                 <div class="table-responsive">
+                                <form action="<?php echo base_url('super/studentsexcel/student_list');?>" method="post" style="overflow: hidden">
                                   <table id="fixedHeader" class="table table-striped table-bordered no-margin" cellspacing="0" width="100%">
                                     <thead>
                                       <tr>
@@ -68,7 +70,8 @@
                                     <?php foreach($students as $students_list){ ?>
                                       <tr>
                                         <td>
-                                          <input type="checkbox" value="<?php echo $students_list->stud_id;?>" id="checkitem" name="checkitem" class="checkitem">
+                                          <input type="checkbox" value="<?php echo $students_list->stud_id;?>" id="checkitem" name="checkitem[]" class="checkitem">
+                                          <input type="hidden" name="ms_id[]" class="ms_id" value="<?php echo $students_list->cms_id;?>">
                                         </td>
                                         <td>
                                           <?php echo $students_list->stud_name;?>
@@ -110,14 +113,15 @@
                                         <th colspan="9">
                                           <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-ban"></i> Disable</button>
                                           <button type="button" class="btn btn-success btn-xs"><i class="fa fa-flag"></i> Enable</button>
-                                          <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Delete</button>
-                                          <button type="button" class="btn btn-success btn-xs"><i class="fa fa-file-excel-o"></i> Excel</button>
+                                          <button type="button" class="btn btn-danger btn-xs" id="btnDeleteSelectedStudents"><i class="fa fa-trash"></i> Delete</button>
+                                          <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-file-excel-o"></i> Excel</button>
                                           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-file-pdf-o"></i> PDF</button>
                                           <button type="button" class="btn btn-warning btn-xs" id="btnSendNotification"><i class="fa fa-bell"></i> Send Notification</button>
                                           <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key"></i> Send Credentials</button></th>
                                       </tr>
                                     </tfoot>
                                   </table>
+                                </form>
                                 </div>
                               </div>
                             </div>
@@ -231,6 +235,30 @@
                                 </div>
                               </div>
                             </div> -->
+
+                            <!-- Student deletion report modal -->
+                            <div class="modal fade" id="error_page" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content" style="margin-top: 28%;width: 70%;margin-left:27%">
+                                  <div class="modal-header" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Delete Selected Students</h4>
+                                    <?php $success= $this->session->flashdata('message'); if(!empty($success)) { ?>
+                                        <?php echo $this->session->flashdata('message'); ?>
+                                    <?php } ?>
+                                  </div>
+                                  <div class="panel-body">
+                                      <p style="text-align: center" class="text-danger">No records selected for delete</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Student deletion report modal -->
+
                           </div>
                         </div>
                       </div>

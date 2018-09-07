@@ -323,4 +323,41 @@ class Students extends CI_Controller {
 			redirect('super/students');
 		}
 	}
+
+	// DELETE MULTIPLE STUDENTS BY THEIR ID //
+	public function remove_multiple_students_record(){
+
+		$studid_array = $this->input->post('selected_student_id');
+		$msid_array = $this->input->post('selected_master_id');
+
+		$stud_id = explode(",",$studid_array);
+		$cms_id = explode(",",$msid_array);
+
+		// $masterid = array();
+		// for ($i=0; $i < count($cms_id); $i++) { 
+	 //        $masterid[] = array(
+	 //        	'cms_id' => $cms_id[$i]
+	 //        );
+	 //    }
+	    //print_r($masterid);die;
+		$result = $this->std->delete_multiple_masterid_record($cms_id);
+		if($result){
+
+			// $studentsid = array();
+			// for ($i=0; $i < count($stud_id); $i++) { 
+		 //        $studentsid[] = array(
+		 //        	'stud_id' => $stud_id[$i]
+		 //        );
+		 //    }
+		    $delete = $this->std->selete_multiple_students_record($stud_id);
+		    if($delete){
+				$responce = "Student Record Deleted successfully.";
+				echo json_encode($responce);
+			}else{
+				$error = "Student delettion process failed.";
+				echo json_encode($error);
+			}
+		}
+	}	
+
 }

@@ -57,6 +57,10 @@
     </script>
     <script>
         $(document).ready(function () {
+            // REDIRECT BASE URL //
+            var base_url = "http://localhost/schools_app/super/";
+
+            // SELECT ALL BY CHECKBOX //
             $("#checkall").click(function () {
                 $('.checkitem').prop('checked', this.checked);
             });
@@ -65,7 +69,7 @@
             $("#btnSendNotification").click(function(){
 
                 var favorite = [];
-                $.each($("input[name='checkitem']:checked"), function(){            
+                $.each($("input[name='checkitem[]']:checked"), function(){            
                     favorite.push($(this).val());
                 });
 
@@ -81,6 +85,80 @@
             //     var oneid = $("input[name='checkitem']:checked").val();
             //     alert(oneid);
             // });
+
+            // DELETE SELECTED STUDENTS RECORD BY THEIR IDS //
+            $("#btnDeleteSelectedStudents").click(function(){
+
+               // GET STUDENT ID BY CHECK BOX // 
+               var studentid = [];
+                $.each($("input[name='checkitem[]']:checked"), function(){            
+                    studentid.push($(this).val());
+                });
+                var selected_student_id = studentid.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+                // GET HIDDEN MASTER ID OF STUDENTS //
+                var ms_id = [];
+                $("input:hidden.ms_id").each(function() {
+                    ms_id.push($(this).val());
+                });
+                var selected_master_id = ms_id.join(",");
+
+                // CREATE PROCESS OF STUDENTS RECORD DELETION //
+                if(selected_student_id.length ==''){
+
+                    $("#error_page").modal({backdrop: false});
+
+                }else{
+
+                    if(confirm('Are you sure want to delete records!')){
+                        $.ajax({
+                            url:base_url+"students/remove_multiple_students_record",
+                            method:"post",
+                            data:{selected_student_id:selected_student_id,selected_master_id:selected_master_id},
+                            dataType:"json",
+                            success: function(response){
+                                //alert(response);
+                                //console.log(response);
+                                window.location.href = base_url+"students";
+                                $("#MsgStatus").html(response);
+                            }
+                        });
+                    }
+                    return false;
+
+                }
+            });
+
+            // CREATE STUDENDS LISTS IN EXCEL BY THEIR IDS //
+            $("#btnExportExcelFile").click(function(){
+
+               // GET STUDENT ID BY CHECK BOX // 
+               var studentid = [];
+                $.each($("input[name='checkitem[]']:checked"), function(){            
+                    studentid.push($(this).val());
+                });
+                var selected_excel_student_id = studentid.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+                // CREATE PROCESS OF STUDENTS RECORD DELETION //
+                if(selected_excel_student_id.length ==''){
+
+                    $("#error_page").modal({backdrop: false});
+
+                }else{
+                    $.ajax({
+                        url:base_url+"studentsexcel/student_list",
+                        method:"post",
+                        data:{selected_excel_student_id:selected_excel_student_id},
+                        dataType:"json",
+                        success: function(response){
+                            //alert(response);
+                            //console.log(response);
+                            window.location.href = base_url+"students";
+                            //$("#MsgStatus").html(response);
+                        }
+                    });
+                }
+            });
         });
     </script>
 
