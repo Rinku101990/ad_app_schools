@@ -151,9 +151,9 @@
                         data:{selected_excel_student_id:selected_excel_student_id},
                         dataType:"json",
                         success: function(response){
-                            //alert(response);
+                            alert(response);
                             //console.log(response);
-                            window.location.href = base_url+"students";
+                            //window.location.href = base_url+"students";
                             //$("#MsgStatus").html(response);
                         }
                     });

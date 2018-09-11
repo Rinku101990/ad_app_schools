@@ -114,7 +114,7 @@
                                           <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-ban"></i> Disable</button>
                                           <button type="button" class="btn btn-success btn-xs"><i class="fa fa-flag"></i> Enable</button>
                                           <button type="button" class="btn btn-danger btn-xs" id="btnDeleteSelectedStudents"><i class="fa fa-trash"></i> Delete</button>
-                                          <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-file-excel-o"></i> Excel</button>
+                                          <button type="button" class="btn btn-success btn-xs" id="btnExportExcelFile"><i class="fa fa-file-excel-o"></i> Excel</button>
                                           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-file-pdf-o"></i> PDF</button>
                                           <button type="button" class="btn btn-warning btn-xs" id="btnSendNotification"><i class="fa fa-bell"></i> Send Notification</button>
                                           <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key"></i> Send Credentials</button></th>

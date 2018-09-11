@@ -14,4 +14,13 @@ class Authentication extends CI_Model {
         return $result;
     }
 
+    // SAVE LOGIN USER TOKENS //
+
+    public function save_token($login_id, $tokenValue)
+    {
+        $this->db->where('cms_id', $login_id);
+        $this->db->update('cms_users', $tokenValue);
+        return $login_id;
+    }
+
 }

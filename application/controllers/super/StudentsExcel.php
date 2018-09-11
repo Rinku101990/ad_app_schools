@@ -23,7 +23,7 @@ class StudentsExcel extends CI_Controller {
 			$column++;
 		}
 		$studentsids = $this->input->post('checkitem');
-		
+		//print_r($studentsids);die;
 		$students_list = $this->Students_excel_report->get_students_list_by_id_in_excel($studentsids);
 
 		$excel_row = 2;
