@@ -51,7 +51,7 @@
                             <div class="tab-pane active" id="all">
                               <div class="panel-body">
                                 <div class="table-responsive">
-                                <form action="<?php echo base_url('super/studentsexcel/student_list');?>" method="post" style="overflow: hidden">
+                                <form action="<?php echo base_url('super/studentsexcel/student_list');?>" method="post" style="overflow: hidden" class="excelAction">
                                   <table id="fixedHeader" class="table table-striped table-bordered no-margin" cellspacing="0" width="100%">
                                     <thead>
                                       <tr>
@@ -72,6 +72,11 @@
                                         <td>
                                           <input type="checkbox" value="<?php echo $students_list->stud_id;?>" id="checkitem" name="checkitem[]" class="checkitem">
                                           <input type="hidden" name="ms_id[]" class="ms_id" value="<?php echo $students_list->cms_id;?>">
+                                          <input type="hidden" name="school_id[]" class="school_id" value="<?php echo $students_list->schl_id;?>">
+                                          <input type="hidden" name="cms_role[]" class="cms_role" value="<?php echo $students_list->roles_id;?>">
+                                          <input type="hidden" name="prnt_id[]" class="prnt_id" value="<?php echo $students_list->prnt_id;?>">
+                                          <input type="hidden" name="cls_id[]" class="cls_id" value="<?php echo $students_list->cls_id;?>">
+                                          <input type="hidden" name="sect_id[]" class="sect_id" value="<?php echo $students_list->sect_id;?>">
                                         </td>
                                         <td>
                                           <?php echo $students_list->stud_name;?>
@@ -114,10 +119,11 @@
                                           <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-ban"></i> Disable</button>
                                           <button type="button" class="btn btn-success btn-xs"><i class="fa fa-flag"></i> Enable</button>
                                           <button type="button" class="btn btn-danger btn-xs" id="btnDeleteSelectedStudents"><i class="fa fa-trash"></i> Delete</button>
-                                          <button type="button" class="btn btn-success btn-xs" id="btnExportExcelFile"><i class="fa fa-file-excel-o"></i> Excel</button>
+                                          <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-file-excel-o"></i> Excel</button>
                                           <button type="button" class="btn btn-default btn-xs"><i class="fa fa-file-pdf-o"></i> PDF</button>
                                           <button type="button" class="btn btn-warning btn-xs" id="btnSendNotification"><i class="fa fa-bell"></i> Send Notification</button>
-                                          <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key"></i> Send Credentials</button></th>
+                                          <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key"></i> Send Credentials</button>
+                                        </th>
                                       </tr>
                                     </tfoot>
                                   </table>
@@ -236,6 +242,64 @@
                               </div>
                             </div> -->
 
+                            <!-- Student Notification send modal -->
+                            <div class="modal fade" id="error_notify_page" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content" style="margin-top: 28%;width: 70%;margin-left:27%">
+                                  <div class="modal-header" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Send Notification To Selected Students</h4>
+                                  </div>
+                                  <div class="panel-body">
+                                      <p style="text-align: center" class="text-danger">No records selected for Notification</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal fade" id="select_notify_page" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content" style="margin-top: 13%;width: 78%;margin-left:25%">
+                                  <div class="modal-header" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Send Notification To Selected Students</h4>
+                                  </div>
+                                  <div class="panel-body">
+                                      <form method="post" class="form-horizontal">
+                                        <fieldset>
+                                            <div class="form-group col-lg-12" id="noti_type">
+                                                <label class="col-lg-4 control-label">Notification Type</label>
+                                                <div class="col-lg-8">
+                                                    <select class="form-control" name="notification_type" id="notification_type" required="required">
+                                                        <option value="" disabled="disabled">Notification Type</option>
+                                                        <?php foreach($templates as $tmpl_list){ ?>
+                                                        <option value="<?php echo $tmpl_list->tmpl_id;?>"><?php echo $tmpl_list->tmpl_name;?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-lg-12" id="noti_content" style="display: none">
+                                                <label class="col-lg-4 control-label">Content</label>
+                                                <div class="col-lg-8">
+                                                    <textarea name="notification_content" id="notification_content" rows="10" class="form-control"></textarea>
+                                                </div>
+                                                <div class="col-lg-3 pull-right">
+                                                    <button class="btn btn-success" style="margin-top: 5px;margin-left: 13px">Send</button>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Student Notification send Modal -->
                             <!-- Student deletion report modal -->
                             <div class="modal fade" id="error_page" role="dialog">
                               <div class="modal-dialog">
@@ -244,9 +308,6 @@
                                   <div class="modal-header" style="text-align: center">
                                     <button type="button" class="close" data-dismiss="modal">×</button>
                                     <h4 class="modal-title">Delete Selected Students</h4>
-                                    <?php $success= $this->session->flashdata('message'); if(!empty($success)) { ?>
-                                        <?php echo $this->session->flashdata('message'); ?>
-                                    <?php } ?>
                                   </div>
                                   <div class="panel-body">
                                       <p style="text-align: center" class="text-danger">No records selected for delete</p>
@@ -257,7 +318,26 @@
                                 </div>
                               </div>
                             </div>
-                            <!-- Student deletion report modal -->
+                            <!-- Student Deletion Report Modal -->
+                            <!-- Student Excel Report Modal -->
+                            <div class="modal fade" id="error_report_page" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content" style="margin-top: 28%;width: 70%;margin-left:27%">
+                                  <div class="modal-header" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Select Students for Report</h4>
+                                  </div>
+                                  <div class="panel-body">
+                                      <p style="text-align: center" class="text-danger">No records selected for report</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Student Deletion Report Modal -->
 
                           </div>
                         </div>

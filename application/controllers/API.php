@@ -63,7 +63,7 @@ class API extends REST_Controller{
         $stu_role   = $this->get('cms_role');
         $stu_token  = $this->get('cms_token');
         
-        if(!$stu_id && !$stu_role && !$stu_token){
+        if(!$stu_id && !$stu_role){
 
             $this->response("No User specified", 400);
 
@@ -92,6 +92,44 @@ class API extends REST_Controller{
             exit;
         }
     }
+
+    // GET LATEST NOTIFICATION //
+    function get_latest_notifications_get()
+    {
+        $stu_id     = $this->get('cms_id');
+        $stu_role   = $this->get('cms_role');
+        $stu_token  = $this->get('cms_token');
+        
+        if(!$stu_id && !$stu_role && !$stu_token){
+
+            $this->response("No User specified", 400);
+
+            exit;
+        }
+
+        $data['profile'] = $this->sam->get_students_profile_record($stu_id,$stu_role);
+
+        $studentid     = $this->get('cms_id');
+        $studentrole   = $this->get('cms_role');
+
+        $data['newmsg'] = $this->sam->get_latest_last_notification($studentid,$studentrole);
+        $data['total_notify'] = $this->sam->get_all_notifications_list_read_unread($studentid,$studentrole);
+
+        if($data){
+
+            $this->response($data, 200); 
+
+            exit;
+        } 
+        else{
+
+             $this->response("Invalid Token", 404);
+
+            exit;
+        }
+    }
+
+    // 
     //API - client sends isbn and on valid isbn book information is sent back
     // function bookByIsbn_get(){
 

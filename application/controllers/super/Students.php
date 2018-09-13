@@ -8,7 +8,47 @@ class Students extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Students_model', 'std');
+		$this->load->model('Notification_model', 'ntm');
 	}
+	// IMAGE UPLOAD TESTING //
+	// public function loadimage()
+	// {
+	// 	$this->load->view('super/image_resize');
+	// }
+	// public function upload()
+	// { kong timeng
+	// 	$config_image = array();
+	// 	$config_image['upload_path'] = './upload/resize';
+	// 	$config_image['allowed_types'] = 'jpg|png|gif';
+	// 	$config_image['max_size'] = '1024';
+	// 	// $config_image['max_width'] = '1024';
+	// 	// $config_image['max_height'] = '768';
+	// 	$this->load->library('upload', $config_image);
+	// 	// $this->upload->do_upload();
+	// 	// echo "<pre>";
+	// 	// print_r($this->upload->data());
+	// 	// echo "</pre>";
+	// 	if(!$this->upload->do_upload()){
+	// 		$error = array('error' => $this->upload->display_errors());
+	// 		$this->load->view('super/image_resize', $error);
+	// 	}else{
+	// 		$data = array('upload_data' => $this->upload->data());
+	// 		$this->image_resize($data['upload_data']['full_path'], $data['upload_data']['file_name']);
+	// 	}
+	// }
+	// public function image_resize($path, $file)
+	// {
+	// 	$config_resize = array();
+	// 	$config_resize['image_library'] = 'gd2';
+	// 	$config_resize['source_image'] = $path;
+	// 	$config_resize['create_thumb'] = TRUE;
+	// 	$config_resize['maintain_ratio'] = TRUE;
+	// 	$config_resize['width'] = 75;
+	// 	$config_resize['height'] = 50;
+	// 	$config_resize['new_image'] = './upload/resize/thumb/'.$file;
+	// 	$this->laod->library('image_lib', $config_image);
+	// 	$this->image_lib->resize();
+	// }
 	// DEFAULT INDEX PAGE LOAD //
 	public function index()
 	{
@@ -17,7 +57,7 @@ class Students extends CI_Controller {
 			redirect('','refresh');
 		}
 		$data['schools'] = $this->std->get_school_list();
-		//$data[] = $this->std->get_all_class_list();
+		$data['templates'] = $this->ntm->get_all_notification_templates();
 		$data['students'] = $this->std->get_all_students_list();
 
 		$this->load->view('super/includes/header');

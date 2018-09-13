@@ -15,61 +15,32 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{   
 		
-		$detect = new Mobile_Detect();
-	    if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS()) {
+    	$reference = $this->session->userdata('logged_in');
+		if(empty($reference)){
+			redirect('','refresh');
+		}
+    	
+    	$stu_id = $reference['cms_id'];
+		$stu_role = $reference['cms_role'];
 
-	    	$method = $_SERVER['REQUEST_METHOD'];
-	    	if($method != 'GET'){
-	    		echo json_encode(400, array('status' => 400,'message' => 'Bad request.'));
-	    	}else{
-	    		$reference = $this->session->userdata('logged_in');
-				if(empty($reference)){
-					redirect('','refresh');
-				}
+		$data['profile'] = $this->sam->get_students_profile_record($stu_id,$stu_role);
+		$data['menus']   = $this->sam->get_menu_role_permissions($stu_role);
 
-	   			// $stu_id = $reference['cms_id'];
-				// $stu_role = $reference['cms_role'];
+		$studentid 	 = $data['profile']->stud_id;
+		$studentrole = $data['profile']->roles_id;
 
-				// $data['profile'] = $this->sam->get_students_profile_record($stu_id,$stu_role);
-				// $data['menus']   = $this->sam->get_menu_role_permissions($stu_role);
+		$data['message'] = $this->sam->get_all_unread_notification($studentid,$studentrole);
+		$data['msg_list'] = $this->sam->get_all_unread_notification_detail_list($studentid,$studentrole);
 
-				// $studentid 	 = $data['profile']->stud_id;
-				// $studentrole = $data['profile']->roles_id;
+		// echo "<pre>";
+		// print_r($data);die;
 
-				// $data['message'] = $this->sam->get_all_unread_notification($studentid,$studentrole);
-				// $data['msg_list'] = $this->sam->get_all_unread_notification_detail_list($studentid,$studentrole);
-
-				echo json_encode($reference);
-	    	}
-	        //header("Location: ".$this->config->item('base_url')."/mobile"); exit;
-	    }else{
-	    	$reference = $this->session->userdata('logged_in');
-			if(empty($reference)){
-				redirect('','refresh');
-			}
+		$this->load->view('students/includes/header', $data);
+		$this->load->view('students/includes/sidebar');
+		$this->load->view('students/includes/top_header');
+		$this->load->view('students/index');
+		$this->load->view('students/includes/footer');
 	    	
-	    	$stu_id = $reference['cms_id'];
-			$stu_role = $reference['cms_role'];
-
-			$data['profile'] = $this->sam->get_students_profile_record($stu_id,$stu_role);
-			$data['menus']   = $this->sam->get_menu_role_permissions($stu_role);
-
-			$studentid 	 = $data['profile']->stud_id;
-			$studentrole = $data['profile']->roles_id;
-
-			$data['message'] = $this->sam->get_all_unread_notification($studentid,$studentrole);
-			$data['msg_list'] = $this->sam->get_all_unread_notification_detail_list($studentid,$studentrole);
-
-			// echo "<pre>";
-			// print_r($data);die;
-
-			$this->load->view('students/includes/header', $data);
-			$this->load->view('students/includes/sidebar');
-			$this->load->view('students/includes/top_header');
-			$this->load->view('students/index');
-			$this->load->view('students/includes/footer');
-	    	
-	    }
 	}
 
 	// VIEW ALL UNREAD NOTIFICATION //

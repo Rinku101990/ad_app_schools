@@ -1,4 +1,4 @@
-    <footer>Copyright Ordius IT Solutions Pvt Ltd. <span><?php echo date('Y');?></span>.</footer>
+    <footer>Copyright <a href="https://www.ordiusits.com/" target="_blank"><span>Ordius IT Solutions Pvt Ltd.</span></a> <span><?php echo date('Y');?></span>.</footer>
 </div>
     <script src="<?php echo base_url('assets/js/jquery.js');?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
@@ -39,6 +39,14 @@
     <script src="<?php echo base_url('assets/js/select2.min.js');?>"></script>
 
     <script type="text/javascript">
+        $(function () {
+            $('#class_name_id').multiselect({
+                includeSelectAllOption: true
+            });
+        });
+    </script>
+    
+    <script type="text/javascript">
         $(document).ready(function() {
             $('#multi-select-expertise').multiselect();
         });
@@ -73,11 +81,19 @@
                     favorite.push($(this).val());
                 });
 
-                //alert($("input[name='checkitem']:checked").size());
-
                 var ids = favorite.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
 
-                alert(ids);
+                if(ids.length ==''){
+
+                    $("#error_notify_page").modal({backdrop: false});
+
+                }else{
+                    if(ids.length >=0){
+                        $("#selected_ids").val(ids);
+                        $("#select_notify_page").modal({backdrop: false});
+                    }
+                }
+
             });
 
             // GET CHECKBOX VALUE TO SINGAL STUDENT NOTIFICATION //
@@ -142,18 +158,19 @@
                 // CREATE PROCESS OF STUDENTS RECORD DELETION //
                 if(selected_excel_student_id.length ==''){
 
-                    $("#error_page").modal({backdrop: false});
+                    $("#error_report_page").modal({backdrop: false});
 
                 }else{
                     $.ajax({
                         url:base_url+"studentsexcel/student_list",
                         method:"post",
                         data:{selected_excel_student_id:selected_excel_student_id},
-                        dataType:"json",
+                        //dataType:"json",
                         success: function(response){
-                            alert(response);
+                            //alert(response);
                             //console.log(response);
-                            //window.location.href = base_url+"students";
+                            window.location.href = base_url+"students";
+                            //window.open(base_url+"students",'_blank' );
                             //$("#MsgStatus").html(response);
                         }
                     });
