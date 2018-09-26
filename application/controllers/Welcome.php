@@ -7,8 +7,6 @@ class Welcome extends CI_Controller {
 	public function __construct() { 
 		parent::__construct(); 
 		$this->load->model('Authentication','auth');
-		$this->load->library('Mobile_Detect');
-		//$this->load->helper('users_helper');
 	}
 
 	// LOAD DEFAULT LOGIN PAGE // 
@@ -34,27 +32,18 @@ class Welcome extends CI_Controller {
 
 				if(isset($result->cms_id) && ($result->cms_id > 0)){
 
-					$token = bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
-
 					if($result->cms_role=="super"){
 						$userArray = array(
 							'cms_id' 	=> $result->cms_id,
 							'cms_ref_id'=> $result->cms_ref_id,
 							'cms_email' => $result->cms_email,
 							'cms_role' 	=> $result->cms_role,
-							'token'     => $token,
 							'logged_in' => TRUE
 
 						);
 
-						$detect = new Mobile_Detect();
-					    if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS()) {
-					    	echo json_encode($userArray);
-					        //header("Location: ".$this->config->item('base_url')."/mobile"); exit;
-					    }else{
-					    	$data = $this->session->set_userdata('logged_in', $userArray);
-					    	redirect('super/dashboard');
-					    }
+						$data = $this->session->set_userdata('logged_in', $userArray);
+					    redirect('super/dashboard');
 					}
 	
 					// if($result->cms_role=="subadmin"){
@@ -129,26 +118,15 @@ class Welcome extends CI_Controller {
 	
 					if($result->cms_role==6){
 
-						$login_id = $result->cms_id;
-						$tokenValue = array('cms_token'=>$token, 'cms_last_login_datetime'=>date('Y-m-d H:i:s'));
-						$this->auth->save_token($login_id, $tokenValue); 
-
 						$userArray = array(
 							'cms_id' 	=> $result->cms_id,
 							'cms_ref_id'=> $result->cms_ref_id,
 							'cms_email' => $result->cms_email,
 							'cms_role' 	=> $result->cms_role,
-							'cms_token' => $token,
 							'status'    => "200"
 						);
-						$detect = new Mobile_Detect();
-					    if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS()) {
-					    	
-					    	echo json_encode($userArray);
-					    }else{
-					    	$reference = $this->session->set_userdata('logged_in', $userArray);
-					    	redirect('students/dashboard');
-					    }
+						$reference = $this->session->set_userdata('logged_in', $userArray);
+					    redirect('students/dashboard');
 						
 					}
 	
@@ -166,33 +144,13 @@ class Welcome extends CI_Controller {
 					// 	redirect('transports/dashboard');
 					// }
 				}else{
-					
-					$detect = new Mobile_Detect();
-				    if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS()) {
-				    	$error = array(
-				    		'status' => '204',
-				    		'message'=> 'Invalid Reference ID And Password.'
-				    	);
-				    	echo json_encode($error);
-				    }else{
-				    	$this->session->set_flashdata('error','<span style="color:red">Invalid Reference ID And Password.</span>');
-						redirect('welcome');
-				    }
+					$this->session->set_flashdata('error','<span style="color:red">Invalid Reference ID And Password.</span>');
+					redirect('welcome');
 				}
 			}
-		}else{
-				
-			$detect = new Mobile_Detect();
-		    if ($detect->isMobile() || $detect->isTablet() || $detect->isAndroidOS()) {
-		    	$error = array(
-		    		'status' => '204',
-		    		'message'=> 'Fields are blank.'
-		    	);
-		    	echo json_encode($error);
-		    }else{
-		    	$this->session->set_flashdata('error','<span style="color:red">Fields are blank.</span>');
-				redirect('welcome');
-		    }
+		}else{	
+			$this->session->set_flashdata('error','<span style="color:red">Fields are blank.</span>');
+			redirect('welcome');
 		}
 	}
 	

@@ -10,45 +10,7 @@ class Students extends CI_Controller {
 		$this->load->model('Students_model', 'std');
 		$this->load->model('Notification_model', 'ntm');
 	}
-	// IMAGE UPLOAD TESTING //
-	// public function loadimage()
-	// {
-	// 	$this->load->view('super/image_resize');
-	// }
-	// public function upload()
-	// { kong timeng
-	// 	$config_image = array();
-	// 	$config_image['upload_path'] = './upload/resize';
-	// 	$config_image['allowed_types'] = 'jpg|png|gif';
-	// 	$config_image['max_size'] = '1024';
-	// 	// $config_image['max_width'] = '1024';
-	// 	// $config_image['max_height'] = '768';
-	// 	$this->load->library('upload', $config_image);
-	// 	// $this->upload->do_upload();
-	// 	// echo "<pre>";
-	// 	// print_r($this->upload->data());
-	// 	// echo "</pre>";
-	// 	if(!$this->upload->do_upload()){
-	// 		$error = array('error' => $this->upload->display_errors());
-	// 		$this->load->view('super/image_resize', $error);
-	// 	}else{
-	// 		$data = array('upload_data' => $this->upload->data());
-	// 		$this->image_resize($data['upload_data']['full_path'], $data['upload_data']['file_name']);
-	// 	}
-	// }
-	// public function image_resize($path, $file)
-	// {
-	// 	$config_resize = array();
-	// 	$config_resize['image_library'] = 'gd2';
-	// 	$config_resize['source_image'] = $path;
-	// 	$config_resize['create_thumb'] = TRUE;
-	// 	$config_resize['maintain_ratio'] = TRUE;
-	// 	$config_resize['width'] = 75;
-	// 	$config_resize['height'] = 50;
-	// 	$config_resize['new_image'] = './upload/resize/thumb/'.$file;
-	// 	$this->laod->library('image_lib', $config_image);
-	// 	$this->image_lib->resize();
-	// }
+	
 	// DEFAULT INDEX PAGE LOAD //
 	public function index()
 	{
@@ -373,22 +335,9 @@ class Students extends CI_Controller {
 		$stud_id = explode(",",$studid_array);
 		$cms_id = explode(",",$msid_array);
 
-		// $masterid = array();
-		// for ($i=0; $i < count($cms_id); $i++) { 
-	 //        $masterid[] = array(
-	 //        	'cms_id' => $cms_id[$i]
-	 //        );
-	 //    }
-	    //print_r($masterid);die;
 		$result = $this->std->delete_multiple_masterid_record($cms_id);
 		if($result){
 
-			// $studentsid = array();
-			// for ($i=0; $i < count($stud_id); $i++) { 
-		 //        $studentsid[] = array(
-		 //        	'stud_id' => $stud_id[$i]
-		 //        );
-		 //    }
 		    $delete = $this->std->selete_multiple_students_record($stud_id);
 		    if($delete){
 				$responce = "Student Record Deleted successfully.";
@@ -398,6 +347,86 @@ class Students extends CI_Controller {
 				echo json_encode($error);
 			}
 		}
+	}
+
+	// CHANGE STUDENT STATUS OFF BY THEIR IDS //
+	public function students_status_off()
+	{
+		$data = $this->input->post();
+		if(!empty($data)){
+			$stdid = $this->input->post('stdIdOff');
+			$value['stud_status'] = $this->input->post('stdValOff');
+			//print_r($value);die;
+			$result = $this->std->off_student_status_by_id($stdid, $value);
+			if($result){
+				echo "Off";
+			}else{
+				echo "On";
+			}
+		}else{
+			echo "empty";
+		}
+	}
+	// CHANGE STUDENT STATUS ON BY THEIR ID //
+	public function students_status_on()
+	{
+		$data = $this->input->post();
+		if(!empty($data)){
+			$stdid = $this->input->post('stdIdOn');
+			$value['stud_status'] = $this->input->post('stdValOn');
+			$result = $this->std->on_student_status_by_id($stdid, $value);
+			if($result){
+				echo "On";
+			}else{
+				echo "Off";
+			}
+		}else{
+			echo "empty";
+		}
+	}
+
+	// DISABLED MULTIPLE IDS OF STUDENTS //
+	public function disabled_students_multi_ids()
+	{
+		$stdid = $this->input->post('idForDisable');
+		$selForDisableId = explode(",",$stdid);
+		$selStatus['stud_status'] = '1';
+		$result = $this->std->disabled_multiple_students_by_id($selForDisableId, $selStatus);
+		if($result){
+			echo "Off";
+		}else{
+			echo "bad";
+		}
+	}
+	// ENABLED MULTIPLE IDS OF STUDENTS //
+	public function enabled_students_multi_ids()
+	{
+		$stdid = $this->input->post('idForEnable');
+		$selForEnabledId = explode(",",$stdid);
+		$selStatus['stud_status'] = '0';
+		$result = $this->std->enabled_multiple_students_by_id($selForEnabledId, $selStatus);
+		if($result){
+			echo "On";
+		}else{
+			echo "bad";
+		}
+	}
+
+	// SEND NOTIFICATION TO STUDENTS //
+	public function send_notifications()
+	{
+		$reference = $this->session->userdata('logged_in');
+		if(empty($reference)){
+			redirect('','refresh');
+		}
+
+
+
+		$data = $this->input->post();
+		echo "<pre>";
+		echo $mstid = $reference['cms_id']."<br>";
+		echo $ref_id = $reference['cms_ref_id']."<br>";
+		print_r($data);
 	}	
 
 }

@@ -37,13 +37,10 @@
 
     <link href="<?php echo base_url('assets/css/select2.min.css');?>" rel="stylesheet" />
     <script src="<?php echo base_url('assets/js/select2.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jspdf.min.js');?>"></script>
 
     <script type="text/javascript">
-        $(function () {
-            $('#class_name_id').multiselect({
-                includeSelectAllOption: true
-            });
-        });
+        //document.multiselect('#class_name_id');
     </script>
     
     <script type="text/javascript">
@@ -83,14 +80,23 @@
 
                 var ids = favorite.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
 
+                // var schl_id = [];
+                // $.each($("input[name='school_id']:hidden"), function(){            
+                //     schl_id.push($(this).val());
+                // });
+
+                // var schools_id = schl_id.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
                 if(ids.length ==''){
 
                     $("#error_notify_page").modal({backdrop: false});
 
                 }else{
                     if(ids.length >=0){
-                        $("#selected_ids").val(ids);
+
+                        $("#students_id").val(ids);
                         $("#select_notify_page").modal({backdrop: false});
+
                     }
                 }
 
@@ -175,6 +181,27 @@
                         }
                     });
                 }
+            });
+
+            // SEND NOTIFICATION TO INDIVIUAL STUDENTS //
+            // $('#checkitem').click(function () {
+            //     $('#btnNotify').prop("disabled", !$("#checkitem").prop("checked")); 
+            // });
+            $(".btnSendNotify").click(function(){
+
+                var stdid  = $(this).attr("stid");
+                var schlid = $(this).attr("schlid");
+                var clsid  = $(this).attr("clsid");
+                var sectid = $(this).attr("sectid");
+                //alert(sectid);
+                if(stdid.lenght==0){
+                    alert("Select Student.");
+                }else{
+                    $("#error_report_page").modal({backdrop: false});
+                }
+                
+                
+            
             });
         });
     </script>

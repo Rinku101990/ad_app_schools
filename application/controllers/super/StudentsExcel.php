@@ -35,8 +35,9 @@ class StudentsExcel extends CI_Controller {
 			$object->getActiveSheet()->setCellValueByColumnAndRow(2, $excel_row, $row->stud_email);
 			$object->getActiveSheet()->setCellValueByColumnAndRow(3, $excel_row, $row->stud_id);
 			$object->getActiveSheet()->setCellValueByColumnAndRow(4, $excel_row, $row->stud_ref_id);
-			$object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->stud_address.','.$row->stud_pincode);
-			$object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->prnt_gaurdian_name);
+			$object->getActiveSheet()->setCellValueByColumnAndRow(5, $excel_row, $row->prnt_gaurdian_name);
+			$object->getActiveSheet()->setCellValueByColumnAndRow(6, $excel_row, $row->stud_address.','.$row->stud_pincode);
+			
 			
 			$excel_row++;
 		}

@@ -45,7 +45,7 @@
                                 <div class="form-group col-lg-12" id="div_classes"  style="display: none">
                                     <label class="col-lg-4 control-label">Class</label>
                                     <div class="col-lg-8">
-                                        <select class="form-control" name="class_name_id[]" id="class_name_id" style="width:306px">
+                                        <select class="form-control" name="class_name_id[]" id="class_name_id">
                                         </select>
                                     </div>
                                 </div>

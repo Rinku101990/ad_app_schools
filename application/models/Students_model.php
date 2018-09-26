@@ -136,7 +136,6 @@ class Students_model extends CI_Model {
 		$this->db->select('prt.prnt_gaurdian_name, std.*');
 		$this->db->from('cms_students std');
 		$this->db->join('cms_parents prt','std.prnt_id=prt.prnt_id','left');
-		$this->db->where('std.stud_status','0');
 		$query = $this->db->get();
 		//echo $this->db->last_query();
 		return $query->result();
@@ -252,7 +251,6 @@ class Students_model extends CI_Model {
 	// DELETE MULTIPLE STUDENT FROM MASTER TABLE //
 	public function delete_multiple_masterid_record($masterid)
 	{
-		//print_r($masterid);die;
 		$masterid = $masterid;
 
 		$count = 0;
@@ -269,7 +267,6 @@ class Students_model extends CI_Model {
 	// DELETE STUDENTS RECORD FROM DATABASE //
 	public function selete_multiple_students_record($studentsid)
 	{
-		//print_r($studentsid);die;
 		$studentsid = $studentsid;
 
 		$count = 0;
@@ -281,6 +278,49 @@ class Students_model extends CI_Model {
         }
 		//echo $this->db->last_query();
 		return $studentsid;
+	}
+
+	// CHANGE STUDENTS STATUS BY THEIR ID //
+	public function off_student_status_by_id($stdid, $value)
+    {
+    	$this->db->where('stud_id', $stdid);
+    	$this->db->update('cms_students', $value);
+    	//echo $this->db->last_query();
+    	return $stdid;
+    }
+    public function on_student_status_by_id($stdid, $value)
+    {
+    	$this->db->where('stud_id', $stdid);
+    	$this->db->update('cms_students', $value);
+    	//echo $this->db->last_query();
+    	return $stdid;
+    }
+
+    // DISABLED MULTIPLE STUDENTS BY THEIR IDS //
+    public function disabled_multiple_students_by_id($selForDisableId, $selStatus)
+	{
+		$selForDisableId1 = $selForDisableId;
+		$count = 0;
+        foreach ($selForDisableId1 as $stdids){
+           $stdids1 = intval($stdids).'';
+           $this->db->where('stud_id', $stdids1);
+		   $this->db->update('cms_students', $selStatus); 
+           $count = $count+1;
+       }
+	   return $selForDisableId;
+	}
+	// ENABLED MULTIPLE STUDENTS BY THEIR IDS //
+    public function enabled_multiple_students_by_id($selForEnabledId, $selStatus)
+	{
+		$selForEnabledId1 = $selForEnabledId;
+		$count = 0;
+        foreach ($selForEnabledId1 as $stdids){
+           $stdids1 = intval($stdids).'';
+           $this->db->where('stud_id', $stdids1);
+		   $this->db->update('cms_students', $selStatus); 
+           $count = $count+1;
+       }
+	   return $selForEnabledId;
 	}
 
 }

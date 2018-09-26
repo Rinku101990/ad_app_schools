@@ -56,7 +56,7 @@
                                     <thead>
                                       <tr>
                                         <th><input type="checkbox" id="checkall" name="checkall"> </th>
-                                        <th>name</th>
+                                        <th>Name</th>
                                         <th>Mobile</th>
                                         <th>Email</th>
                                         <th>Roll No</th>
@@ -66,17 +66,11 @@
                                         <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <tbody id="searchResult">
+                                    <!-- <tbody id="searchResult"> -->
                                     <?php foreach($students as $students_list){ ?>
                                       <tr>
                                         <td>
-                                          <input type="checkbox" value="<?php echo $students_list->stud_id;?>" id="checkitem" name="checkitem[]" class="checkitem">
-                                          <input type="hidden" name="ms_id[]" class="ms_id" value="<?php echo $students_list->cms_id;?>">
-                                          <input type="hidden" name="school_id[]" class="school_id" value="<?php echo $students_list->schl_id;?>">
-                                          <input type="hidden" name="cms_role[]" class="cms_role" value="<?php echo $students_list->roles_id;?>">
-                                          <input type="hidden" name="prnt_id[]" class="prnt_id" value="<?php echo $students_list->prnt_id;?>">
-                                          <input type="hidden" name="cls_id[]" class="cls_id" value="<?php echo $students_list->cls_id;?>">
-                                          <input type="hidden" name="sect_id[]" class="sect_id" value="<?php echo $students_list->sect_id;?>">
+                                          <input type="checkbox" value="<?php echo $students_list->stud_id;?>" id="checkitem" checkitem="<?php echo $students_list->stud_id;?>" name="checkitem[]" class="checkitem">
                                         </td>
                                         <td>
                                           <?php echo $students_list->stud_name;?>
@@ -86,28 +80,30 @@
                                         <td><?php echo $students_list->stud_id;?></td>
                                         <td><?php echo $students_list->stud_ref_id;?></td>
                                         <td><?php echo $students_list->prnt_gaurdian_name;?></td>
+
                                         <?php if(($students_list->stud_status)=='0'){ ?>
                                         <td>
-                                          <label class="switch">
-                                            <input type="checkbox" class="switch-input" checked="checked">
+                                          <label class="switch" id="switch<?php echo $students_list->stud_id;?>">
+                                            <input type="checkbox" name="status" id="statusOff" statusOff="<?php echo $students_list->stud_id;?>" class="switch-input statusOff" checked="checked" value="1">
                                             <span class="switch-label" data-on="On" data-off="Off"></span> 
                                             <span class="switch-handle"></span>
                                           </label>
                                         </td>
                                         <?php }else{ ?>
-                                          <td>
-                                            <label class="switch">
-                                              <input type="checkbox" class="switch-input">
-                                              <span class="switch-label" data-on="On" data-off="Off"></span> 
-                                              <span class="switch-handle"></span>
-                                            </label>
-                                          </td>
+                                        <td>
+                                          <label class="switch" id="switch<?php echo $students_list->stud_id;?>">
+                                            <input type="checkbox" name="status" id="statusOn" statusOn="<?php echo $students_list->stud_id;?>" class="switch-input statusOn" value="0">
+                                            <span class="switch-label" data-on="On" data-off="Off"></span> 
+                                            <span class="switch-handle"></span>
+                                          </label>
+                                        </td>
                                         <?php } ?>
+
                                         <td>
                                           <a href="<?php echo base_url('super/students/profile');?>/<?php echo $students_list->stud_id;?>" class="btn btn-success btn-xs" title="View Student Profile"><i class="fa fa-eye"></i> </a>
                                           <a href="<?php echo base_url('super/students/add');?>/<?php echo $students_list->stud_id;?>" class="btn btn-primary btn-xs" title="Edit Student"><i class="fa fa-pencil" ></i> </a>
                                           <a onclick="return confirm('are you sure want to delete!.');" href="<?php echo base_url('super/students/delete');?>/<?php echo $students_list->cms_id;?>/<?php echo $students_list->stud_id;?>" class="btn btn-danger btn-xs" title="Delete Student"><i class="fa fa-trash"></i> </a>
-                                          <button type="button" class="btn btn-warning btn-xs" title="Send Notification"><i class="fa fa-bell"></i> </button>
+                                          <button type="button" class="btn btn-warning btn-xs btnSendNotify" id="btnNotify" stid="<?php echo $students_list->stud_id;?>" schlid="<?php echo $students_list->schl_id;?>" clsid="<?php echo $students_list->cls_id;?>" sectid="<?php echo $students_list->sect_id;?>" title="Send Notification"><i class="fa fa-bell"></i> </button>
                                           <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key" title="Send Credentials on his mobile"></i> </button>
                                          </td>
                                       </tr>
@@ -116,11 +112,11 @@
                                     <tfoot>
                                       <tr>
                                         <th colspan="9">
-                                          <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-ban"></i> Disable</button>
-                                          <button type="button" class="btn btn-success btn-xs"><i class="fa fa-flag"></i> Enable</button>
+                                          <button type="button" class="btn btn-danger btn-xs btnDisableMultipleStudents"><i class="fa fa-ban"></i> Disable</button>
+                                          <button type="button" class="btn btn-success btn-xs btnEnableMultipleStudents"><i class="fa fa-flag"></i> Enable</button>
                                           <button type="button" class="btn btn-danger btn-xs" id="btnDeleteSelectedStudents"><i class="fa fa-trash"></i> Delete</button>
                                           <button type="submit" class="btn btn-success btn-xs"><i class="fa fa-file-excel-o"></i> Excel</button>
-                                          <button type="button" class="btn btn-default btn-xs"><i class="fa fa-file-pdf-o"></i> PDF</button>
+                                          <button type="button" class="btn btn-default btn-xs btnSavePdf"><i class="fa fa-file-pdf-o"></i> PDF</button>
                                           <button type="button" class="btn btn-warning btn-xs" id="btnSendNotification"><i class="fa fa-bell"></i> Send Notification</button>
                                           <button type="button" class="btn btn-info btn-xs"><i class="fa fa-key"></i> Send Credentials</button>
                                         </th>
@@ -269,8 +265,14 @@
                                     <h4 class="modal-title">Send Notification To Selected Students</h4>
                                   </div>
                                   <div class="panel-body">
-                                      <form method="post" class="form-horizontal">
+                                      <form method="post" action="<?php echo base_url('super/students/send_notifications');?>" class="form-horizontal">
                                         <fieldset>
+                                            <div class="form-group col-lg-12">
+                                              <label class="col-lg-4"></label>
+                                              <div class="col-lg-8">
+                                                <input type="text" name="students_id" class="form-control" id="students_id">
+                                              </div>
+                                            </div>
                                             <div class="form-group col-lg-12" id="noti_type">
                                                 <label class="col-lg-4 control-label">Notification Type</label>
                                                 <div class="col-lg-8">
@@ -292,6 +294,7 @@
                                                 </div>
                                             </div>
                                         </fieldset>
+                                      </form>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="close" data-dismiss="modal">×</button>
@@ -330,6 +333,26 @@
                                   </div>
                                   <div class="panel-body">
                                       <p style="text-align: center" class="text-danger">No records selected for report</p>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- Student Deletion Report Modal -->
+
+                            <!-- Student Pdf Report Modal -->
+                            <div class="modal fade" id="error_pdf_page" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content" style="margin-top: 28%;width: 70%;margin-left:27%">
+                                  <div class="modal-header" style="text-align: center">
+                                    <button type="button" class="close" data-dismiss="modal">×</button>
+                                    <h4 class="modal-title">Select Students for Pdf</h4>
+                                  </div>
+                                  <div class="panel-body">
+                                      <p style="text-align: center" class="text-danger">No records selected for Pdf</p>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="close" data-dismiss="modal">×</button>

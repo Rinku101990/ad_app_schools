@@ -169,6 +169,116 @@ $(document).ready(function(){
        }
     });
 
+    // CHANGE STUDENT STATUS ACTIVE AND INACTIVE //
+    $(".statusOff").click(function(){
+        var stdIdOff  = $(this).attr("statusOff");
+        var stdValOff = $("#statusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"students/students_status_off",
+            data:{stdIdOff:stdIdOff,stdValOff:stdValOff},
+            // beforeSend: function(){
+            //     $("#switch"+stdIdOff).html('<img src="http://localhost/schools_app/assets/img/processing.gif" style="margin-left:25px">');
+            // },
+            success: function(data){
+                //console.log(data);
+                if(data=="Off"){
+                    $("#switch"+stdIdOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+    $(".statusOn").click(function(){
+        var stdIdOn  = $(this).attr("statusOn");
+        var stdValOn = $("#statusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"students/students_status_on",
+            data:{stdIdOn:stdIdOn,stdValOn:stdValOn},
+            // beforeSend: function(){
+            //     $("#switch"+stdIdOn).html('<img src="http://localhost/schools_app/assets/img/processing.gif" style="margin-left:25px">');
+            // },
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+stdIdOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    // DISABLED STUDENTS BY MULTIPLE SELECTION //
+    $(".btnDisableMultipleStudents").click(function(){
+
+        var stdids = [];
+        $.each($("input[name='checkitem[]']:checked"), function(){            
+            stdids.push($(this).val());
+        });
+        var idForDisable = stdids.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        $.ajax({
+            method:"post",
+            url:base_url+"students/disabled_students_multi_ids",
+            data:{idForDisable:idForDisable},
+            success: function(data){
+                //alert(data);
+                if(data=="Off"){
+                    location.reload(true);
+                }else{
+                    location.reload(true);
+                }
+            }
+        });
+
+    });
+    // ENABLED STUDENTS BY MULTIPLE SELECTION //
+    $(".btnEnableMultipleStudents").click(function(){
+
+        var stdids = [];
+        $.each($("input[name='checkitem[]']:checked"), function(){            
+            stdids.push($(this).val());
+        });
+        var idForEnable = stdids.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        $.ajax({
+            method:"post",
+            url:base_url+"students/enabled_students_multi_ids",
+            data:{idForEnable:idForEnable},
+            success: function(data){
+                //alert(data);
+                if(data=="On"){
+                    location.reload(true);
+                }else{
+                    location.reload(true);
+                }
+            }
+        });
+    });
+    
+    // CREATE STUDENTS PDF //
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+        return true;
+        }
+    };
+    $(document).ready(function() {
+        $('.btnSavePdf').click(function () {
+            doc.fromHTML($('#fixedHeader').html(), 15, 15, {
+            'width': 200,
+            'elementHandlers': specialElementHandlers
+            });
+            var current_date = new Date();
+            var month = current_date.getMonth()+1;
+            var day = current_date.getDate();
+            var output = current_date.getFullYear() + '_' + (month<10 ? '0' : '') + month + '_' + (day<10 ? '0' : '') + day;
+            doc.save('students_pdf_report_'+output+'_.pdf');
+        });
+    });
+
     // GET USER PERMISSION LIST //
     $("#permission_role").on("change", function(){
         var perimission_id = $(this).val();
@@ -280,6 +390,224 @@ $(document).ready(function(){
                     $("#searchResult").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
                 }
             }
+        });
+    });
+
+
+    // SAVE NEW SUBJECT LIST //
+    $("#btnSaveNewSubject").click(function(){
+        $("#newSubjectModal").modal({backdrop: false});
+    });
+    // SAVE NEW SUBJECT JQUERY //
+    $("#formNewAddSubject").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/save_subject",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="upload"){
+                    window.location.href=base_url+"subjects";
+                }else if(data=="failed"){
+                     window.location.href=base_url+"subjects";
+                }else{
+
+                }
+            }
+        });
+    });
+    // VIEW SUB CATEGORY BY ID //
+    $(".btnViewSubjects").click(function(){
+        var sub_id = $(this).attr("viewsub");
+        $.ajax({
+            method:'POST',
+            url:base_url+'subjects/viewSubCategory',
+            data:{sub_id:sub_id},
+            dataType:"json",
+            success: function(data){
+                $("#viewSubjectModal").modal({backdrop: false});
+
+                $("#usubject_id").val(data.sub_info.sub_id);
+                $("#usubject_name").val(data.sub_info.sub_name);
+                $("#usubject_code").val(data.sub_info.sub_code);
+                $("#usubject_auth").val(data.sub_info.sub_auth_name);
+                $("#usubject_desc").val(data.sub_info.sub_desc);
+            }
+        });
+    });
+
+    // UPDATE NEW SUBJECT JQUERY //
+    $("#formUpdateSubject").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/update_subject",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="updated"){
+                    window.location.href=base_url+"subjects";
+                }else if(data=="failed"){
+                     window.location.href=base_url+"subjects";
+                }else{
+
+                }
+            }
+        });
+    });
+
+    // CHANGE SUBJECT STATUS ACTIVE AND INACTIVE //
+    $(".subjectStatusOff").click(function(){
+        var subIdOff  = $(this).attr("subjectStatusOff");
+        var subValOff = $("#subjectStatusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/subject_status_off",
+            data:{subIdOff:subIdOff,subValOff:subValOff},
+            success: function(data){
+                if(data=="Off"){
+                    $("#switch"+subIdOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+    $(".subjectStatusOn").click(function(){
+        var subIdOn  = $(this).attr("subjectStatusOn");
+        var subValOn = $("#subjectStatusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/subject_status_on",
+            data:{subIdOn:subIdOn,subValOn:subValOn},
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+subIdOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
+    // SELECT ALL BY CHECKBOX //
+    $("#subjectItem").click(function () {
+        $('.subjectItem').prop('checked', this.checked);
+    });
+
+    // DISABLED SUBJECT BY MULTIPLE SELECTION //
+    $(".btnDisableMultipleSubjects").click(function(){
+
+        var subids = [];
+        $.each($("input[name='subjectItem[]']:checked"), function(){            
+            subids.push($(this).val());
+        });
+        var subidForDisable = subids.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/disabled_subjects_multi_ids",
+            data:{subidForDisable:subidForDisable},
+            success: function(data){
+                //alert(data);
+                if(data=="Off"){
+                    location.reload(true);
+                }else{
+                    location.reload(true);
+                }
+            }
+        });
+
+    });
+    // ENABLED SUBJECT BY MULTIPLE SELECTION //
+    $(".btnEnableMultipleSubject").click(function(){
+
+        var subids = [];
+        $.each($("input[name='subjectItem[]']:checked"), function(){            
+            subids.push($(this).val());
+        });
+        var subIdForEnable = subids.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        $.ajax({
+            method:"post",
+            url:base_url+"subjects/enabled_subjects_multi_ids",
+            data:{subIdForEnable:subIdForEnable},
+            success: function(data){
+                //alert(data);
+                if(data=="On"){
+                    location.reload(true);
+                }else{
+                    location.reload(true);
+                }
+            }
+        });
+    });
+
+    // DELETE SELECTED SUBJECT RECORD BY THEIR IDS //
+    $("#btnDeleteSelectedSubjects").click(function(){
+       // GET SUBJECT ID BY CHECK BOX // 
+       var subid = [];
+        $.each($("input[name='subjectItem[]']:checked"), function(){            
+            subid.push($(this).val());
+        });
+        var selected_sub_id = subid.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        // CREATE PROCESS OF SUBJECT RECORD DELETION //
+        if(selected_sub_id.length ==''){
+            $("#error_delete_page").modal({backdrop: false});
+        }else{
+            if(confirm('Are you sure want to delete records!')){
+                $.ajax({
+                    url:base_url+"subjects/remove_multiple_subjects_record",
+                    method:"post",
+                    data:{selected_sub_id:selected_sub_id},
+                    success: function(response){
+                        if(data=="success"){
+                            window.location.href=base_url+"subjects";
+                        }else if(data=="failed"){
+                             window.location.href=base_url+"subjects";
+                        }else{
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+    });
+
+    // CHECK A CHECKBOX CHECKED OR NOT WHEN CREATE SUBJECT EXCEL //
+    $("form").submit(function(){
+        if ($('input:checkbox').filter(':checked').length < 1){
+            alert("Check at least one Game!");
+        return false;
+        }
+    });
+
+    // CREATE SUBJECT PDF //
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+        return true;
+        }
+    };
+    $(document).ready(function() {
+        $('.btnSaveSubjectPdf').click(function () {
+            doc.fromHTML($('.subjectPdf').html(), 15, 15, {
+            'width': 200,
+            'elementHandlers': specialElementHandlers
+            });
+            var current_date = new Date();
+            var month = current_date.getMonth()+1;
+            var day = current_date.getDate();
+            var output = current_date.getFullYear() + '_' + (month<10 ? '0' : '') + month + '_' + (day<10 ? '0' : '') + day;
+            doc.save('subject_pdf_report_'+output+'_.pdf');
         });
     });
 
