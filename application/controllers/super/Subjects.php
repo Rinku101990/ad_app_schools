@@ -8,6 +8,7 @@ class Subjects extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Subjects_model', 'subm');
+		$this->load->model('Schools_model', 'schl');
 	}
 
 	public function index()
@@ -18,6 +19,7 @@ class Subjects extends CI_Controller {
 		}
 
 		$data['subjects'] = $this->subm->get_all_subjects();
+		$data['schools'] = $this->schl->get_schools_information_list();
 
 	 	$this->load->view('super/includes/header');
 	 	$this->load->view('super/includes/sidebar');
@@ -33,6 +35,7 @@ class Subjects extends CI_Controller {
 		if(!empty($data)){
 			
 			$subjectArray = array(
+				'schl_id' => $this->input->post('schlid'),
 				'sub_name' => $this->input->post('subject_name'),
 				'sub_code' => $this->input->post('subject_code'),
 				'sub_auth_name' => $this->input->post('subject_auth'),
@@ -70,6 +73,7 @@ class Subjects extends CI_Controller {
 		if(!empty($data)){
 			$subjectid = $this->input->post('subject_id');
 			$updateSubjectArray = array(
+				'schl_id' => $this->input->post('schlid'),
 				'sub_name' => $this->input->post('subject_name'),
 				'sub_code' => $this->input->post('subject_code'),
 				'sub_auth_name' => $this->input->post('subject_auth'),
@@ -151,7 +155,8 @@ class Subjects extends CI_Controller {
 		}
 	}
 
-	public function remove_multiple_subjects_record(){
+	public function remove_multiple_subjects_record()
+	{
 
 		$subject_array = $this->input->post('selected_sub_id');
 
@@ -162,7 +167,7 @@ class Subjects extends CI_Controller {
 			$this->session->set_flashdata('message','<span class="alert alert-success" style="padding: 4px;">Subject delete Successfully.</span>');
     		echo "success";
 		}else{
-			$this->session->set_flashdata('message','<span class="alert alert-danger" style="padding: 4px;">Subject delete Successfully.</span>');
+			$this->session->set_flashdata('message','<span class="alert alert-danger" style="padding: 4px;">Subject deletion failed.</span>');
     		echo "failed";
 		}
 	}

@@ -5,30 +5,9 @@
 <div class="main-container">
   <div class="container-fluid">
     <div class="row gutter">
-      <div class="col-lg-6  ">
-        <p><button  class="btn btn-danger btn-xs" id="btnSaveNewSubject"><i class="fa fa-plus"></i>Create New Subject</button></p>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <p><button class="btn btn-danger btn-xs" id="btnSaveNewSubject"><i class="fa fa-plus"></i> Create New Subject</button></p>
       </div>
-        <!-- <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 pull-right"><div class="form-group has-feedback">
-          <div class="col-lg-6">
-            <select class="form-control" name="country" data-bv-field="country">
-              <option value="">-- Select School --</option>
-              <option value="fr">DPS Delhi</option>
-              <option value="de">SMP, bareilly</option>
-            </select>
-            <i class="form-control-feedback" data-bv-icon-for="country" style="display: none;"></i>
-            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="country" data-bv-result="NOT_VALIDATED" style="display: none;">The country is required and can't be empty</small>
-          </div>
-          <div class="col-lg-6 pull-right">
-            <select class="form-control" name="country" data-bv-field="country">
-              <option value="">-- Select a Class --</option>
-              <option value="fr">One</option>
-              <option value="de">Two</option>
-              <option value="it">Three</option>
-            </select>
-            <i class="form-control-feedback" data-bv-icon-for="country" style="display: none;"></i>
-            <small class="help-block" data-bv-validator="notEmpty" data-bv-for="country" data-bv-result="NOT_VALIDATED" style="display: none;">The country is required and can't be empty</small>
-          </div>
-        </div> -->
       </div>
       <div class="clearfix"></div> <br>
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -126,6 +105,17 @@
          <form method="post" id="formNewAddSubject" class="form-horizontal">
             <fieldset>
                 <div class="form-group col-lg-12">
+                  <label class="col-lg-3 control-label">School</label>
+                  <div class="col-lg-9">
+                    <select class="form-control" name="schlid" id="schlid" required="required">
+                      <option value="">-- Select School --</option>
+                      <?php foreach($schools as $schools_list){ ?>
+                      <option value="<?php echo $schools_list->schl_id;?>"><?php echo $schools_list->schl_name;?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12">
                   <label class="col-lg-3">Subject Name</label>
                   <div class="col-lg-9">
                     <input type="text" name="subject_name" class="form-control" id="subject_name" placeholder="Enter Subject Name" required="required">
@@ -177,6 +167,17 @@
       <div class="panel-body">
          <form method="post" id="formUpdateSubject" class="form-horizontal">
             <fieldset>
+                <div class="form-group col-lg-12">
+                  <label class="col-lg-3 control-label">School</label>
+                  <div class="col-lg-9">
+                    <select class="form-control" name="schlid" id="schlid" required="required">
+                      <option value="">-- Select School --</option>
+                      <?php foreach($schools as $schools_list){ ?>
+                      <option value="<?php echo $schools_list->schl_id;?>"><?php echo $schools_list->schl_name;?></option>
+                      <?php } ?>
+                    </select>
+                  </div>
+                </div>
                 <div class="form-group col-lg-12">
                   <label class="col-lg-3">Subject Name</label>
                   <div class="col-lg-9">

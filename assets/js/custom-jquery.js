@@ -108,6 +108,25 @@ $(document).ready(function(){
             }
         });
     });
+    $("#classes").on("change",function(){
+        var classid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"timetable/get_section_list_for_classs",
+            data:{classid:classid},
+            dataType:"json",
+            success: function(data){
+                //console.log(data);
+                $("#sections").empty();
+                $("#sections").append('<option value="">Select Section</option>');
+                if(data.length >= 0)
+                $.each(data, function(key, value) {
+                    $("#sections").append('<option value="'+ value['sect_id']+'">'+ value['sect_name']+'</option>');
+                });
+
+            }
+        });
+    });
     // CHECK SECTION LIST BY CLASS ID //
     $("#classes").on("change",function(){
         var classid = $(this).val();
@@ -432,6 +451,7 @@ $(document).ready(function(){
                 $("#viewSubjectModal").modal({backdrop: false});
 
                 $("#usubject_id").val(data.sub_info.sub_id);
+                $("#schlid option[value="+data.sub_info.schl_id+"]").prop('selected', true);
                 $("#usubject_name").val(data.sub_info.sub_name);
                 $("#usubject_code").val(data.sub_info.sub_code);
                 $("#usubject_auth").val(data.sub_info.sub_auth_name);
@@ -583,12 +603,12 @@ $(document).ready(function(){
     });
 
     // CHECK A CHECKBOX CHECKED OR NOT WHEN CREATE SUBJECT EXCEL //
-    $("form").submit(function(){
-        if ($('input:checkbox').filter(':checked').length < 1){
-            alert("Check at least one Game!");
-        return false;
-        }
-    });
+    // $("form").submit(function(){
+    //     if ($('input:checkbox').filter(':checked').length < 1){
+    //         alert("Check at least one Game!");
+    //     return false;
+    //     }
+    // });
 
     // CREATE SUBJECT PDF //
     var doc = new jsPDF();
@@ -608,6 +628,280 @@ $(document).ready(function(){
             var day = current_date.getDate();
             var output = current_date.getFullYear() + '_' + (month<10 ? '0' : '') + month + '_' + (day<10 ? '0' : '') + day;
             doc.save('subject_pdf_report_'+output+'_.pdf');
+        });
+    });
+
+    // SAVE NEW SYLLABUS INFO //
+    $("#btnSaveNewSyllabus").click(function(){
+        $("#newSyllabusModal").modal({backdrop: false});
+    });
+    // GET CLASS LIST BY SCHOOL ID //
+    $("#school_name_id").on("change", function(){
+        var schl_id = $(this).val();
+        $.ajax({
+            url:base_url+"syllabus/get_class_list",
+            method:"post",
+            data:{schl_id:schl_id},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.cls_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.cls_info){
+                        prHtm += '<option value='+data.cls_info[i].cls_id+'>'+data.cls_info[i].cls_name+'</option>';
+                        i++;
+                    }
+                    $("#class_name").html(prHtm);
+                }else{
+                    $("#class_name").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    // SAVE NEW SUBJECT JQUERY //
+    $("#formAddSyllabus").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"syllabus/save_syllabus",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="upload"){
+                    window.location.href=base_url+"syllabus";
+                }else if(data=="failed"){
+                     window.location.href=base_url+"syllabus";
+                }else{
+
+                }
+            }
+        });
+    });
+    // CKECK ALL SYLLABUS ITEM //
+    $("#checkSyllabus").click(function () {
+        $('.syllabusItem').prop('checked', this.checked);
+    });
+    // DELETE SELECTED SYLLABUS RECORD BY THEIR IDS //
+    $("#btnDeleteMultipleSyllabus").click(function(){
+       // GET SUBJECT ID BY CHECK BOX // 
+       var syllabusid = [];
+        $.each($("input[name='syllabusItem[]']:checked"), function(){            
+            syllabusid.push($(this).val());
+        });
+        var selected_syllabusid = syllabusid.join(","); // GET ALL CHECKBOX VALUE IN ARRAY //
+
+        // CREATE PROCESS OF SUBJECT RECORD DELETION //
+        if(selected_syllabusid.length ==''){
+            $("#error_delete_page_for_syllabus").modal({backdrop: false});
+        }else{
+            if(confirm('Are you sure want to delete records!')){
+                $.ajax({
+                    url:base_url+"syllabus/remove_multiple_syllabus_record",
+                    method:"post",
+                    data:{selected_syllabusid:selected_syllabusid},
+                    success: function(response){
+                        if(data=="success"){
+                            window.location.href=base_url+"syllabus";
+                        }else if(data=="failed"){
+                             window.location.href=base_url+"syllabus";
+                        }else{
+
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+    });
+
+    // SAVE NEW TIMETABLE INFO //
+    $("#btnSaveNewTimeTable").click(function(){
+        $("#newTimeTableModal").modal({backdrop: false});
+    });
+    // SAVE TIME TABLE //
+    $("#formSaveTimeTable").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"timetable/save_time_table",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="upload"){
+                    window.location.href=base_url+"timetable";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"timetable";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"timetable";
+                }else{
+
+                }
+            }
+        });
+    });
+    // FILTER CLASS AND SECTION BY SCHOOL ID //
+    $("#timeSchoolId").on("change", function(){
+        var schl_id = $(this).val();
+        $.ajax({
+            url:base_url+"timetable/get_class_list",
+            method:"post",
+            data:{schl_id:schl_id},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.cls_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.cls_info){
+                        prHtm += '<option value='+data.cls_info[i].cls_id+'>'+data.cls_info[i].cls_name+'</option>';
+                        i++;
+                    }
+                    $("#timeClassId").html(prHtm);
+                }else{
+                    $("#timeClassId").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+
+
+    // GET SECTION LIST
+    $("#timeClassId").on("change", function(){
+        var cls_id = $(this).val();
+        $.ajax({
+            url:base_url+"timetable/get_sections_list",
+            method:"post",
+            data:{cls_id:cls_id},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.sect_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.sect_info){
+                        prHtm += '<option value='+data.sect_info[i].sect_id+'>'+data.sect_info[i].sect_name+'</option>';
+                        i++;
+                    }
+                    $("#sectionid").html(prHtm);
+                }else{
+                    $("#sectionid").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    // FILTER SUBJECT DEPENDS ON SCHOOL ID //
+    $("#timeSchoolId").on("change", function(){
+        var schl_id = $(this).val();
+        $.ajax({
+            url:base_url+"timetable/get_subjects_list_for_school",
+            method:"post",
+            data:{schl_id:schl_id},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.subject_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.subject_info){
+                        prHtm += '<option value='+data.subject_info[i].sub_id+'>'+data.subject_info[i].sub_name+'</option>';
+                        i++;
+                    }
+                    $("#subjectid").html(prHtm);
+                }else{
+                    $("#subjectid").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    // GET TEACHER LIST //
+    $("#timeSchoolId").on("change", function(){
+        var schl_id = $(this).val();
+        $.ajax({
+            url:base_url+"timetable/get_teachers_list_for_school",
+            method:"post",
+            data:{schl_id:schl_id},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.teachers_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    for(var key in data.teachers_info){
+                        prHtm += '<option value='+data.teachers_info[i].tchr_id+'>'+data.teachers_info[i].tchr_name+'</option>';
+                        i++;
+                    }
+                    $("#teacherid").html(prHtm);
+                }else{
+                    $("#teacherid").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+
+
+    // GET TIME TABLE LIST BY SCHOOL ID AND CLASS ID //
+    $("#btnTimeTableSearch").click(function(){
+        var srchSchlId = $("#school_id").val();
+        var srchClsId  = $("#classes").val();
+        var srchSecId  = $("#sections").val();
+        $.ajax({
+            url:base_url+"timetable/get_timetable_search_result",
+            method:"post",
+            data:{srchSchlId:srchSchlId,srchClsId:srchClsId,srchSecId:srchSecId},
+            dataType:"json",
+            success: function(data){
+                //alert(data.list);
+                //console.log(data);
+                if(data.tmtl_result!=''){
+                    var i=0;
+                    var prHtm='';
+                    
+                    for(var key in data.tmtl_result){
+
+                        prHtm += '<div class="panel-heading">';
+                        prHtm += '<h4 class="panel-title">';
+                        prHtm += '<a data-toggle="collapse" href="#collapse'+data.tmtl_result[i].tmtl_id+'">'+data.tmtl_result[i].tmtl_days+'</a>';
+                        prHtm += '</h4>';
+                        prHtm +='</div>';
+                        prHtm +='<div id="collapse'+data.tmtl_result[i].tmtl_id+'" class="panel-collapse collapse">';
+                        prHtm +='<div class="panel-body">';
+
+                        prHtm += '<center>';
+                        prHtm += '<table class="table table-bordered no-margin" cellspacing="0" width="100%">';
+                        prHtm += '<tbody>';
+                        prHtm += '<tr class="center-text">';
+                        prHtm += '<td>'+data.tmtl_result[i].tmtl_days+'</td>';
+                        prHtm += '<td><p>'+data.tmtl_result[i].tmtl_time_from+' to '+data.tmtl_result[i].tmtl_time_to+' </p><p>Section: '+data.tmtl_result[i].sect_name+'</p><p>Class: '+data.tmtl_result[i].cls_name+'</p><p>Teacher: '+data.tmtl_result[i].tchr_name+'</p><p><button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button><button class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></button></p>';
+                        prHtm += '</td>';
+                        prHtm += '</tr>';
+                        prHtm += '</tbody>';
+                        prHtm += '</table>';
+                        prHtm += '</center>';
+
+                        prHtm +='</div>';
+                        prHtm +='</div>';
+                        //prHtm +='<p>'+data.tmtl_result[i].tmtl_days+'</p>';
+                        i++;
+                    }
+                    
+                    $("#timeTableResult").html(prHtm);
+                }else{
+                    $("#timeTableResult").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            
+            }
         });
     });
 
