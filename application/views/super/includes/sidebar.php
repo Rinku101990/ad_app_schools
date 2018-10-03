@@ -29,7 +29,6 @@
                 </ul>
             </li>
             
-
 			<li><a href="<?php echo base_url('super/students');?>"><i class="fa fa-child"></i> <span class="menu-item">Students</span></a></li>
             
 			<li><a href="<?php echo base_url('super/parents');?>"><i class="fa fa-users"></i> <span class="menu-item">Parents</span></a></li>
@@ -48,12 +47,12 @@
             </li>
 
             <li><a href="#"><i class="fa fa-sign-out"></i> <span class="menu-item">Leave Management</span> <span class="down-arrow"></span></a>
-                     <ul class="collapse">
-                         <li><a href="<?php echo base_url('super/leaves/leaveType');?>">Leave Types</a></li>
-                          <li><a href="<?php echo base_url('super/leaves/');?>">Student Leaves</a></li>
-                         <li><a href="<?php echo base_url('super/leaves/leaveTeacherRequests');?>">Teacher Leaves</a></li>
-                         <li><a href="<?php echo base_url('super/leaves/leaveEmpRequests');?>">Employee Leaves</a></li>
-                     </ul>
+                <ul class="collapse">
+                    <li><a href="<?php echo base_url('super/leaves/leaveType');?>">Leave Types</a></li>
+                     <li><a href="<?php echo base_url('super/leaves/');?>">Student Leaves</a></li>
+                    <li><a href="<?php echo base_url('super/leaves/leaveTeacherRequests');?>">Teacher Leaves</a></li>
+                    <li><a href="<?php echo base_url('super/leaves/leaveEmpRequests');?>">Employee Leaves</a></li>
+                </ul>
             </li>
 			<li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Accounts</span> <span class="down-arrow"></span></a>
 
@@ -75,7 +74,6 @@
                 </ul>
             </li>
             
-
             <li><a href="#"><i class="fa fa-bell"></i> <span class="menu-item">Notifications</span> <span class="down-arrow"></span></a>
                 <ul class="collapse">
 					<li><a href="<?php echo base_url('super/notifications/templates');?>">Notification Templates</a></li>
@@ -84,15 +82,11 @@
                 </ul>
             </li>
 
-            
             <li><a href="#"><i class="icon-shopping_basket"></i> <span class="menu-item">Messages</span> <span class="down-arrow"></span></a>
 
-            
             <li><a href="#"><i class="icon-monochrome_photos"></i> <span class="menu-item">Hostel</span></a></li>
             
             <li><a href="#"><i class="icon-monochrome_photos"></i> <span class="menu-item">Library</span></a></li>
-            
-            <li><a href="#"><i class="icon-monochrome_photos"></i> <span class="menu-item">Gate Pass</span></a></li>
             
             <li><a href="#"><i class="fa fa-bus"></i> <span class="menu-item">Transport</span> <span class="down-arrow"></span></a>
 				 <ul class="collapse">
@@ -102,10 +96,11 @@
 					 <li><a href="<?php echo base_url('super/transport');?>">Schedules</a></li>
 				 </ul>
             </li>
+
             <li><a href="<?php echo base_url('super/gatepass');?>"><i class="fa fa-ticket"></i> <span class="menu-item">Gate Pass</span></a></li>
+            
             <li><a href="#"><i class="fa fa-cog"></i> <span class="menu-item">Settings</span> <span class="down-arrow"></span></a>
                 <ul class="collapse">
-
                     <li><a href="<?php echo base_url('super/master/view');?>">Profile Settings</a></li>
                     <li><a href="<?php echo base_url('super/academic');?>">Academic Year</a></li>
                     <li><a href="<?php echo base_url('super/schools');?>">School Settings</a></li>
@@ -115,7 +110,6 @@
                     <li><a href="#">SMS/Notification Templates</a></li>
                     <li><a href="#>">Reset Password</a></li>
                     <li><a href="#">Languages</a></li>
-
 				</ul>
             </li>
             <li><a href="<?php echo base_url('welcome/logout');?>"><i class="fa fa-sign-in"></i> <span class="menu-item">Logout</span></a></li>

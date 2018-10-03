@@ -66,7 +66,7 @@
                                         <th>Action</th>
                                       </tr>
                                     </thead>
-                                    <!-- <tbody id="searchResult"> -->
+                                    <tbody id="searchResult">
                                     <?php foreach($students as $students_list){ ?>
                                       <tr>
                                         <td>

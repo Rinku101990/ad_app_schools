@@ -20,11 +20,11 @@
                     </select>
                   </div>
                   <div class="col-lg-3">
-                    <select class="form-control" name="classes" id="classes" data-bv-field="class">
+                    <select class="form-control" name="classes" id="classes" >
                     </select>
                   </div>
                   <div class="col-lg-3">
-                    <select class="form-control" name="sections" id="sections" data-bv-field="class">
+                    <select class="form-control" name="sections" id="sections">
                     </select>
                   </div>
                   <div class="col-lg-2 pull-right">

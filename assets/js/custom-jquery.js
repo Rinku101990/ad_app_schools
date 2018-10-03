@@ -862,8 +862,6 @@ $(document).ready(function(){
             data:{srchSchlId:srchSchlId,srchClsId:srchClsId,srchSecId:srchSecId},
             dataType:"json",
             success: function(data){
-                //alert(data.list);
-                //console.log(data);
                 if(data.tmtl_result!=''){
                     var i=0;
                     var prHtm='';
@@ -892,7 +890,7 @@ $(document).ready(function(){
 
                         prHtm +='</div>';
                         prHtm +='</div>';
-                        //prHtm +='<p>'+data.tmtl_result[i].tmtl_days+'</p>';
+
                         i++;
                     }
                     
@@ -904,5 +902,269 @@ $(document).ready(function(){
             }
         });
     });
+
+    /* ADD NEW ASSIGNMENTS FOR CLASSES */
+
+    $("#btnSaveNewAssignment").click(function(){
+        $("#newAssignmentModal").modal({backdrop: false});
+    });
+
+    /* ADD NEW ASSIGNMENT JQUERY */
+    $("#formAssignmentsRecord").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"assignments/save_assignments",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="upload"){
+                    window.location.href=base_url+"assignments";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"assignments";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"assignments";
+                }else{
+
+                }
+            }
+        });
+    });
+
+    /* END OF THE ASSIGNMENT FOR CLASSES */ 
+
+    /* GET ALL CLASS NAME BY SCHOOL ID FOR ASSIGNMENTS */ 
+    $("#asgn_school_id").on("change",function(){
+        var schoolid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getClassListById",
+            data:{schoolid:schoolid},
+            dataType:"json",
+            success: function(data){
+                if(data.cls_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Class</option>';
+                    for(var key in data.cls_info){
+                        prHtm += '<option value='+data.cls_info[i].cls_id+'>'+data.cls_info[i].cls_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_class_id").html(prHtm);
+                }else{
+                    $("#asgn_class_id").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    // GET ALL SUBJECT LIST BY SCHOOL ID //
+    $("#asgn_school_id").on("change",function(){
+        var schoolid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getsubjetcsListById",
+            data:{schoolid:schoolid},
+            dataType:"json",
+            success: function(data){
+                if(data.sub_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Class</option>';
+                    for(var key in data.sub_info){
+                        prHtm += '<option value='+data.sub_info[i].sub_id+'>'+data.sub_info[i].sub_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_subject_id").html(prHtm);
+                }else{
+                    $("#asgn_subject_id").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    /* END OF THE CLASS LIST BY SCHOOL ID FOR ASSIGNMENTS */
+
+    /* GET ALL SECTION LIST BY CLASS ID FOR ASSIGNMENTS */ 
+    $("#asgn_class_id").on("change",function(){
+        var classid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getSectionListById",
+            data:{classid:classid},
+            dataType:"json",
+            success: function(data){
+                if(data.sect_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Section</option>';
+                    for(var key in data.sect_info){
+                        prHtm += '<option value='+data.sect_info[i].sect_id+'>'+data.sect_info[i].sect_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_section_id").html(prHtm);
+                }else{
+                    $("#asgn_section_id").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    // GET ALL STUDENTS LIST BY SECTION ID  FOR ASSIGNMENTS //
+    $("#asgn_section_id").on("change",function(){
+        var sectionid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getStudentListById",
+            data:{sectionid:sectionid},
+            dataType:"json",
+            success: function(data){
+                if(data.std_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Student</option>';
+                    for(var key in data.std_info){
+                        prHtm += '<option value='+data.std_info[i].stud_id+'>'+data.std_info[i].stud_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_students_id").html(prHtm);
+                }else{
+                    $("#asgn_students_id").html('<option value="">No matching records found</option>');
+                }
+            }
+        });
+    });
+    /* END OF THE LIST OF ALL STUDENTS BY */
+    $("#asgn_school_id1").on("change",function(){
+        var schoolid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getClassListById",
+            data:{schoolid:schoolid},
+            dataType:"json",
+            success: function(data){
+                if(data.cls_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Class</option>';
+                    for(var key in data.cls_info){
+                        prHtm += '<option value='+data.cls_info[i].cls_id+'>'+data.cls_info[i].cls_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_class_id1").html(prHtm);
+                }else{
+                    $("#asgn_class_id").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    $("#asgn_class_id1").on("change",function(){
+        var classid = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"assignments/getSectionListById",
+            data:{classid:classid},
+            dataType:"json",
+            success: function(data){
+                if(data.sect_info!=''){
+                    var i=0;
+                    var prHtm='';
+                    prHtm += '<option value="">Select Section</option>';
+                    for(var key in data.sect_info){
+                        prHtm += '<option value='+data.sect_info[i].sect_id+'>'+data.sect_info[i].sect_name+'</option>';
+                        i++;
+                    }
+                    $("#asgn_section_id1").html(prHtm);
+                }else{
+                    $("#asgn_section_id1").html('<tr><td colspan="9"><center>No matching records found</center></td></tr>');
+                }
+            }
+        });
+    });
+    /* END OF THE SECTION LIST BY CLASS ID FOR ASSIGNMENTS */
+
+    /* CHANGE ASSIGNMENT STATUS */
+
+    $(".assignStatusOff").click(function(){
+        var asgnIdOff  = $(this).attr("assignStatusOff");
+        var asgnValOff = $("#assignStatusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"assignments/assignments_status_off",
+            data:{asgnIdOff:asgnIdOff,asgnValOff:asgnValOff},
+            success: function(data){
+                if(data=="Off"){
+                    $("#switch"+asgnValOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+    $(".assignStatusOn").click(function(){
+        var asgnIdOn  = $(this).attr("assignStatusOn");
+        var asgnValOn = $("#assignStatusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"assignments/assignments_status_on",
+            data:{asgnIdOn:asgnIdOn,asgnValOn:asgnValOn},
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+asgnValOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    /* END OF THE ASSIGNMENT STATUS */
+
+    // SEARCH ASSIGNMENTS BY MULTIPLE PARAMETER //
+    $("#btnAssignmentsSearch").click(function(){
+        var srchAsgnSchlId = $("#asgn_school_id").val();
+        var srchAsgnClsId  = $("#asgn_class_id").val();
+        var srchAsgnSecId  = $("#asgn_section_id").val();
+        $.ajax({
+            url:base_url+"assignments/get_assignment_search_result",
+            method:"post",
+            data:{srchAsgnSchlId:srchAsgnSchlId,srchAsgnClsId:srchAsgnClsId,srchAsgnSecId:srchAsgnSecId},
+            dataType:"json",
+            success: function(data){
+
+                //console.log(data);
+                if(data.asgn_result!=''){
+                    var i=0;
+                    var prHtm='';
+                    
+                    for(var key in data.asgn_result){
+
+                        prHtm += '<tr>';
+                        prHtm += '<td><input type="checkbox" value="" id="checkitem" name="checkitem" class="checkitem"></td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_title+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_description+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_submission_date+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_created+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].sect_name+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].stud_name+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_atteched_file+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_assigned_by+'</td>';
+                        prHtm += '<td>'+data.asgn_result[i].asgn_status+'</td>';
+                        prHtm += '<td><label class="switch"><input type="checkbox" class="switch-input" checked="checked"><span class="switch-label" data-on="On" data-off="Off"></span> <span class="switch-handle"></span></label></td>';
+                        prHtm += '<td><a href="'+base_url+'students/profile/'+data.asgn_result[i].asgn_id+'" class="btn btn-success btn-xs" title="View Student Profile"><i class="fa fa-eye"></i> </a>&nbsp;<a href="'+base_url+'students/add/'+data.asgn_result[i].asgn_id+'" class="btn btn-primary btn-xs" title="Edit Student"><i class="fa fa-pencil" ></i> </a>&nbsp;<a href="'+base_url+'students/delete/'+data.list[i].stud_id+'/'+data.list[i].cms_id+'" class="btn btn-danger btn-xs" title="Delete Student"><i class="fa fa-trash"></i> </a>&nbsp;<button type="button" class="btn btn-warning btn-xs" title="Send Notification"><i class="fa fa-bell"></i> </button>&nbsp;<button type="button" class="btn btn-info btn-xs"><i class="fa fa-key" title="Send Credentials on his mobile"></i> </button></td>';
+                        prHtm += '</tr>';
+
+                        i++;
+                    }
+                    
+                    $("#assignmentsResult").html(prHtm);
+                }else{
+                    $("#assignmentsResult").html('<tr><td colspan="11"><center>No matching records found</center></td></tr>');
+                }
+            
+            }
+        });
+    });
+
 
 });
