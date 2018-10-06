@@ -1166,5 +1166,245 @@ $(document).ready(function(){
         });
     });
 
+    // ADD NEW IMPORTANT LINKS //
+    $("#btnAddNewLinks").click(function(){
+        $("#newLinksModal").modal({backdrop: false});
+    });
+
+    /* ADD NEW IMPORTANTS LINK JQUERY */
+    $("#formImportantLinkRecord").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"importantlinks/save_importantlinks",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="upload"){
+                    window.location.href=base_url+"importantlinks";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"importantlinks";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"importantlinks";
+                }else{
+
+                }
+            }
+        });
+    });
+    // END OF THE NEW IMPORTANT LINKS //
+
+    /* CHANGE ASSIGNMENT STATUS */
+
+    $(".imprtStatusOff").click(function(){
+        var imprtIdOff  = $(this).attr("imprtStatusOff");
+        var imprtValOff = $("#imprtStatusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"importantlinks/importantlinks_status_off",
+            data:{imprtIdOff:imprtIdOff,imprtValOff:imprtValOff},
+            success: function(data){
+                if(data=="Off"){
+                    $("#switch"+imprtValOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+    $(".imprtStatusOn").click(function(){
+        var imprtIdOn  = $(this).attr("imprtStatusOn");
+        var imprtValOn = $("#imprtStatusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"importantlinks/importantlinks_status_on",
+            data:{imprtIdOn:imprtIdOn,imprtValOn:imprtValOn},
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+imprtValOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    // ADD NEW IMPORTANT LINKS //
+    $("#btnAddHolidays").click(function(){
+        $("#newHolidaysModal").modal({backdrop: false});
+    });
+
+    /* ADD NEW IMPORTANTS LINK JQUERY */
+    $("#formHolidaysRecord").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"holidays/save_holidays",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="saved"){
+                    window.location.href=base_url+"holidays";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"holidays";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"holidays";
+                }else{
+
+                }
+            }
+        });
+    });
+    // END OF THE NEW IMPORTANT LINKS //
+
+    // CHANGE HOLIDAYS STATUS //
+
+    $(".hldyStatusOff").click(function(){
+        var hldyIdOff  = $(this).attr("hldyStatusOff");
+        var hldyValOff = $("#hldyStatusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"holidays/holidays_status_off",
+            data:{hldyIdOff:hldyIdOff,hldyValOff:hldyValOff},
+            success: function(data){
+                if(data=="Off"){
+                    $("#switch"+hldyValOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    $(".hldyStatusOn").click(function(){
+        var hldyIdOn  = $(this).attr("hldyStatusOn");
+        var hldyValOn = $("#hldyStatusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"holidays/holidays_status_on",
+            data:{hldyIdOn:hldyIdOn,hldyValOn:hldyValOn},
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+hldyValOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    // VIEW CIRCULARS IN MODAL SECTION //
+    $("#btnAddCirculars").click(function(){
+        $("#newCircularsModal").modal({backdrop: false});
+    });
+
+    /* ADD NEW IMPORTANTS LINK JQUERY */
+    $("#formCircularsRecord").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"circulars/save_circulars",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="saved"){
+                    window.location.href=base_url+"circulars";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"circulars";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"circulars";
+                }else{
+
+                }
+            }
+        });
+    });
+    //VIEW FOR UPDATE CIRCULARS //
+    $(".updateCircular").click(function(){
+        
+        var crcl_id = $(this).attr("updateCrcl");
+        $.ajax({
+            method:"post",
+            url:base_url+"circulars/get_circulars_detail",
+            data:{crcl_id:crcl_id},
+            dataType:"json",
+            success:function(data){
+                //console.log(data);
+                $("#updateCircularsModal").modal({backdrop: false});
+
+                $("#circulars_id").val(data.crcl_info.crcl_id);
+                $("#circulars_name_update").val(data.crcl_info.crcl_name);
+                $("#status_update option[value="+data.crcl_info.crcl_status+"]").prop('selected', true);
+            }
+        });
+    });
+    // UPDATE CIRCULARS //
+    $("#updateFormCircularsRecord").on('submit',function(e){
+        e.preventDefault();
+        $.ajax({
+            method:"post",
+            url:base_url+"circulars/update_circulars",
+            data:new FormData(this),
+            contentType: false,
+            cache: false,
+            processData:false,
+            success:function(data){
+                //alert(data);
+                if(data=="saved"){
+                    window.location.href=base_url+"circulars";
+                }else if(data=="failed"){
+                    window.location.href=base_url+"circulars";
+                }else if(data=="blank"){
+                    window.location.href=base_url+"circulars";
+                }else{
+
+                }
+            }
+        });
+    });
+
+    // CHANGE CIRCULARS STATUS //
+    $(".crclStatusOff").click(function(){
+        var crclIdOff  = $(this).attr("crclStatusOff");
+        var crclValOff = $("#crclStatusOff").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"circulars/circulars_status_off",
+            data:{crclIdOff:crclIdOff,crclValOff:crclValOff},
+            success: function(data){
+                if(data=="Off"){
+                    $("#switch"+crclValOff).show();
+                }else{
+
+                }
+            }
+        });
+    });
+
+    $(".crclStatusOn").click(function(){
+        var crclIdOn  = $(this).attr("crclStatusOn");
+        var crclValOn = $("#crclStatusOn").val(); 
+        $.ajax({
+            method:"post",
+            url:base_url+"circulars/circulars_status_on",
+            data:{crclIdOn:crclIdOn,crclValOn:crclValOn},
+            success: function(data){
+                if(data=="On"){
+                    $("#switch"+crclValOn).show();
+                }else{
+
+                }
+            }
+        });
+    });
 
 });

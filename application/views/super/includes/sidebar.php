@@ -23,9 +23,7 @@
                     <li><a href="<?php echo base_url('super/timetable');?>">Time Table</a></li>
                     <li><a href="<?php echo base_url('super/assignments');?>">Assignments</a></li>
                     <li><a href="<?php echo base_url('super/importantlinks');?>">Important Links</a></li>
-                    <li><a href="<?php echo base_url('super/holidays');?>">Holidays</a></li>
-                    <li><a href="<?php echo base_url('super/events');?>">News and Events</a></li>
-                    <li><a href="<?php echo base_url('super/noticeboard');?>">Notice Board</a></li>
+                    <li><a href="<?php echo base_url('super/holidays');?>">News and Events</a></li>
                 </ul>
             </li>
             
@@ -107,7 +105,8 @@
                     <li><a href="<?php echo base_url('super/roles');?>">Roles</a></li>
                     <li><a href="<?php echo base_url('super/users');?>">Users</a></li>
                     <li><a href="<?php echo base_url('super/permissions');?>">Permissions</a></li>
-                    <li><a href="#">SMS/Notification Templates</a></li>
+                    <li><a href="<?php echo base_url('super/circulars');?>">Manage Circulars</a></li>
+                    <!-- <li><a href="#">SMS/Notification Templates</a></li> -->
                     <li><a href="#>">Reset Password</a></li>
                     <li><a href="#">Languages</a></li>
 				</ul>
