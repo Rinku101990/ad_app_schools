@@ -4,6 +4,7 @@
     <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 
     <script src="<?php echo base_url('assets/js/custom-jquery.js');?>"></script>
+    <script src="<?php echo base_url('assets/js/studend_attendance_jquery.js');?>"></script>
     <script src="<?php echo base_url('assets/js/notification_jquery.js');?>"></script>
 
     <script src="<?php echo base_url('assets/js/jquery-ui.js');?>"></script>

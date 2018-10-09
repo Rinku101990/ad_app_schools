@@ -36,7 +36,7 @@
 			<li><a href="#"><i class="fa fa-clock-o"></i> <span class="menu-item">Attendance</span> <span class="down-arrow"></span></a>
                 <ul>
                     <li><a href="<?php echo base_url('super/teacherAttendance');?>">Teachers</a></li>
-                    <li><a href="<?php echo base_url('super/studentAttendance');?>">Students</a></li>
+                    <li><a href="<?php echo base_url('super/students_attendance');?>">Students</a></li>
                     <li><a href="<?php echo base_url('super/employeeAttendance');?>">Other Employees</a></li>
                     <li><a href="#">Attendance Reports</a></li>
 
