@@ -50,6 +50,18 @@ class Students_attendance_model extends CI_Model {
 		//echo $this->db->last_query();
 		return $query->result();
 	}
+	// SUBJECT LIST FOR SPECIFIC SCHOOL AND CLASS //
+	public function get_subject_list_for_specific_school_class_and_section($schlid, $clsid)
+	{
+		$this->db->select('sub_id,sub_name');
+		$this->db->from('cms_subjects');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sub_status','0');
+		$query = $this->db->get();
+		//echo $this->db->last_query();
+		return $query->result();
+	}
 	// GET TOTAL STUDENTS ID CLASS AND SECTION WISE //
 	public function get_students_attendnce_search_result($schlid, $clsid, $sectid)
 	{
@@ -94,20 +106,98 @@ class Students_attendance_model extends CI_Model {
 		return $query->row();
 	}
 	// GET ATTENDANCE RECORD OF STUDENTS BY CURRENT DATA AND TIME //
-	public function get_total_students_attendnce_search_result($schlid, $clsid, $sectid)
+	public function get_total_students_attendnce_search_result($schlid, $clsid, $sectid, $attDate)
 	{
-		$this->db->select('schl.schl_name,cls.cls_name,sect.sect_name,std.stud_name,stdatt.*');
+		$this->db->select('schl.schl_name,cls.cls_name,sect.sect_name,std.stud_name,sub.sub_name,stdatt.*');
 		$this->db->from('cms_student_attendance stdatt');
 		$this->db->join('cms_schools schl','stdatt.schl_id=schl.schl_id','left');
 		$this->db->join('cms_classes cls','stdatt.cls_id=cls.cls_id','left');
 		$this->db->join('cms_sections sect','stdatt.sect_id=sect.sect_id','left');
 		$this->db->join('cms_students std','stdatt.stud_id=std.stud_id','left');
+		$this->db->join('cms_subjects sub','stdatt.sub_id=sub.sub_id','left');
 		$this->db->where('stdatt.schl_id', $schlid);
 		$this->db->where('stdatt.cls_id', $clsid);
 		$this->db->where('stdatt.sect_id', $sectid);
+		$this->db->where('stdatt.stdadc_created', $attDate);
 		$query = $this->db->get();
 		//echo $this->db->last_query();
 		return $query->result();
 	}
-
+	// GET STUDENTS CURRENTS HALF DAY COUNTER //
+	public function get_current_whole_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS whole_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_type','WD');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
+	public function get_current_half_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS Half_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_type','HD');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
+	// GET STUDENTS PRESENT OR NOT //
+	public function get_current_present_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS Present_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_status','P');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
+	// GET STUDENTS CURRENT ABSENT IN CLASS //
+	public function get_current_absent_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS absent_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_status','A');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
+	// GET STUDENTS LATE PRESENTS IN CLASS //
+	public function get_current_late_present_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS late_present_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_status','LP');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
+	// GET STUDENTS STUDENTS ON LEAVE OR NOT //
+	public function get_current_leave_days($schlid, $clsid, $sectid)
+	{
+		$this->db->select('COUNT(stdadc_id) AS leave_Days');
+		$this->db->from('cms_student_attendance');
+		$this->db->where('schl_id', $schlid);
+		$this->db->where('cls_id', $clsid);
+		$this->db->where('sect_id', $sectid);
+		$this->db->where('stdadc_present_status','L');
+		$query = $this->db->get();
+		$count = $query->row_array();
+		return $count;
+	}
 }

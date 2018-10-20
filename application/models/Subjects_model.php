@@ -2,6 +2,18 @@
 
 class Subjects_model extends CI_Model{ 
 
+	// GET ALL CLASS LIST //
+	public function get_class_list_by_id($schoolid)
+	{
+		$this->db->select('*');
+		$this->db->from('cms_classes');
+		$this->db->where('schl_id', $schoolid);
+		$this->db->where('cls_status','0');
+		$query = $this->db->get();
+		//echo $this->db->last_query();
+		return $query->result();
+	}
+	
 	public function save_subjects($subjectArray)
 	{
 		$this->db->insert('cms_subjects', $subjectArray);

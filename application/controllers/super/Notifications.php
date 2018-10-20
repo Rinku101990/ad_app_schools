@@ -33,6 +33,7 @@ class Notifications extends CI_Controller {
 				'tmpl_name' => $this->input->post('template_name'),
 				'tmpl_descriptions' => $this->input->post('template_description'),
 				'tmpl_status' => '0',
+				'tmpl_timestamp' => strtotime(date('Y-m-d H:i:s')),
 				'tmpl_created' => date('Y-m-d H:i:s'),
 			);
 
@@ -183,6 +184,7 @@ class Notifications extends CI_Controller {
 				'ntfn_notification_type' => $this->input->post('notification_type'),
 				'ntfn_notification_message' => $this->input->post('notification_content'),
 				'ntfn_status' => '0',
+				'ntfn_timestamp' => strtotime(date('Y-m-d H:i:s')),
 				'ntfn_created' => date('Y-m-d H:i:s')
 			);
 			$notify_id = $this->ntm->save_notification_message($notifyArray);

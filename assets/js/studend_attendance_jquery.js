@@ -53,23 +53,24 @@ $(document).ready(function(){
         });
     });
     // SAVE STUDENTS ATTENDANCE SINGAL RECORD //
-    $(".btnSaveStudentsAttendance").click(function(){
-    	var studid = $("#students_id").val();
-    	var studcls = $("#stduent_cls").val();
-    	var studschl = $("#schl_id").val();
-    	var studSect = $("#stduent_sect").val();
-    	var studPresent = $("#present_status").val();
-    	var studType = $("#present_type").val();
-    	var studSub = $("#present_subject").val();
-    	var studReason = $("#reason_for_leave").val();
+    $(".btnMarkStudentAttendance").click(function(){
 
+        var studId      = $(this).attr("studentid");
+        var studSchl    = $(this).attr("schl_id");
+        var studCls     = $(this).attr("stduent_cls");
+        var studSect    = $(this).attr("stduent_sect");
+    	var studPresent = $("#present_status"+studId).val();
+    	var studType    = $("#present_type"+studId).val();
+    	var studSub     = $("#present_subject"+studId).val();
+    	var studReason  = $("#reason_for_leave"+studId).val();
+        //alert(studPresent);
     	$.ajax({
     		method:"post",
     		url:base_url+"students_attendance/mark_students_attendance_one_by_one",
-    		data:{studid:studid,studcls:studcls,studschl:studschl,studSect:studSect,studPresent:studPresent,studType:studType,studSub:studSub,studReason:studReason},
+    		data:{studId:studId,studSchl:studSchl,studCls:studCls,studSect:studSect,studPresent:studPresent,studType:studType,studSub:studSub,studReason:studReason},
     		success:function(response){
     			if(response="success"){
-    				 $("#btnSaveStudentsAttendance"+studid).hide();
+    				 $("#btnMarkStudentAttendance"+studId).hide();
     			}else{
     				alert(response);
     			}

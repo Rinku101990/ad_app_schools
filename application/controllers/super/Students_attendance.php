@@ -51,6 +51,7 @@ class Students_attendance extends CI_Controller {
 			$clsid = $this->input->post('class_name_id_attendance');
 			$sectid = $this->input->post('section_name_id_attendance');
 			$data['att_students'] = $this->stdadnc->get_attendnce_search_result($schlid, $clsid, $sectid);
+			$data['sublist'] = $this->stdadnc->get_subject_list_for_specific_school_class_and_section($schlid, $clsid);
 			// echo "<pre>";
 			// print_r($data);
 
@@ -73,17 +74,19 @@ class Students_attendance extends CI_Controller {
 		$sessid = $reference['cms_ref_id'];
 
 		$data = $this->input->post();
+		//print_r($data);die;
 		if(!empty($data)){
 			$studAtdnsArray = array(
-				'stud_id' => $this->input->post('studid'),
-				'cls_id' => $this->input->post('studcls'),
-				'schl_id' => $this->input->post('studschl'),
+				'stud_id' => $this->input->post('studId'),
+				'cls_id' => $this->input->post('studCls'),
+				'schl_id' => $this->input->post('studSchl'),
 				'sect_id' => $this->input->post('studSect'),
 				'stdadc_present_status' => $this->input->post('studPresent'),
 				'stdadc_present_type' => $this->input->post('studType'),
 				'stdadc_created_by_attendance' => $sessid,
 				'sub_id' => $this->input->post('studSub'),
 				'stdadc_reason_for_leave' => $this->input->post('studReason'),
+				'stdadc_created' => date('Y-m-d')
 			);
 			$result = $this->stdadnc->save_students_attendance_one_by_one($studAtdnsArray);
 			if($result){
@@ -122,8 +125,17 @@ class Students_attendance extends CI_Controller {
 			
 			$data['totalStudents'] = $this->stdadnc->get_students_attendnce_search_result($schlid, $clsid, $sectid);
 			
-			$data['totalAttendance'] = $this->stdadnc->get_total_students_attendnce_search_result($schlid, $clsid, $sectid);
+			$data['totalAttendance'] = $this->stdadnc->get_total_students_attendnce_search_result($schlid, $clsid, $sectid, $attDate);
+			$data['presents'] = $this->stdadnc->get_current_present_days($schlid, $clsid, $sectid);
+			$data['absent'] = $this->stdadnc->get_current_absent_days($schlid, $clsid, $sectid);
+			$data['whole_day'] = $this->stdadnc->get_current_whole_days($schlid, $clsid, $sectid);
+			$data['half_day'] = $this->stdadnc->get_current_half_days($schlid, $clsid, $sectid);
+			$data['late_present'] = $this->stdadnc->get_current_late_present_days($schlid, $clsid, $sectid);
+			$data['leave'] = $this->stdadnc->get_current_leave_days($schlid, $clsid, $sectid);
+			// echo "<pre>";
+			// print_r($data);die;
 			if(empty($data['totalAttendance'])){
+				$this->session->set_flashdata('message','<div class="col-lg-11 col-md-11 col-sm-12 col-xs-12"><div class="panel panel-blue"><div class="panel-heading"><span class="text-danger" style="font-weight:bold">Studends attendance record not found in this date.Please check next other date.</span></div></div></div>');
 				redirect('super/students_attendance/');
 			}else{
 				$attendanceby = $data['totalAttendance'][0]->stdadc_created_by_attendance;

@@ -417,6 +417,27 @@ $(document).ready(function(){
     $("#btnSaveNewSubject").click(function(){
         $("#newSubjectModal").modal({backdrop: false});
     });
+    // GET CLASS LIST BY SCHOOL ID //
+    $("#schlidforSubject").on("change",function(){
+        var schoolIdForSubject = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"subjects/getClassListBySchoolId/",
+            data:{schoolIdForSubject:schoolIdForSubject},
+            dataType:"json",
+            success: function(data){
+                //console.log(data);
+                $("#classDiv").show();
+                $("#classidforSubject").empty();
+                $("#classidforSubject").append('<option value="">Select Class</option>');
+                if(data.length >= 0)
+                $.each(data, function(key, value) {
+                    $("#classidforSubject").append('<option value="'+ value['cls_id']+'">'+ value['cls_name']+'</option>');
+                });
+
+            }
+        });
+    });
     // SAVE NEW SUBJECT JQUERY //
     $("#formNewAddSubject").on('submit',function(e){
         e.preventDefault();
@@ -451,7 +472,7 @@ $(document).ready(function(){
                 $("#viewSubjectModal").modal({backdrop: false});
 
                 $("#usubject_id").val(data.sub_info.sub_id);
-                $("#schlid option[value="+data.sub_info.schl_id+"]").prop('selected', true);
+                $("#updateSchlidforSubject option[value="+data.sub_info.schl_id+"]").prop('selected', true);
                 $("#usubject_name").val(data.sub_info.sub_name);
                 $("#usubject_code").val(data.sub_info.sub_code);
                 $("#usubject_auth").val(data.sub_info.sub_auth_name);
@@ -459,7 +480,27 @@ $(document).ready(function(){
             }
         });
     });
+    // UPDATE SUBJECT CLASS LIST BY SCHOOL ID //
+    $("#updateSchlidforSubject").on("change",function(){
+        var schoolIdForSubject = $(this).val();
+        $.ajax({
+            method:"POST",
+            url:base_url+"subjects/getUpdatedClassListBySchoolId/",
+            data:{schoolIdForSubject:schoolIdForSubject},
+            dataType:"json",
+            success: function(data){
+                //console.log(data);
+                $("#updateClassDiv").show();
+                $("#updateClassidforSubject").empty();
+                $("#updateClassidforSubject").append('<option value="">Select Class</option>');
+                if(data.length >= 0)
+                $.each(data, function(key, value) {
+                    $("#updateClassidforSubject").append('<option value="'+ value['cls_id']+'">'+ value['cls_name']+'</option>');
+                });
 
+            }
+        });
+    });
     // UPDATE NEW SUBJECT JQUERY //
     $("#formUpdateSubject").on('submit',function(e){
         e.preventDefault();

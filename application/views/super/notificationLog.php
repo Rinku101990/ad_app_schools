@@ -28,7 +28,31 @@
                                 <?php foreach($notify as $notify_list){ ?>
                                   <tr>
                                     <td><?php echo $notify_list->tmpl_name;?></td>
-                                    <td><?php echo $notify_list->ntfn_notification_message;?></td>
+                                    <td>
+                                      <?php 
+                                        $ago = '';
+                                        $sec = time() - $notify_list->ntfn_timestamp;
+                                        $year = (int) ($sec / 31556926);
+                                        $month = (int) ($sec / 2592000);
+                                        $day = (int) ($sec / 86400);
+                                        $hou = (int) ($sec / 3600);
+                                        $min = (int) ($sec / 60);
+                                        if ($year > 0) {
+                                            $ago = $year . ' year(s)';
+                                        } else if ($month > 0) {
+                                            $ago = $month . ' month(s)';
+                                        } else if ($day > 0) {
+                                            $ago = $day . ' day(s)';
+                                        } else if ($hou > 0) {
+                                            $ago = $hou . ' hour(s)';
+                                        } else if ($min > 0) {
+                                            $ago = $min . ' minute(s)';
+                                        } else {
+                                            $ago = $sec . ' second(s)';
+                                        }
+                                      ?>
+                                      <?php echo $notify_list->ntfn_notification_message.'<br />'."<span style='color: #e77338;font-weight:600;'><i>".$ago." ago</i></span>";?>
+                                    </td>
                                     <td>
                                       <?php $new_date = date('d M-Y h:i A', strtotime($notify_list->ntfn_created));?>
                                       <?php echo $new_date;?>

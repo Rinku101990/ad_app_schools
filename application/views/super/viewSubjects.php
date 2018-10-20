@@ -107,11 +107,18 @@
                 <div class="form-group col-lg-12">
                   <label class="col-lg-3 control-label">School</label>
                   <div class="col-lg-9">
-                    <select class="form-control" name="schlid" id="schlid" required="required">
+                    <select class="form-control" name="schlidforSubject" id="schlidforSubject" required="required">
                       <option value="">-- Select School --</option>
                       <?php foreach($schools as $schools_list){ ?>
                       <option value="<?php echo $schools_list->schl_id;?>"><?php echo $schools_list->schl_name;?></option>
                       <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12" id="classDiv" style="display: none">
+                  <label class="col-lg-3 control-label">Class</label>
+                  <div class="col-lg-9">
+                    <select class="form-control" name="classidforSubject" id="classidforSubject" required="required">
                     </select>
                   </div>
                 </div>
@@ -170,11 +177,18 @@
                 <div class="form-group col-lg-12">
                   <label class="col-lg-3 control-label">School</label>
                   <div class="col-lg-9">
-                    <select class="form-control" name="schlid" id="schlid" required="required">
+                    <select class="form-control" name="updateSchlidforSubject" id="updateSchlidforSubject" required="required">
                       <option value="">-- Select School --</option>
                       <?php foreach($schools as $schools_list){ ?>
                       <option value="<?php echo $schools_list->schl_id;?>"><?php echo $schools_list->schl_name;?></option>
                       <?php } ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-lg-12" id="updateClassDiv" style="display: none">
+                  <label class="col-lg-3 control-label">Class</label>
+                  <div class="col-lg-9">
+                    <select class="form-control" name="updateClassidforSubject" id="updateClassidforSubject" required="required">
                     </select>
                   </div>
                 </div>
@@ -206,7 +220,7 @@
                 <div class="form-group col-lg-12">
                     <div class="col-lg-5 pull-right" style="margin-top:10px">
                         <button type="submit" class="btn btn-success" style="margin-left:-1px">Update Subject</button>
-                        <button type="cancel" class="btn btn-danger">Cancel</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </fieldset>

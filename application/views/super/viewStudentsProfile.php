@@ -43,7 +43,7 @@
             <div class="panel panel-red social-stats">
               <div class="panel-body text-left">
                 <a href="#" class="img-responsive img-circle" data-original-title="" title="">
-                  <?php if(($std_profile->stud_picture)==''){ ?>
+                  <?php if(($std_profile->stud_picture)!=''){ ?>
                     <center><img src="<?php echo base_url();?>/<?php echo $std_profile->stud_picture;?>" class="img-circle" style="width:120px;height: 120px"></center>
                   <?php }else{ ?>
                     <center><img src="<?php echo base_url('uploads/students/profile/profile.jpg');?>" class="img-circle" style="width:120px;height: 120px"></center>

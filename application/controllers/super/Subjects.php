@@ -27,7 +27,20 @@ class Subjects extends CI_Controller {
 	 	$this->load->view('super/viewSubjects');
 	 	$this->load->view('super/includes/footer');
 	}
-
+	// GET CLASS LIST BY SCHOOL ID //
+	public function getClassListBySchoolId()
+	{
+		$schoolid = $this->input->post('schoolIdForSubject');
+		$data = $this->subm->get_class_list_by_id($schoolid);
+    	echo json_encode($data);
+	}
+	// UPDATED CLASS LIST FOR SUBJECT MODULE //
+	public function getUpdatedClassListBySchoolId()
+	{
+		$schoolid = $this->input->post('schoolIdForSubject');
+		$data = $this->subm->get_class_list_by_id($schoolid);
+    	echo json_encode($data);
+	}
 	// SAVE NEW SUBJECT //
 	public function save_subject(){
 
@@ -35,7 +48,8 @@ class Subjects extends CI_Controller {
 		if(!empty($data)){
 			
 			$subjectArray = array(
-				'schl_id' => $this->input->post('schlid'),
+				'schl_id' => $this->input->post('schlidforSubject'),
+				'cls_id' => $this->input->post('classidforSubject'),
 				'sub_name' => $this->input->post('subject_name'),
 				'sub_code' => $this->input->post('subject_code'),
 				'sub_auth_name' => $this->input->post('subject_auth'),
@@ -66,6 +80,7 @@ class Subjects extends CI_Controller {
 		//print_r($result);die;
 		echo json_encode($result);
 	}
+
 	// UPDATE SUBJECT BY ID //
 	public function update_subject()
 	{
@@ -73,7 +88,8 @@ class Subjects extends CI_Controller {
 		if(!empty($data)){
 			$subjectid = $this->input->post('subject_id');
 			$updateSubjectArray = array(
-				'schl_id' => $this->input->post('schlid'),
+				'schl_id' => $this->input->post('updateSchlidforSubject'),
+				'cls_id' => $this->input->post('updateClassidforSubject'),
 				'sub_name' => $this->input->post('subject_name'),
 				'sub_code' => $this->input->post('subject_code'),
 				'sub_auth_name' => $this->input->post('subject_auth'),
